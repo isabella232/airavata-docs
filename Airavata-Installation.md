@@ -25,7 +25,7 @@
 #### Prerequisites
 1. CentOS 7 Default open JDK 1.8.0. (minimum) is sufficient.
 2. Download RabbitMQ binary for CentOS 7
-<a href="https://https://www.rabbitmq.com/install-generic-unix.html" target="_blank">Download RabbitMQ Binary for CentOS</a><br>
+<a href="https://www.rabbitmq.com/install-generic-unix.html" target="_blank">Download RabbitMQ Binary for CentOS</a><br>
 3. Prerequisite for RabbitmQ Erlang can be installed using yum
 <pre><code>yum install Erlang</code></pre>
 4. Unzip the downloaded RabbitMQ tar file into a folder in your local machine.
