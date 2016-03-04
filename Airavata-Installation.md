@@ -46,8 +46,8 @@ When executing above it will ask you for root password; provide it.
 <pre><code>create database credential_store;</code></pre>
 <pre><code>create database workflow_catalog;</code></pre>
 11. Grant permission to these databases for Airavata<br>
-Command syntax: <pre><code>grant all privileges on 'DB-Name'.<p>&#x204E; to 'username'@'%' identified by 'password’;</code></pre>
-E.g.: <pre><code>grant all privileges on app_catalog.<p>&#x204E; to 'airavata'@'%' identified by 'airavata’;</code></pre>
+Command syntax: <pre><code>grant all privileges on 'DB-Name'.<p>&#x204E; to 'username'@'%' identified by 'password';</code></pre>
+E.g.: <pre><code>grant all privileges on app_catalog.<p>&#x204E; to 'airavata'@'%' identified by 'airavata';</code></pre>
 NOTE: Grant permission to every databased created above. % can be replaced by  'localhost' (if DB is also in the same server as airavata). If DB is in a different server give the server name.
 <br>
 
