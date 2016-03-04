@@ -15,7 +15,7 @@
 	- Create Gateway and set up identity server for user account management. 
 	- Register Computer resource available to submit jobs through Airavata.
 	- Add email monitoring accounts detail to Airavata for each gateway.
-	- Investigate issues with individual experiments from any of the gateways under SciGaP.
+	- Investigate issues with individual experiments from any of the gateways.
 <br>
 <br>
 - Gateway Admin	
