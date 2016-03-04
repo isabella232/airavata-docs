@@ -60,22 +60,23 @@
 <br> This is to make sure the gateway folder is readable by http
 9. ls - lZ shows the SELinux context. After the above chcon command do the same for storage folder as well 
 <pre><code>su -c "chcon -R -h -t httpd_sys_script_rw_t [fullpath]/app/storage”</code></pre>
-<br> This is to make sure the storage folder is writable
-
+This is to make sure the storage folder is writable.
+<br></br>
 10. Configure firewall to allow http and https
-<pre><code>firewall-cmd --zone=public --list-services</code></pre> - Check existing configurations
-<pre><code>firewall-cmd --zone=public --permanent --add-service=http</code></pre> - To open access  for http
-<pre><code>firewall-cmd --zone=public --permanent --add-service=https</code></pre> - To open access for https
-<pre><code>firewall-cmd —reload - refresh</code></pre> - To get above rules applied
+	- Check existing configurations using <pre><code>firewall-cmd --zone=public --list-services</code></pre> 
+	- To open access  for http <pre><code>firewall-cmd --zone=public --permanent --add-service=http</code></pre>
+	- To open access for https <pre><code>firewall-cmd --zone=public --permanent --add-service=https</code></pre>
+	- To get above rules applied <pre><code>firewall-cmd —reload - refresh</code></pre>
 11. Locate httpd.conf file in location /etc/httpd/conf/
 <br> Make sure below 'Allow Override' has 'All' option.
+<pre><code>
     #
     # AllowOverride controls what directives may be placed in .htaccess files.
     # It can be "All", "None", or any combination of the keywords:
     #   Options FileInfo AuthConfig Limit
     #
     AllowOverride All 
-
+</code></pre>
 
 
 
@@ -106,20 +107,15 @@
 <pre><code>sudo composer update</code></pre>
 This will take few minutes
 6. You might get an error like this
---------------
+<pre><code>
 Mcrypt PHP extension required.
 Script php artisan clear-compiled handling the post-update-cmd event returned with an error
+[RuntimeException]
+Error Output:
+</code></pre>	
 
-
-
-  [RuntimeException]
-  Error Output:
-
-
---------------
-
-7. install mcrypt installation 
-http://coolestguidesontheplanet.com/install-mcrypt-php-mac-osx-10-10-yosemite-development-server/
+7. Install mcrypt installation 
+<a href="http://coolestguidesontheplanet.com/install-mcrypt-php-mac-osx-10-10-yosemite-development-server/" target="_blank">MCrypt Installation</a>
 8. (Optional) Go to [PGA_HOME]/app/config/pga_config.php and change the configuration to match your settings
 9. Enable Apache extensions (mod_rewrite module and PHP SOAP extension)
 <pre><code>sudo vim /etc/apache2/httpd.conf</code></pre>
@@ -146,18 +142,17 @@ IMPORTANT: In places where the hosted PGA link is used please replace by your lo
 
 
 ## <a name="PGAUbuntuOS"></a>PGA  Installation on Ubuntu OS
-//http://tecadmin.net/install-java-8-on-centos-rhel-and-fedora/
 ### Pre-Installations
-1. To install dependencies use commands in <a href="http://www.dev-metal.com/install-laravel-4-ubuntu-12-04-lts/"><Ubuntu Installation</a>
-In the command avoid installing mysql and mariaDB
+1. To install dependencies use commands in <a href="http://www.dev-metal.com/install-laravel-4-ubuntu-12-04-lts/" target="_blank">Ubuntu Installation</a>
+<br>In the command avoid installing mysql and mariaDB.
 2. Enable the appropriate extensions: navigate to php.ini
 	<pre><code>sudo vi /etc/php.ini</code></pre>
 	- Uncomment the following extensions: mcrypt.so, openssl.so, and soap.so. If they do not exists add them as extensions.
 	<pre><code>extension=mcrypt.so</code></pre>
 	<pre><code>extension=openssl.so</code></pre>
 	<pre><code>extension=soap.so</code></pre>
-	- Locate httpd.conf file 
-	<pre><code>sudo vi /etc/httpd/conf/httpd.conf</code></pre>
+3. Locate httpd.conf file 
+<pre><code>sudo vi /etc/httpd/conf/httpd.conf</code></pre>
 	- Find 'AllowOverride None' and change to 'AllowOverride All' (Two places to change)
 
 
@@ -174,34 +169,36 @@ In the command avoid installing mysql and mariaDB
 <pre><code>sudo apt-get update</pre></code>
 <pre><code>sudo apt-cache policy php5</pre></code>
 <pre><code>sudo apt-get install php5</pre></code>
-4. You can check the installed versions of apache and php using <pre><code>apache2 -v</pre></code> and <pre><code>php -v commands</pre></code>
-5. Install the necessary php extensions
+5. You can check the installed versions of apache and php using <pre><code>apache2 -v</pre></code> and <pre><code>php -v commands</pre></code>
+6. Install the necessary php extensions
 <pre><code>sudo apt-get install unzip</pre></code>
 <pre><code>sudo apt-get install curl</pre></code>
 <pre><code>sudo apt-get install openssl</pre></code>
 <pre><code>sudo apt-get install php5-mcrypt</pre></code>
 <pre><code>sudo apt-get install php-soap</pre></code>
-6. Install Composer System Wide
+7. Install Composer System Wide
 <pre><code>curl -sS https://getcomposer.org/installer | php</pre></code>
 <pre><code>sudo mv composer.phar /usr/local/bin/composer</pre></code>
-7. Activate mod_rewrite
+8. Activate mod_rewrite
 <pre><code>sudo a2enmod rewrite</pre></code>
 <pre><code>sudo service apache2 restart</pre></code>
-8. Open the default vhost config file:
+9. Open the default vhost config file:
  <pre><code>sudo nano /etc/apache2/sites-available/default. </pre></code>
-9. Now search for “AllowOverride None”  corresponding “DocumentRoot /var/www <Directory /var/www>”
+10. Now search for “AllowOverride None”  corresponding “DocumentRoot /var/www <Directory /var/www>”
 <br>(which should be there TWO times) and change both to “AllowOverride All“. Search for these two lines.</br>
-10. Exit and save with CTRL+X, Y, ENTER.
+<br>
+11. Exit and save with CTRL+X, Y, ENTER.
 
-Download PGA from GIT
-Download PGA from github to the document root of you web server /var/www. 
-Use git clone https://github.com/apache/airavata-php-gateway.git or download the zip from the github web page.
-Go inside the PGA directory (e.g /var/www/airavata-php-gateway)
-Make sure the storage folder is writable
-sudo chmod -R 755 app/storage
-Go to [PGA_HOME]/app/config/pga_config.php and change the configuration to match your settings
-
-Now issue composer install command
-sudo composer install
-Restart the web server
-sudo service apache2 restart
+### Download PGA from GIT
+1. Download PGA from github to the document root of you web server /var/www. 
+<br>
+2. Use git clone https://github.com/apache/airavata-php-gateway.git or download the zip from the github web page.
+<br>
+3. Go inside the PGA directory (e.g /var/www/airavata-php-gateway)<br>
+4. Make sure the storage folder is writable
+<pre><code>sudo chmod -R 755 app/storage</code></pre>
+5. Go to [PGA_HOME]/app/config/pga_config.php and change the configuration to match your settings<br>
+6. Now issue composer install command
+<pre><code>sudo composer install</code></pre>
+7. Restart the web server
+<pre><code>sudo service apache2 restart</code></pre>
