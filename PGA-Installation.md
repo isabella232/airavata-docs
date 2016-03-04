@@ -1,9 +1,11 @@
 # PGA Installation
 
+[<button type="button"  style="color:#3232ff;text-align:center;font-weight:bold;background-color:darkgray;width:200px;border-radius:4px">PGA on Cent OS</button>](#headPGACENTOS) &nbsp; &nbsp; &nbsp;
 [<button type="button" style="color:#3232ff;text-align:center;font-weight:bold;background-color:darkgray;width:200px;border-radius:4px">PGA on MAC OS</button>](#headPGAMAC)  &nbsp; &nbsp; &nbsp;
-[<button type="button"  style="color:#3232ff;text-align:center;font-weight:bold;background-color:darkgray;width:200px;border-radius:4px">PGA on Cent OS</button>](#headPGACENTOS)
+[<button type="button" style="color:#3232ff;text-align:center;font-weight:bold;background-color:darkgray;width:200px;border-radius:4px">PGA on Ubuntu OS</button>](#headPGAUB)  &nbsp; &nbsp; &nbsp;
 
-## <a name="head1234"></a>General PGA Prerequisites
+
+## <a name="head1234">General PGA Prerequisites</a>
 1. A Unix or Unix like operating system
 2. A web server (e.g apache web server) with PHP 5.4 or higher. Make sure have enabled mod_rewrite module in httpd.conf file and enable PHP SOAP extension
 3. Composer
@@ -17,8 +19,8 @@
 8. Important: Do not need to install Laravel. You can skip the steps given on the links
 9. WSO2 IS server
 
-## <a name="headPGACENTOS"></a>PGA  Installation on CentOS 7
-### <a name="head12345"></a>Pre-Installations
+## <a name="headPGACENTOS">PGA  Installation on CentOS 7</a>
+### Pre-Installations
 1. Install apache 
 <pre><code>Yum install httpd</code></pre>
 2. module_rewrite is auto enabled in apache version in centos7. Its in /etc/httpd/conf.modules.d/00-base.conf file and the line is LoadModule rewrite_module modules/mod_rewrite.so
@@ -80,8 +82,8 @@ This is to make sure the storage folder is writable.
 
 
 
-## <a name="headPGAMAC"></a>PGA  Installation on MAC Yosemite OS
-### <a name="head12345"></a>Pre-Installations
+## <a name="headPGAMAC">PGA  Installation on MAC Yosemite OS</a>
+### Pre-Installations
 1. To install MCrypt for PHP on MAC please follow the steps in http://coolestguidesontheplanet.com/install-mcrypt-php-mac-osx-10-10-yosemite-development-server/.
 2. First check wether your MAC has Apache installed. To check availability;
 <pre><code>apache ctrl start</code></pre>
@@ -141,7 +143,7 @@ Error Output:
 IMPORTANT: In places where the hosted PGA link is used please replace by your locally running PGA URL.
 
 
-## <a name="PGAUbuntuOS"></a>PGA  Installation on Ubuntu OS
+## <a name="headPGAUB">PGA  Installation on Ubuntu OS</a>
 ### Pre-Installations
 1. To install dependencies use commands in <a href="http://www.dev-metal.com/install-laravel-4-ubuntu-12-04-lts/" target="_blank">Ubuntu Installation</a>
 <br>In the command avoid installing mysql and mariaDB.
