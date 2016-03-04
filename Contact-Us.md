@@ -1,4 +1,4 @@
-##Contact Us
+## Contact Us
 For your clarifications, Questions and Suggestions please contact us through
 <a href="http://airavata.apache.org/community/mailing-lists.html" target="_blank">Airavata mailing list</a>
 
