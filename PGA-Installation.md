@@ -21,9 +21,11 @@
 ### <a name="head12345"></a>Pre-Installations
 1. Install apache 
 <pre><code>Yum install httpd</code></pre>
-2.	module_rewrite is auto enabled in apache version in centos7. Its in /etc/httpd/conf.modules.d/00-base.conf file and the line is LoadModule rewrite_module modules/mod_rewrite.so
-3.	Enable php using <pre><code>yum install php-soap</code></pre> Could be be it is already enabled in CentOS7
+2. module_rewrite is auto enabled in apache version in centos7. Its in /etc/httpd/conf.modules.d/00-base.conf file and the line is LoadModule rewrite_module modules/mod_rewrite.so
+3. Enable php using <pre><code>yum install php-soap</code></pre> Could be be it is already enabled in CentOS7
 4. Install php using  <pre><code>yum install php</code></pre>
+5. Configure Selinux to allow outbound connection from web server;
+<pre><code>setsebool -P httpd_can_network_connect 1</code></pre>
 5. install composer
 <pre><code>yum install composer</code></pre>
 6. Install php-mcrypt <pre><code>yum install php-mcrypt</code></pre>
@@ -33,13 +35,12 @@
 2. Change the cloned folder name to your desired folder name(e.g.: airavata-php-gateway). This will carry sub folders for the gateway
 <pre><code>cp - R airavata-php-gateway /* .</code></pre>
 3. In the gateway folder do a <pre><code<composer update</code></pre>
-4. Create a directory in var/www/ for user data (E.g.:gateway-user-data). Give permission to user data folder
-<pre><code>chmod -R 777 /var/www/portals/gateway-user-data</code></pre>
+4. Create a directory in var/www/ for user data (E.g.:gateway-user-data). 
 5. Copy pga_config.template and make  pga_config.php
 6. In pga_config.php change airavata server, change;
 	-  Airavata Client Configurations
 		- 'airavata-server' => 'localhost’,
-		- 'gateway-id' => 'airavata_test_gateway',
+		- 'gateway-id' => 'php_reference_gateway',
 		- 'experiment-data-absolute-path' => '/var/www/gateway-user-data',(Here user has to create the experimentData folder in var/www)
 		- 'gateway-data-store-resource-id' => '' (This is the ID of the gateway preferred storage resource)
 	- Portal Related Configurations
@@ -61,12 +62,12 @@
 <pre><code>su -c "chcon -R -h -t httpd_sys_script_rw_t [fullpath]/app/storage”</code></pre>
 <br> This is to make sure the storage folder is writable
 
-11. Configure firewall to allow http and https
+10. Configure firewall to allow http and https
 <pre><code>firewall-cmd --zone=public --list-services</code></pre> - Check existing configurations
 <pre><code>firewall-cmd --zone=public --permanent --add-service=http</code></pre> - To open access  for http
 <pre><code>firewall-cmd --zone=public --permanent --add-service=https</code></pre> - To open access for https
 <pre><code>firewall-cmd —reload - refresh</code></pre> - To get above rules applied
-12. Locate httpd.conf file in location /etc/httpd/conf/
+11. Locate httpd.conf file in location /etc/httpd/conf/
 <br> Make sure below 'Allow Override' has 'All' option.
     #
     # AllowOverride controls what directives may be placed in .htaccess files.
@@ -147,7 +148,7 @@ IMPORTANT: In places where the hosted PGA link is used please replace by your lo
 ## <a name="PGAUbuntuOS"></a>PGA  Installation on Ubuntu OS
 //http://tecadmin.net/install-java-8-on-centos-rhel-and-fedora/
 ### Pre-Installations
-1. To install dependencies use commands in https://vpsineu.com/blog/how-to-install-laravel-on-a-centos-7-vps/
+1. To install dependencies use commands in <a href="http://www.dev-metal.com/install-laravel-4-ubuntu-12-04-lts/"><Ubuntu Installation</a>
 In the command avoid installing mysql and mariaDB
 2. Enable the appropriate extensions: navigate to php.ini
 	<pre><code>sudo vi /etc/php.ini</code></pre>
