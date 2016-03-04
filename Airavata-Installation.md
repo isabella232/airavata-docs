@@ -39,15 +39,19 @@
 9. While maria DB is running run
 <pre><code>mysql _secure_installation</code></pre>
 When executing above it will ask you for root password; provide it.
+10. Now login as the root user providing the password you gave above.
 10. Create databases required for Airavata
 <pre><code>create database app_catalog;</code></pre>
 <pre><code>create database experiment_catalog;</code></pre>
 <pre><code>create database data_catalog;</code></pre>
 <pre><code>create database credential_store;</code></pre>
 <pre><code>create database workflow_catalog;</code></pre>
-11. Grant permission to these databases for Airavata<br>
-Command syntax: <pre><code>grant all privileges on 'DB-Name'.<p>&#x204E; to 'username'@'%' identified by 'password';</code></pre>
-E.g.: <pre><code>grant all privileges on app_catalog.<p>&#x204E; to 'airavata'@'%' identified by 'airavata';</code></pre>
+11. Grant permission to these databases for a new user which would be used by Airavata<br>
+Command syntax: 
+<pre><code> grant all privileges on &#60;DB-Name&#62;&#46;&#x204E; to '&#60;username&#62;'@'%' identified by '&#60;password&#62;'; </code></pre>
+E.g.: 
+<pre><code>grant all privileges on app_catalog&#46;&#x204E; to 'airavata'@'%' identified by 'airavata';</code></pre>
+<br>
 NOTE: Grant permission to every databased created above. % can be replaced by  'localhost' (if DB is also in the same server as airavata). If DB is in a different server give the server name.
 <br>
 
