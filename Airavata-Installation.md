@@ -42,14 +42,14 @@
 <pre><code>mysql _secure_installation</code></pre>
 When executing above it will ask you for root password; provide it.
 10. Create databases required for Airavata
-<pre><code>create database airavata_appcatalog;</code></pre>
-<pre><code>create database airavata_expcatalog;</code></pre>
-<pre><code>create database airavata_datacatalog;</code></pre>
-<pre><code>create database airavata_credentialstore;</code></pre>
-<pre><code>create database airavata_wfcatalog;</code></pre>
+<pre><code>create database app_catalog;</code></pre>
+<pre><code>create database experiment_catalog;</code></pre>
+<pre><code>create database data_catalog;</code></pre>
+<pre><code>create database credential_store;</code></pre>
+<pre><code>create database workflow_catalog;</code></pre>
 11. Grant permission to these databases for Airavata<br>
 Command syntax: <pre><code>grant all privileges on 'DB-Name'.<p>&#x204E; to 'username'@'%' identified by 'password’;</code></pre>
-E.g.: <pre><code>grant all privileges on airavata_appcatalog.<p>&#x204E; to 'airavatadb'@'%' identified by 'airavatadb’;</code></pre>
+E.g.: <pre><code>grant all privileges on app_catalog.<p>&#x204E; to 'airavata'@'%' identified by 'airavata’;</code></pre>
 NOTE: Grant permission to every databased created above. % can be replaced by  'localhost' (if DB is also in the same server as airavata). If DB is in a different server give the server name.
 <br>
 
@@ -84,44 +84,44 @@ Change as required. Refer for more details;<a href="../Installations/airavata-pr
 	- API Server Registry Configuration
 		- Comment out the derby DB properties
 		- Change MySQL configurations
-			- registry.jdbc.url=jdbc:mysql://localhost:3306/airavata_expcatalog (replace 'localhost' with correct server name if the DB is in a different server)
+			- registry.jdbc.url=jdbc:mysql://localhost:3306/experiment_catalog (replace 'localhost' with correct server name if the DB is in a different server)
 			- registry.jdbc.user=airavata
 			- registry.jdbc.password=airavata
-			- default.registry.gateway=php_reference_gateway (give the gateway name you prefer. Default exists in the file)
+			- default.registry.gateway=php_reference_gateway
    	- Application Catalog DB Configuration
    		- Comment out the derby DB properties
    		- Change MySQL configurations
-   			- appcatalog.jdbc.url=jdbc:mysql://localhost:3306/airavata_appcatalog
+   			- appcatalog.jdbc.url=jdbc:mysql://localhost:3306/app_catalog
           	- appcatalog.jdbc.user=airavata
          	- appcatalog.jdbc.password=airavata
     - Data Catalog DB Configuration
     	- Comment out the derby DB properties
         - Change MySQL configurations
-    		- datacatalog.jdbc.url=jdbc:mysql://localhost:3306/airavata_datacatalog
+    		- datacatalog.jdbc.url=jdbc:mysql://localhost:3306/data_catalog
         	- datacatalog.jdbc.user=airavata
         	- datacatalog.jdbc.password=airavata
 	- Workflow Catalog DB Configuration
 		- Comment out the derby DB properties
         - Change MySQL configurations
-			- workflowcatalog.jdbc.url=jdbc:mysql://localhost:3306/airavata_wfcatalog
-      		- workflowcatalog.jdbc.user=airavatadb
-      		- workflowcatalog.jdbc.password=airavatadb
+			- workflowcatalog.jdbc.url=jdbc:mysql://localhost:3306/workflow_catalog
+      		- workflowcatalog.jdbc.user=airavata
+      		- workflowcatalog.jdbc.password=airavata
 	- Server module Configuration
 		- Make sure all servers required to start are added as given
 			- servers=apiserver,orchestrator,gfac,credentialstore
 	- API Server SSL Configurations
-		- Give the correct path for key generation file. This is in the bin directtory and it is shipped defualt with Airavata.
+		- Give the correct path for key generation file. This is in the bin directory and it is shipped default with Airavata.
 			- apiserver.keystore=/home/airavata/LocalAiravata/apache-airavata-server-0.16-SNAPSHOT/bin/airavata.jks
 	- Credential Store module Configuration
-		- Make sure its'true' in
+		- Make sure its set to 'true' in
 			- start.credential.store=true
 		- Add the path to SSH key generation file
 			- E.g.: credential.store.keystore.url=/home/airavata/LocalAiravata/airavata-sym.jks
 		- Comment out the derby DB properties
         - Change MySQL configurations
-        	- credential.store.jdbc.url=jdbc:mysql://localhost:3306/airavata_credentialstore
-            - credential.store.jdbc.user=airavatadb
-            - credential.store.jdbc.password=airavatadb
+        	- credential.store.jdbc.url=jdbc:mysql://localhost:3306/credential_store
+            - credential.store.jdbc.user=airavata
+            - credential.store.jdbc.password=airavata
 		- credential.store.keystore.url=/home/airavata/production-deployment/airavata_sym.jks
 	-  API Security Configuration
 		- Make sure
@@ -142,10 +142,10 @@ Change as required. Refer for more details;<a href="../Installations/airavata-pr
 			- Navigate to RabbitMQ bin folder.
 			- Make sure the RabbitMQ server is running. For production use <pre><code>rabbitmq-server -detached</code></pre> to start.
 			- Create a virtual-host and user with a password. Follow documentation in <a href="http://blog.dtzq.com/2012/06/rabbitmq-users-and-virtual-hosts.html" target="_blank">RabbitMQ Users & VirtualHost</a>
-			- To create a user; <pre><code>rabbitmqctl add_user Username Password</code></pre>
-			- To create a vitrual-host <pre><code>rabbitmqctl add_vhost vhostauthvhost</code></pre>
-			- Provide permission to created 'Username'  to the created vhost <pre><code>rabbitmqctl set_permissions -p messaging airavata ".*" ".*" ".*”</code></pre>
-			- Uncomment rabbitmq.broker.url=amqp://Username:Password@localhost:5672/Vhost. Add the created username, password and Vhost in the URL.
+			- To create a user; <pre><code>rabbitmqctl add_user airavata airavata</code></pre>
+			- To create a vitrual-host <pre><code>rabbitmqctl add_vhost messaging</code></pre>
+			- Provide permission to created username; 'airavata'  to the created vhost <pre><code>rabbitmqctl set_permissions -p messaging airavata ".*" ".*" ".*”</code></pre>
+			- Uncomment rabbitmq.broker.url=amqp://airavata:airavata@localhost:5672/messaging.
 			- If you need to stop RabbitMQ use <pre><code>rabbitmqctl stop</code></pre>
 			  If the RabbitMQ server stopped then the above user creation, vhost cretion and permission granting commmands need to run again after restarting the servers.
 11. Download and install Zookeeper. Use <a href=" http://www.us.apache.org/dist/zookeeper/zookeeper-3.4.8/" target="_blank">Download Zookeeper</a> <br> You can downlaod and install Zookeeper in the above created local folder; LocalAiravata
