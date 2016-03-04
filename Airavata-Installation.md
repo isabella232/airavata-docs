@@ -1,16 +1,14 @@
 
-## Install Airavata
-<b>NOTE: Below instructions are for users who host Airavata by themselves.
-<br>For communities who require SciGaP to host the gateway can contact through <a href="http://docs.scigap.org/en/latest/Contact-Us/" target="_blank">SciGaP - Contact Us</a></b>
-<br></br>
+## Install Apache Airavata
+
 <br><b>Click your option;</b></br>
 
 [<button type="button" style="color:#3232ff;text-align:center;font-weight:bold;background-color:darkgray;width:200px;border-radius:4px">Airavata Prerequisites</button>](#Airavata) &nbsp; &nbsp; &nbsp;
 [<button type="button" style="color:#3232ff;text-align:center;font-weight:bold;background-color:darkgray;width:200px;border-radius:4px">Airavata on CentOS 7</button>](#AiravataCent) <br></br>
 
 
-### <h3 id="Airavata">General Airavata Prerequisites</h3>
-1. JAVA 8 or above is required
+### <h3 id="Airavata">Airavata Prerequisites</h3>
+1. JAVA 8
 	- Java installation on CentOS, Mac, Windows, etc.. - <a href="https://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html" target="_blank">Oracle JAVA Installation</a>
 2. RabbitMQ
 	- <a href="https://www.rabbitmq.com/download.html" target="_blank">Download the RabbitMQ Binary</a><br>Select the download file as per the operating system of your machine/server.
