@@ -12,4 +12,5 @@ For more information on Airavata visit; <a href="http://airavata.apache.org/" ta
 
 The Installation section of the documentation applies to on-premise installation of Apache Airavata. 
 
-If you are interested to rather use a hosted version, you can contact a downstream project <a href="http://scigap.org/" target="_blank">Science Gateways Platform as a Service (SciGaP)</a>. SciGaP runs Apache Airavata as platform services. 
+If you are interested to rather use a hosted version, you can contact a downstream project <a href="http://scigap.org/" target="_blank">Science Gateways Platform as a Service (SciGaP)</a>. 
+<br>SciGaP runs Apache Airavata as platform services. 

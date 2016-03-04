@@ -5,7 +5,7 @@
 3. Administrator privileges to the gateway with username and password
 <br>
 <br>
-### Airavata Component Configuration
+### Apache Airavata Component Configuration
 1. For this we use 'Admin Dashboard'
 2. Gateway Admin need to configure;<br>
 	- <a href="#CompResource">Compute Resources</a><br>

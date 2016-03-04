@@ -1,6 +1,6 @@
 ## Application Cookbook Recipes 
 
-### Airavata Applications and Available Resource List
+### Apache Airavata Applications and Available Resource List
 |  	Application  	|  		Resource List  		|
 |:-----------------	|:--------------------------|
 | Abinit           	| BigRed2					|

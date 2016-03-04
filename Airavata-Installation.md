@@ -7,7 +7,7 @@
 [<button type="button" style="color:#3232ff;text-align:center;font-weight:bold;background-color:darkgray;width:200px;border-radius:4px">Airavata on CentOS 7</button>](#AiravataCent) <br></br>
 
 
-### <h3 id="Airavata">Airavata Prerequisites</h3>
+### <h3 id="Airavata">General Prerequisites</h3>
 1. JAVA 8
 	- Java installation on CentOS, Mac, Windows, etc.. - <a href="https://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html" target="_blank">Oracle JAVA Installation</a>
 2. RabbitMQ
@@ -20,7 +20,7 @@
 
 ### <h3 id="AiravataCent">Airavata Installation on CentOS 7</h3>
 <b>NOTE: Airavata installation on other operating systems are similar with minor changes.</b></br>
-#### Prerequisites
+#### Pre-Installations
 1. CentOS 7 Default open JDK 1.8.0. (minimum) is sufficient.
 2. Download RabbitMQ binary for CentOS 7
 <a href="https://www.rabbitmq.com/install-generic-unix.html" target="_blank">Download RabbitMQ Binary for CentOS</a><br>
@@ -55,7 +55,7 @@ E.g.:
 NOTE: Grant permission to every databased created above. % can be replaced by  'localhost' (if DB is also in the same server as airavata). If DB is in a different server give the server name.
 <br>
 
-#### Install Airavata
+#### Airavata Installation
 1. Create a folder in your local machine (E.g.: mkdir LocalAiravata).<br>
 2. Clone the master source (If you have not taken a clone prior) code from github to the created folder.<br>
 <pre><code>git clone https://github.com/apache/airavata.git</code></pre>

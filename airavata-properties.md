@@ -1,4 +1,4 @@
-##<h2 id="airavata-properties.md">Airavata Server Properties</h2>
+##<h2 id="airavata-properties.md">Apache Airavata Server Properties</h2>
 1.  API Server Registry Configuration
 	- Comment out the derby DB properties
 	- Change MySQL configurations

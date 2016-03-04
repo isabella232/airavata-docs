@@ -5,7 +5,7 @@
 [<button type="button" style="color:#3232ff;text-align:center;font-weight:bold;background-color:darkgray;width:200px;border-radius:4px">PGA on Ubuntu OS</button>](#headPGAUB)  &nbsp; &nbsp; &nbsp;
 
 
-### <a name="head1234">General PGA Prerequisites</a>
+### <a name="head1234">General Prerequisites</a>
 1. A Unix or Unix like operating system
 2. A web server (e.g apache web server) with PHP 5.4 or higher. Make sure have enabled mod_rewrite module in httpd.conf file and enable PHP SOAP extension
 3. Composer
@@ -32,11 +32,11 @@
 <pre><code>yum install composer</code></pre>
 6. Install php-mcrypt <pre><code>yum install php-mcrypt</code></pre>
 
-#### Download and Configure PGA
+#### PGA Installation
 1. As the document root (var/www/html) take the git clone https://github.com/apache/airavata-php-gateway.git 
 2. Change the cloned folder name to your desired folder name(e.g.: airavata-php-gateway). This will carry sub folders for the gateway
 <pre><code>cp - R airavata-php-gateway /* .</code></pre>
-3. In the gateway folder do a <pre><code<composer update</code></pre>
+3. In the gateway folder do a <pre><code>composer update</code></pre>
 4. Create a directory in var/www/ for user data (E.g.:gateway-user-data). 
 5. Copy pga_config.template and make  pga_config.php
 6. In pga_config.php change airavata server, change;
@@ -59,7 +59,7 @@
 7. Give writing permission chmod -R g+rwx app/storage/
 8.  Make sure SElinux comparability of airavata_php_gateway folder. For that give 
 <pre><code>chcon -Rv --type=httpd_sys_content_t airavata-php-gateway/</code></pre>
-<br> This is to make sure the gateway folder is readable by http
+This is to make sure the gateway folder is readable by http
 9. ls - lZ shows the SELinux context. After the above chcon command do the same for storage folder as well 
 <pre><code>su -c "chcon -R -h -t httpd_sys_script_rw_t [fullpath]/app/storage”</code></pre>
 This is to make sure the storage folder is writable.
