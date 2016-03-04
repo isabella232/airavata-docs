@@ -9,7 +9,6 @@
 1. For this we use 'Admin Dashboard'
 2. Gateway Admin need to configure;<br>
 	- <a href="#CompResource">Compute Resources</a><br>
-	- <a href="#CompResource">Compute Resources</a><br>
 	- <a href="#StoreResource">Storage Resources</a><br>
 	- <a href= "#Preference">Resource Preferences</a><br>
 	- <a href= "#AppCatalog">Application Catalog</a><br>
