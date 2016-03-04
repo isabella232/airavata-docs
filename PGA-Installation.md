@@ -1,11 +1,11 @@
-# PGA Installation
+## PGA Installation
 
 [<button type="button"  style="color:#3232ff;text-align:center;font-weight:bold;background-color:darkgray;width:200px;border-radius:4px">PGA on Cent OS</button>](#headPGACENTOS) &nbsp; &nbsp; &nbsp;
 [<button type="button" style="color:#3232ff;text-align:center;font-weight:bold;background-color:darkgray;width:200px;border-radius:4px">PGA on MAC OS</button>](#headPGAMAC)  &nbsp; &nbsp; &nbsp;
 [<button type="button" style="color:#3232ff;text-align:center;font-weight:bold;background-color:darkgray;width:200px;border-radius:4px">PGA on Ubuntu OS</button>](#headPGAUB)  &nbsp; &nbsp; &nbsp;
 
 
-## <a name="head1234">General PGA Prerequisites</a>
+### <a name="head1234">General PGA Prerequisites</a>
 1. A Unix or Unix like operating system
 2. A web server (e.g apache web server) with PHP 5.4 or higher. Make sure have enabled mod_rewrite module in httpd.conf file and enable PHP SOAP extension
 3. Composer
@@ -19,8 +19,8 @@
 8. Important: Do not need to install Laravel. You can skip the steps given on the links
 9. WSO2 IS server
 
-## <a name="headPGACENTOS">PGA  Installation on CentOS 7</a>
-### Pre-Installations
+### <a name="headPGACENTOS">PGA  Installation on CentOS 7</a>
+#### Pre-Installations
 1. Install apache 
 <pre><code>Yum install httpd</code></pre>
 2. module_rewrite is auto enabled in apache version in centos7. Its in /etc/httpd/conf.modules.d/00-base.conf file and the line is LoadModule rewrite_module modules/mod_rewrite.so
@@ -32,7 +32,7 @@
 <pre><code>yum install composer</code></pre>
 6. Install php-mcrypt <pre><code>yum install php-mcrypt</code></pre>
 
-### Download and Configure PGA
+#### Download and Configure PGA
 1. As the document root (var/www/html) take the git clone https://github.com/apache/airavata-php-gateway.git 
 2. Change the cloned folder name to your desired folder name(e.g.: airavata-php-gateway). This will carry sub folders for the gateway
 <pre><code>cp - R airavata-php-gateway /* .</code></pre>
@@ -82,8 +82,8 @@ This is to make sure the storage folder is writable.
 
 
 
-## <a name="headPGAMAC">PGA  Installation on MAC Yosemite OS</a>
-### Pre-Installations
+### <a name="headPGAMAC">PGA  Installation on MAC Yosemite OS</a>
+#### Pre-Installations
 1. To install MCrypt for PHP on MAC please follow the steps in http://coolestguidesontheplanet.com/install-mcrypt-php-mac-osx-10-10-yosemite-development-server/.
 2. First check wether your MAC has Apache installed. To check availability;
 <pre><code>apache ctrl start</code></pre>
@@ -97,7 +97,7 @@ This is to make sure the storage folder is writable.
 6. Then move Composer using 
 <pre><code>mv composer.phar /usr/local/bin/composer</code></pre>
 
-### Download and Configure PGA
+#### Download and Configure PGA
 1. Go to cd /Library/WebServer/Documents
 2. Take a copy from GIT using 
 <pre><code>git clone https://github.com/apache/airavata-php-gateway.git</code></pre>
@@ -128,7 +128,7 @@ Error Output:
 11. Restart the web server
 <pre><code>sudo apachectl restart</code></pre>
 
-###Link Airavata and PGA
+#### Link Airavata and PGA
 1. Once the PGA and Airavata are downloaded and locally running; in PGA app/config folder locate the file called pga_config.php.template
 2. Copy the located file and name it as pga_config.php 
 3. In the newly copied file find two configurations for 
@@ -143,8 +143,8 @@ Error Output:
 IMPORTANT: In places where the hosted PGA link is used please replace by your locally running PGA URL.
 
 
-## <a name="headPGAUB">PGA  Installation on Ubuntu OS</a>
-### Pre-Installations
+### <a name="headPGAUB">PGA  Installation on Ubuntu OS</a>
+#### Pre-Installations
 1. To install dependencies use commands in <a href="http://www.dev-metal.com/install-laravel-4-ubuntu-12-04-lts/" target="_blank">Ubuntu Installation</a>
 <br>In the command avoid installing mysql and mariaDB.
 2. Enable the appropriate extensions: navigate to php.ini
@@ -158,7 +158,7 @@ IMPORTANT: In places where the hosted PGA link is used please replace by your lo
 	- Find 'AllowOverride None' and change to 'AllowOverride All' (Two places to change)
 
 
-### Download and Configure PGA
+#### Download and Configure PGA
 1. The following guide give a sample installation starting from a fresh Ubunutu 12.04 installation. Similar instructions should be used in other operating systems.
 2. Update the ubuntu package manager
 <pre><code>sudo apt-get update</pre></code>
@@ -191,7 +191,7 @@ IMPORTANT: In places where the hosted PGA link is used please replace by your lo
 <br>
 11. Exit and save with CTRL+X, Y, ENTER.
 
-### Download PGA from GIT
+#### Download PGA from GIT
 1. Download PGA from github to the document root of you web server /var/www. 
 <br>
 2. Use git clone https://github.com/apache/airavata-php-gateway.git or download the zip from the github web page.
