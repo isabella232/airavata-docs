@@ -77,8 +77,9 @@ OR
 7. Generate Credential store keystore file in the created local directory.
 <pre><code>	keytool -genseckey -alias airavata -keyalg AES -keysize 128 -storetype jceks -keystore airavata_sym.jks</code></pre>
 For more information visit <a href="https://cwiki.apache.org/confluence/display/AIRAVATA/Credential+Store+Configuration+Guide/" target="_blank">Credential Store Configuration Documentation</a>
-8. Go and put mysql.jar in to lib of Airavata (<a href="http://dev.mysql.com/downloads/connector/j/" target="_blank">Download mysql.jar</a>). navigate to lib;
-   <pre><code>cd /LocalFolderPath/apache-airavata-server-0.16-SNAPSHOT/lib</code></pre>
+8. In order to copy mysql.jar file; navigate to Airavata lib directory
+<pre><code>cd /LocalFolderPath/apache-airavata-server-0.16-SNAPSHOT/lib</code></pre>
+Now copy the mysql.jar to lib  directory (<a href="http://dev.mysql.com/downloads/connector/j/" target="_blank">Download mysql.jar</a>).
 9. Navigate to bin folder which contains file airavata-server.properties and open it;
 <pre><code>vi apache-airavata-server-0.16-SNAPSHOT/bin</code></pre>
 10. Update relevant necessary properties to run Airavata locally.<br>
