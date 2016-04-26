@@ -2,37 +2,35 @@
 
 For Airavata API documentation please visit <a href="http://airavata.apache.org/api-docs/0.16/" target="_blank">Airavata 0.16 API Documentation</a>
 ### <h3>Airavata APIs for Experiments & Projects</h3>
-###### <h6 style="color:#922B21;">Project</h6>
 
 |       Gateway Function/Feature        |           Airavata API            |           Description         |
 |:--------------------------------------|:----------------------------------|:------------------------------|
 <b style="color:blue;">Project</b>
-| Create a Project                      | createProject                     |           |
-| Update Project                        | updateProject                     |           |
-| Get a Project                         | getProject                        |           |
-| Search Project by Name                | searchProjectsByProjectName       |           |
-| Search Project by Desc                | searchProjectsByProjectDesc       |           |
-| Get all user Projects                 | getUserProjects                   |           |
+| Create a Project                          | createProject                     |           |
+| Update Project                            | updateProject                     |           |
+| Get a Project                             | getProject                        |           |
+| Search Project by Name                    | searchProjectsByProjectName       |           |
+| Search Project by Desc                    | searchProjectsByProjectDesc       |           |
+| Get all user Projects                     | getUserProjects                   |           |
 <b style="color:blue;">Experiment</b>
-| Create an Experiment                  | createExperiment                     |           |
-| Update an Experiment                         | updateExperiment                     |           |
-| Get an Experiment                         | getExperiment                        |           |
-| Get Detailed Experiment                   | getDetailedExperimentTree             |           |
-| Clone an Experiment                      | cloneExperiment                   |                |
-| Cancel an Experiment                     | terminateExperiment               |            |
-| Search Experiment by Name                | searchExperimentsByName       |           |
-| Search Experiment by Desc                | searchExperimentsByDesc       |           |
+| Create an Experiment                      | createExperiment                  |           |
+| Update an Experiment                      | updateExperiment                  |           |
+| Get an Experiment                         | getExperiment                     |           |
+| Get Detailed Experiment                   | getDetailedExperimentTree         |           |
+| Clone an Experiment                       | cloneExperiment                   |           |
+| Cancel an Experiment                      | terminateExperiment               |           |
+| Search Experiment by Name                 | searchExperimentsByName           |           |
+| Search Experiment by Desc                 | searchExperimentsByDesc           |           |
 | Search Experiments by Application Name    | searchExperimentsByApplication    |           |
-| Search Experiment by Creation Time        | searchExperimentsByCreationTime
-| Get all user Experiments                 | getUserProjects                   |           |
-| Get Experiments for a Project            | getExperimentsInProject           |           |
+| Search Experiment by Creation Time        | searchExperimentsByCreationTime   |           |
+| Get all user Experiments                  | getUserProjects                   |           |
+| Get Experiments for a Project             | getExperimentsInProject           |           |
 
 
 
 
 
 ### <h3>Airavata APIs for Admin Dashboard</h3>
-###### <h6 style="color:#922B21;">Experiment Statistics</h6>
    
 |           Admin Function/Feature              |              Airavata API             |                                          Description                                              |
 |:----------------------------------------------|:--------------------------------------|:------------------------------------------------------------------------------------------------  |
