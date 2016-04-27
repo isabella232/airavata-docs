@@ -16,15 +16,15 @@ For Airavata API documentation please visit <a href="http://airavata.apache.org/
 | Create an Experiment                      | <a href="http://airavata.apache.org/api-docs/0.16/airavata_api.html#Fn_Airavata_createExperiment" target="_blank">createExperiment</a>                                | Create an Experiment.          |
 | Update an Experiment                      | <a href="http://airavata.apache.org/api-docs/0.16/airavata_api.html#Fn_Airavata_updateExperiment" target="_blank">updateExperiment</a>                                | Update ab Experiment. Experiments with CREATED exp-status can be updated.          |
 | Get an Experiment                         | <a href="http://airavata.apache.org/api-docs/0.16/airavata_api.html#Fn_Airavata_getExperiment" target="_blank">getExperiment</a>                                      | Retrieve Experiment by providing the experiment ID.          |
-| Get Detailed Experiment                   | <a href="http://airavata.apache.org/api-docs/0.16/airavata_api.html#Fn_Airavata_getDetailedExperimentTree" target="_blank">getDetailedExperimentTree</a>              |           |
-| Clone an Experiment                       | <a href="http://airavata.apache.org/api-docs/0.16/airavata_api.html#Fn_Airavata_cloneExperiment" target="_blank">cloneExperiment</a>                                  |           |
-| Cancel an Experiment                      | <a href="http://airavata.apache.org/api-docs/0.16/airavata_api.html#Fn_Airavata_terminateExperiment" target="_blank">terminateExperiment</a>                          |           |
-| Search Experiment by Name                 | <a href="http://airavata.apache.org/api-docs/0.16/airavata_api.html#Fn_Airavata_searchExperimentsByName" target="_blank">searchExperimentsByName</a>                  |           |
-| Search Experiment by Desc                 | <a href="http://airavata.apache.org/api-docs/0.16/airavata_api.html#Fn_Airavata_searchExperimentsByDesc" target="_blank">searchExperimentsByDesc</a>                  |           |
-| Search Experiments by Application Name    | <a href="http://airavata.apache.org/api-docs/0.16/airavata_api.html#Fn_Airavata_searchExperimentsByApplication" target="_blank">searchExperimentsByApplication</a>    |           |
-| Search Experiment by Creation Time        | <a href="http://airavata.apache.org/api-docs/0.16/airavata_api.html#Fn_Airavata_searchExperimentsByCreationTime" target="_blank">searchExperimentsByCreationTime</a>  |           |
-| Get all user Experiments                  | <a href="http://airavata.apache.org/api-docs/0.16/airavata_api.html#Fn_Airavata_getUserExperiments" target="_blank">getUserExperiments</a>                            |           |
-| Get Experiments for a Project             | <a href="http://airavata.apache.org/api-docs/0.16/airavata_api.html#Fn_Airavata_getExperimentsInProject" target="_blank">getExperimentsInProject</a>                  |           |
+| Get Detailed Experiment                   | <a href="http://airavata.apache.org/api-docs/0.16/airavata_api.html#Fn_Airavata_getDetailedExperimentTree" target="_blank">getDetailedExperimentTree</a>              | Retrieve detailed Experiment by providing the experiment ID.          |
+| Clone an Experiment                       | <a href="http://airavata.apache.org/api-docs/0.16/airavata_api.html#Fn_Airavata_cloneExperiment" target="_blank">cloneExperiment</a>                                  | Clone an existing Experiment. Experiment with any exp-status can be cloned by providing the ID.          |
+| Cancel an Experiment                      | <a href="http://airavata.apache.org/api-docs/0.16/airavata_api.html#Fn_Airavata_terminateExperiment" target="_blank">terminateExperiment</a>                          | Cancel an existing Experiment. Experiments with exp-statuses LAUNCHING or EXECUTING can be cancelled.           |
+| Search Experiment by Name                 | <a href="http://airavata.apache.org/api-docs/0.16/airavata_api.html#Fn_Airavata_searchExperimentsByName" target="_blank">searchExperimentsByName</a>                  | Search Experiment by giving full or part of the name.          |
+| Search Experiment by Desc                 | <a href="http://airavata.apache.org/api-docs/0.16/airavata_api.html#Fn_Airavata_searchExperimentsByDesc" target="_blank">searchExperimentsByDesc</a>                  | Search Experiment by giving full or part of the description.           |
+| Search Experiments by Application Name    | <a href="http://airavata.apache.org/api-docs/0.16/airavata_api.html#Fn_Airavata_searchExperimentsByApplication" target="_blank">searchExperimentsByApplication</a>    | Search Experiment by giving the application name.           |
+| Search Experiment by Creation Time        | <a href="http://airavata.apache.org/api-docs/0.16/airavata_api.html#Fn_Airavata_searchExperimentsByCreationTime" target="_blank">searchExperimentsByCreationTime</a>  | Search Experiment by giving creationTime period.           |
+| Get all user Experiments                  | <a href="http://airavata.apache.org/api-docs/0.16/airavata_api.html#Fn_Airavata_getUserExperiments" target="_blank">getUserExperiments</a>                            | Search for all the experiments of a single user.          |
+| Get Experiments for a Project             | <a href="http://airavata.apache.org/api-docs/0.16/airavata_api.html#Fn_Airavata_getExperimentsInProject" target="_blank">getExperimentsInProject</a>                  | Retrieve all the experiments in a particular Project.          |
 
 
 
@@ -35,17 +35,16 @@ For Airavata API documentation please visit <a href="http://airavata.apache.org/
 |           Admin Function/Feature              |              Airavata API             |                                          Description                                              |
 |:----------------------------------------------|:--------------------------------------|:------------------------------------------------------------------------------------------------  |
 <b style="color:blue;">Add Gateway</b>
-| Add a gateway                                 | <a href="http://airavata.apache.org/api-docs/0.16/airavata_api.html#Fn_Airavata_addGateway" target="_blank">addGateway</a>        |
+| Add a gateway                                 | <a href="http://airavata.apache.org/api-docs/0.16/airavata_api.html#Fn_Airavata_addGateway" target="_blank">addGateway</a>        | Adding a new Gateway.                       |
 <b style="color:blue;">Credential Store</b>  
-| Generate a Token/SSH Key                      | <a href="http://airavata.apache.org/api-docs/0.16/airavata_api.html#Fn_Airavata_generateAndRegisterSSHKeys" target="_blank">generateAndRegisterSSHKeys</a>            |   |
-| Get all Credential Store Tokens               | <a href="http://airavata.apache.org/api-docs/0.16/airavata_api.html#Fn_Airavata_getAllGatewaySSHPubKeys" target="_blank">getAllGatewaySSHPubKeys</a>               |                                                                                                   |
-| Remove a Token/SSH Key                        | <a href="http://airavata.apache.org/api-docs/0.16/airavata_api.html#Fn_Airavata_deleteSSHPubKey" target="_blank">deleteSSHPubKey</a>                       |   |  
-| Get all Notices                               | noticesView                           |                      |
+| Generate a Token/SSH Key                      | <a href="http://airavata.apache.org/api-docs/0.16/airavata_api.html#Fn_Airavata_generateAndRegisterSSHKeys" target="_blank">generateAndRegisterSSHKeys</a>            | Generate new SSH Key and Token.   |
+| Get all Credential Store Tokens               | <a href="http://airavata.apache.org/api-docs/0.16/airavata_api.html#Fn_Airavata_getAllGatewaySSHPubKeys" target="_blank">getAllGatewaySSHPubKeys</a>               | Retrieve all the generated keys of a Gateway.              |
+| Remove a Token/SSH Key                        | <a href="http://airavata.apache.org/api-docs/0.16/airavata_api.html#Fn_Airavata_deleteSSHPubKey" target="_blank">deleteSSHPubKey</a>                       | Select and delete a particular SSH Key Token pair.   |  
 <b style="color:blue;">Compute Resource (CR)</b>                                                                                            
-| Get all CRs                                   | <a href="http://airavata.apache.org/api-docs/0.16/airavata_api.html#Fn_Airavata_getAllApplicationDeployments" target="_blank">getAllApplicationDeployments</a>          |                                                                                                   |
-| Get a CR                                      | <a href="http://airavata.apache.org/api-docs/0.16/airavata_api.html#Fn_Airavata_getComputeResource" target="_blank">getComputeResource</a>                    |
-| Register CR                                   | <a href="http://airavata.apache.org/api-docs/0.16/airavata_api.html#Fn_Airavata_registerComputeResource" target="_blank">registerComputeResource</a>               |
-| Update CR                                     | <a href="http://airavata.apache.org/api-docs/0.16/airavata_api.html#Fn_Airavata_updateComputeResource" target="_blank">updateComputeResource</a>                 ||
+| Get all application deployed CRs              | <a href="http://airavata.apache.org/api-docs/0.16/airavata_api.html#Fn_Airavata_getAllApplicationDeployments" target="_blank">getAllApplicationDeployments</a>          | Get all Application deployed Compute Resources.        |
+| Get a CR                                      | <a href="http://airavata.apache.org/api-docs/0.16/airavata_api.html#Fn_Airavata_getComputeResource" target="_blank">getComputeResource</a>                    | Retrieve Compute Resource information by providing the resource ID.   |
+| Register CR                                   | <a href="http://airavata.apache.org/api-docs/0.16/airavata_api.html#Fn_Airavata_registerComputeResource" target="_blank">registerComputeResource</a>               | Register a new Compute Resource.|
+| Update CR                                     | <a href="http://airavata.apache.org/api-docs/0.16/airavata_api.html#Fn_Airavata_updateComputeResource" target="_blank">updateComputeResource</a>                 | Retrieve an existing Compute Resource and update.|
 | Enable and Disable CR                         | <a href="http://airavata.apache.org/api-docs/0.16/airavata_api.html#Fn_Airavata_getComputeResource" target="_blank">getComputeResource</a>    <a href="http://airavata.apache.org/api-docs/0.16/airavata_api.html#Fn_Airavata_updateComputeResource" target="_blank">updateComputeResource</a>    |
 | Delete a Queue                                | <a href="http://airavata.apache.org/api-docs/0.16/airavata_api.html#Fn_Airavata_deleteBatchQueue" target="_blank">deleteBatchQueue</a>                      |
 <b style="color:blue;">Storage Resource (SR)</b> 
@@ -58,7 +57,10 @@ For Airavata API documentation please visit <a href="http://airavata.apache.org/
 | Delete Data Movement Interface of SR          | <a href="http://airavata.apache.org/api-docs/0.16/airavata_api.html#Fn_Airavata_deleteDataMovementInterface" target="_blank">deleteDataMovementInterface</a>       |
 <b style="color:blue;">Experiment Statistics</b>
 | Get Experiment Statistics                     | <a href="http://airavata.apache.org/api-docs/0.16/airavata_api.html#Fn_Airavata_getExperimentStatistics" target="_blank">getExperimentStatistics</a>               | Displays experiments grouped by the experiment status and derived for the given date time range.  |
-
+<b style="color:blue;">Gateway Preferences</b>
+|                                               |                                        |                      |
+<b style="color:blue;">Other</b>
+| Get all Notices                               | noticesView                           |                      |
 
 
 
