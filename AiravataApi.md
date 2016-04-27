@@ -58,12 +58,12 @@ For Airavata API documentation please visit <a href="http://airavata.apache.org/
 <b style="color:blue;">Experiment Statistics</b>
 | Get Experiment Statistics                     | <a href="http://airavata.apache.org/api-docs/0.16/airavata_api.html#Fn_Airavata_getExperimentStatistics" target="_blank">getExperimentStatistics</a>               | Displays experiments grouped by the experiment status and derived for the given date time range.  |
 <b style="color:blue;">Gateway Preferences</b>
-| Add CR Preference for a gateway               | <a href="http://airavata.apache.org/api-docs/0.16/airavata_api.html#Fn_Airavata_addGatewayComputeResourcePreference" target="_blank"> addGatewayComputeResourcePreference</a>    ||     
+| Add CR Preference for a gateway               | <a href="http://airavata.apache.org/api-docs/0.16/airavata_api.html#Fn_Airavata_addGatewayComputeResourcePreference" target="_blank"> addGatewayComputeResourcePreference</a>     ||     
 | Edit CR Preference                            | <a href="http://airavata.apache.org/api-docs/0.16/airavata_api.html#Fn_Airavata_addGatewayComputeResourcePreference" target="_blank"> addGatewayComputeResourcePreference</a>     ||
-| Delete a CR Preference                        |||
-| Add SR Preference for a gateway               ||| 
-| Edit SR Preference                            |||
-| Delete a SR Preference                        |||
+| Delete a CR Preference                        |  ||
+| Add SR Preference for a gateway               | <a href="http://airavata.apache.org/api-docs/0.16/airavata_api.html#Fn_Airavata_addGatewayStoragePreference" target="_blank"> addGatewayStoragePreference</a>     || 
+| Edit SR Preference                            | <a href="http://airavata.apache.org/api-docs/0.16/airavata_api.html#Fn_Airavata_addGatewayStoragePreference" target="_blank"> addGatewayStoragePreference</a>     ||
+| Delete a SR Preference                        |      ||
 <b style="color:blue;">Other</b>
 | Get all Notices                               | noticesView                           | View all existing Notices.        |
 
