@@ -35,7 +35,7 @@ For Airavata API documentation please visit <a href="http://airavata.apache.org/
 |           Admin Function/Feature              |              Airavata API             |                                          Description                                              |
 |:----------------------------------------------|:--------------------------------------|:------------------------------------------------------------------------------------------------  |
 <b style="color:blue;">Add Gateway</b>
-| Add a gateway                                 | <a href="http://airavata.apache.org/api-docs/0.16/airavata_api.html#Fn_Airavata_addGateway" target="_blank">addGateway</a>        | Adding a new Gateway.                       |
+| Add a gateway                                 | <a href="http://airavata.apache.org/api-docs/0.16/airavata_api.html#Fn_Airavata_addGateway" target="_blank">addGateway</a>        | Adding a new Gateway. |
 <b style="color:blue;">Credential Store</b>  
 | Generate a Token/SSH Key                      | <a href="http://airavata.apache.org/api-docs/0.16/airavata_api.html#Fn_Airavata_generateAndRegisterSSHKeys" target="_blank">generateAndRegisterSSHKeys</a>            | Generate new SSH Key and Token.   |
 | Get all Credential Store Tokens               | <a href="http://airavata.apache.org/api-docs/0.16/airavata_api.html#Fn_Airavata_getAllGatewaySSHPubKeys" target="_blank">getAllGatewaySSHPubKeys</a>               | Retrieve all the generated keys of a Gateway.              |
@@ -43,24 +43,29 @@ For Airavata API documentation please visit <a href="http://airavata.apache.org/
 <b style="color:blue;">Compute Resource (CR)</b>                                                                                            
 | Get all application deployed CRs              | <a href="http://airavata.apache.org/api-docs/0.16/airavata_api.html#Fn_Airavata_getAllApplicationDeployments" target="_blank">getAllApplicationDeployments</a>          | Get all Application deployed Compute Resources.        |
 | Get a CR                                      | <a href="http://airavata.apache.org/api-docs/0.16/airavata_api.html#Fn_Airavata_getComputeResource" target="_blank">getComputeResource</a>                    | Retrieve Compute Resource information by providing the resource ID.   |
-| Register CR                                   | <a href="http://airavata.apache.org/api-docs/0.16/airavata_api.html#Fn_Airavata_registerComputeResource" target="_blank">registerComputeResource</a>               | Register a new Compute Resource.|
+| Register CR                                   | <a href="http://airavata.apache.org/api-docs/0.16/airavata_api.html#Fn_Airavata_registerComputeResource" target="_blank">registerComputeResource</a>               | Register a new Compute Resource. This is Super Admin Feature.|
 | Update CR                                     | <a href="http://airavata.apache.org/api-docs/0.16/airavata_api.html#Fn_Airavata_updateComputeResource" target="_blank">updateComputeResource</a>                 | Retrieve an existing Compute Resource and update.|
-| Enable and Disable CR                         | <a href="http://airavata.apache.org/api-docs/0.16/airavata_api.html#Fn_Airavata_getComputeResource" target="_blank">getComputeResource</a>    <a href="http://airavata.apache.org/api-docs/0.16/airavata_api.html#Fn_Airavata_updateComputeResource" target="_blank">updateComputeResource</a>    |
-| Delete a Queue                                | <a href="http://airavata.apache.org/api-docs/0.16/airavata_api.html#Fn_Airavata_deleteBatchQueue" target="_blank">deleteBatchQueue</a>                      |
+| Enable and Disable CR                         | <a href="http://airavata.apache.org/api-docs/0.16/airavata_api.html#Fn_Airavata_getComputeResource" target="_blank">getComputeResource</a>    <a href="http://airavata.apache.org/api-docs/0.16/airavata_api.html#Fn_Airavata_updateComputeResource" target="_blank">updateComputeResource</a>    | Retrieve the CR and enable or disable through update. This is a Super Admin feature.| 
+| Delete a Queue                                | <a href="http://airavata.apache.org/api-docs/0.16/airavata_api.html#Fn_Airavata_deleteBatchQueue" target="_blank">deleteBatchQueue</a>                      | Delete a selected Queue from the Compute Resource.      |
 <b style="color:blue;">Storage Resource (SR)</b> 
-| Get all SR Names                              | <a href="http://airavata.apache.org/api-docs/0.16/airavata_api.html#Fn_Airavata_getAllStorageResourceNames" target="_blank">getAllStorageResourceNames</a>          |                                                                                                   |
-| Get a SR                                      | <a href="http://airavata.apache.org/api-docs/0.16/airavata_api.html#Fn_Airavata_getStorageResource" target="_blank">getStorageResource</a>                    |
-| Register a SR                                 | <a href="http://airavata.apache.org/api-docs/0.16/airavata_api.html#Fn_Airavata_registerStorageResource" target="_blank">registerStorageResource</a>               |
-| Update a SR                                   | <a href="http://airavata.apache.org/api-docs/0.16/airavata_api.html#Fn_Airavata_updateStorageResource" target="_blank">updateStorageResource</a>                 ||
-| Enable and Disable SR                         | <a href="http://airavata.apache.org/api-docs/0.16/airavata_api.html#Fn_Airavata_getStorageResource" target="_blank">getStorageResource</a>    <a href="http://airavata.apache.org/api-docs/0.16/airavata_api.html#Fn_Airavata_updateStorageResource" target="_blank">updateStorageResource</a>    |
-| Delete SR                                     | <a href="http://airavata.apache.org/api-docs/0.16/airavata_api.html#Fn_Airavata_deleteStorageResource" target="_blank">deleteStorageResource</a>                 |
-| Delete Data Movement Interface of SR          | <a href="http://airavata.apache.org/api-docs/0.16/airavata_api.html#Fn_Airavata_deleteDataMovementInterface" target="_blank">deleteDataMovementInterface</a>       |
+| Get all SR Names                              | <a href="http://airavata.apache.org/api-docs/0.16/airavata_api.html#Fn_Airavata_getAllStorageResourceNames" target="_blank">getAllStorageResourceNames</a>          | Retrieve all storage resources of the gateway.  |
+| Get a SR                                      | <a href="http://airavata.apache.org/api-docs/0.16/airavata_api.html#Fn_Airavata_getStorageResource" target="_blank">getStorageResource</a>                    | Fetch Storage Resource by providing the Storage ID.   | 
+| Register a SR                                 | <a href="http://airavata.apache.org/api-docs/0.16/airavata_api.html#Fn_Airavata_registerStorageResource" target="_blank">registerStorageResource</a>               | Register a new Storage Resource. This is a Super Admin Feature.|
+| Update a SR                                   | <a href="http://airavata.apache.org/api-docs/0.16/airavata_api.html#Fn_Airavata_updateStorageResource" target="_blank">updateStorageResource</a>                 | Update and existing Storage Resource.|
+| Enable and Disable SR                         | <a href="http://airavata.apache.org/api-docs/0.16/airavata_api.html#Fn_Airavata_getStorageResource" target="_blank">getStorageResource</a>    <a href="http://airavata.apache.org/api-docs/0.16/airavata_api.html#Fn_Airavata_updateStorageResource" target="_blank">updateStorageResource</a>    |Retrieve the SR and enable or disable through update. This is a Super Admin feature.|
+| Delete SR                                     | <a href="http://airavata.apache.org/api-docs/0.16/airavata_api.html#Fn_Airavata_deleteStorageResource" target="_blank">deleteStorageResource</a>                 |Select and delete and existing Storage Resource. |
+| Delete Data Movement Interface of SR          | <a href="http://airavata.apache.org/api-docs/0.16/airavata_api.html#Fn_Airavata_deleteDataMovementInterface" target="_blank">deleteDataMovementInterface</a>       |Delete a Data Movement Interface of a Storage Resource|
 <b style="color:blue;">Experiment Statistics</b>
 | Get Experiment Statistics                     | <a href="http://airavata.apache.org/api-docs/0.16/airavata_api.html#Fn_Airavata_getExperimentStatistics" target="_blank">getExperimentStatistics</a>               | Displays experiments grouped by the experiment status and derived for the given date time range.  |
 <b style="color:blue;">Gateway Preferences</b>
-|                                               |                                        |                      |
+| Add CR Preference for a gateway               | <a href="http://airavata.apache.org/api-docs/0.16/airavata_api.html#Fn_Airavata_addGatewayComputeResourcePreference" target="_blank"> addGatewayComputeResourcePreference</a>    ||     
+| Edit CR Preference                            | <a href="http://airavata.apache.org/api-docs/0.16/airavata_api.html#Fn_Airavata_addGatewayComputeResourcePreference" target="_blank"> addGatewayComputeResourcePreference</a>     ||
+| Delete a CR Preference                        |||
+| Add SR Preference for a gateway               ||| 
+| Edit SR Preference                            |||
+| Delete a SR Preference                        |||
 <b style="color:blue;">Other</b>
-| Get all Notices                               | noticesView                           |                      |
+| Get all Notices                               | noticesView                           | View all existing Notices.        |
 
 
 
