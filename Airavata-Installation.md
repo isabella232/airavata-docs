@@ -21,11 +21,12 @@
 ### <h3 id="AiravataCent">Airavata Installation on CentOS 7</h3>
 <b>NOTE: Airavata installation on other operating systems are similar with minor changes.</b></br>
 #### Pre-Installations
-1. CentOS 7 Default open JDK 1.8.0. (minimum) is sufficient.
+1. CentOS 7 Default open JDK 1.8.0. (minimum) is sufficient. Use "yum search jdk" to find available versions. Verify versions using "javac -version". Be sure to install the developer version.
+<pre><code>yum install java-1.8.0-openjdk-devel.x86_64</code></pre>
 2. Download RabbitMQ binary for CentOS 7
 <a href="https://www.rabbitmq.com/install-generic-unix.html" target="_blank">Download RabbitMQ Binary for CentOS</a><br>
 3. Prerequisite for RabbitmQ Erlang can be installed using yum
-<pre><code>yum install Erlang</code></pre>
+<pre><code>yum install erlang</code></pre>
 4. Unzip the downloaded RabbitMQ tar file into a folder in your local machine.
 <pre><code>tar -xvf rabbitmq-server-mac-standalone-3.4.1.tar.gz</code></pre>
 5. Start the RabbitMQ server in the bin folder using;
@@ -35,7 +36,7 @@
 7. Install MySQL database
 <pre><code>yum install mariadb-server</code></pre>
 8. Start maria DB with;
-<pre><code>systemstl start mariadb</code><pre>
+<pre><code>systemctl start mariadb</code><pre>
 9. While maria DB is running run
 <pre><code>mysql _secure_installation</code></pre>
 When executing above it will ask you for root password; provide it.
@@ -151,8 +152,10 @@ Change as required. Refer for more details;<a href="../Installations/airavata-pr
 			- Uncomment rabbitmq.broker.url=amqp://airavata:airavata@localhost:5672/messaging.
 			- If you need to stop RabbitMQ use <pre><code>rabbitmqctl stop</code></pre>
 			  If the RabbitMQ server stopped then the above user creation, vhost cretion and permission granting commmands need to run again after restarting the servers.
-11. Download and install Zookeeper. Use <a href=" http://www.us.apache.org/dist/zookeeper/zookeeper-3.4.8/" target="_blank">Download Zookeeper</a> <br> You can downlaod and install Zookeeper in the above created local folder; LocalAiravata
-12. Navigate to the Zookeeper bin directory  and start zookeeper <pre><code>zkServer.sh start</code></pre>
+11. Download and install Zookeeper. Use <a href="http://www.us.apache.org/dist/zookeeper/zookeeper-3.4.8/" target="_blank">Download Zookeeper</a> <br> You can download and install Zookeeper in the above created local folder; LocalAiravata
+12. Start Zookeeper
+    - Copy the sample config file to zoo.cfg:  cp conf/zoo_sample.cfg conf/zoo.cfg
+    - Navigate to the Zookeeper bin directory and start zookeeper <pre><code>zkServer.sh start</code></pre>
 13. In bin start the Airavata server and monitor log messages; This may require JAVA_HOME to be defined. Some configurations such as in  bin/zoo.cfg and bin/airavata-server.properties  may have to be adjusted if some ports are already in use. Ports need to be open as well.
 <pre><code>sh airavata-server.sh start</code></pre> (This will run the airavata server in the background in demon mode)<br>
 14. If you are in the target folder use given to start Airavata server;<br>
