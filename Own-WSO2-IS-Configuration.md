@@ -33,7 +33,7 @@
 <br>
 
     - Enable the Identity Listener by setting the following property to true in the &#60;IS_HOME&#62;/repository/conf/identity/identity.xml file.
-<pre><code>&#60;EventListener type="org.wso2.carbon.user.core.listener.UserOperationEventListener" name="org.wso2.carbon.identity.mgt.IdentityMgtEventListener" orderId="50" enable="true"/&#60;</code></pre>
+<pre><code>&#60;EventListener type="org.wso2.carbon.user.core.listener.UserOperationEventListener" name="org.wso2.carbon.identity.mgt.IdentityMgtEventListener" orderId="50" enable="true"/&#62;</code></pre>
 
     - Do the following configurations in the &#60;IS_HOME&#62;/repository/conf/identity/identity­-mgt.properties file.
 <pre><code>
