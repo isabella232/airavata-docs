@@ -1,4 +1,6 @@
 site_name: Airavata Documentation
+ <div>0.16</div>
+
 docs_dir: .
 
 pages:
@@ -11,12 +13,16 @@ pages:
 - Configuration:
   - PGA: 'Gateway-Configurations.md'
   - WSO2 IS: 'WSO2-IS-Configuration.md'
+- Maintenance:
+  - Airavata : 'Airavata-Upgrades.md'
+  - PGA : 'PGA-Upgrades.md'
+  - Gateway Admin : 'Admin-Maintenance.md'
 - Documentation:
-  - User Profiles: User-Profiles.md
-  - Applications: Application-CookBook.md
-  - Airavata API: AiravataApi.md
-- FAQ: FAQ.md
-- Contact Us: Contact-Us.md
+  - User Profiles: 'User-Profiles.md'
+  - Applications: 'Application-CookBook.md'
+  - Airavata API: 'AiravataApi.md'
+- FAQ: 'FAQ.md'
+- Contact Us: 'Contact-Us.md'
 
 theme: readthedocs
 
