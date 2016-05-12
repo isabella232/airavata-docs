@@ -4,7 +4,7 @@
 2. Open &#60;IS_HOME&#62;/repository/conf/carbon.xml and set the HideAdminServiceWSDLs property to false.
 <pre><code>&#60;HideAdminServiceWSDLs&#62;false&#60;/HideAdminServiceWSDLs&#62;</code></pre>
 3. To enable self signup and account confirmation follow the below steps
-    - Open &#60;IS_HOME&#62;/repository/conf/claim-config.xml and add the following claims mappings in the &#60;Dialect dialectURI="http://wso2.org/oidc/claim"&#62; section
+    - Open &#60;IS_HOME&#62;/repository/conf/claim-config.xml and add the following claims mappings in the &#60;Dialect dialectURI="http://wso2.org/claims"&#62; section.
 <pre><code>&#60;Claim&#62;
           &#60;ClaimURI&#62;http://wso2.org/claims/identity/accountLocked&#60;/ClaimURI&#62;
           &#60;DisplayName&#62;Account Locked&#60;/DisplayName&#62;
@@ -23,7 +23,9 @@
           &#60;AttributeID&#62;uid&#60;/AttributeID&#62;
           &#60;Description&#62;Username&#60;/Description&#62;
 &#60;/Claim&#62;
-&#60;Claim&#62;
+</code></pre>
+    - Open &#60;IS_HOME&#62;/repository/conf/claim-config.xml and add the following claims mappings in the &#60;Dialect dialectURI="http://wso2.org/oidc/claim"&#62; section.
+<pre><code>&#60;Claim&#62;
           &#60;ClaimURI&#62;roles&#60;/ClaimURI&#62;
           &#60;DisplayName&#62;Roles&#60;/DisplayName&#62;
           &#60;AttributeID&#62;role&#60;/AttributeID&#62;
