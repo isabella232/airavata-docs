@@ -13,10 +13,11 @@ pages:
 - Configuration:
   - PGA: 'Gateway-Configurations.md'
   - WSO2 IS: 'WSO2-IS-Configuration.md'
-- Maintenance:
-  - Airavata : 'Airavata-Upgrades.md'
-  - PGA : 'PGA-Upgrades.md'
-  - Gateway Admin : 'Admin-Maintenance.md'
+- Gateway Maintenance:
+  - Code Upgrades:
+      - Airavata: 'Airavata-Upgrades.md'
+      - PGA: 'PGA-Upgrades.md'
+  - Admin Dashboard: 'Admin-Maintenance.md'
 - Documentation:
   - User Profiles: 'User-Profiles.md'
   - Applications: 'Application-CookBook.md'
