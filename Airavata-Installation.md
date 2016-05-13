@@ -83,33 +83,18 @@ For more information visit <a href="https://cwiki.apache.org/confluence/display/
 Now copy the mysql.jar to lib  directory (<a href="http://dev.mysql.com/downloads/connector/j/" target="_blank">Download mysql.jar</a>).
 9. Navigate to bin folder which contains file airavata-server.properties and open it;
 <pre><code>vi apache-airavata-server-0.16-SNAPSHOT/bin</code></pre>
-10. Update relevant necessary properties to run Airavata locally.<br>
-Change as required. Refer for more details;<a href="../Installations/airavata-properties.md"> Airavata Property File</a>.
-	- API Server Registry Configuration
-		- Comment out the derby DB properties
-		- Change MySQL configurations
-			- registry.jdbc.url=jdbc:mysql://localhost:3306/experiment_catalog (replace 'localhost' with correct server name if the DB is in a different server)
-			- registry.jdbc.user=airavata
-			- registry.jdbc.password=airavata
-			- default.registry.gateway=php_reference_gateway
-   	- Application Catalog DB Configuration
-   		- Comment out the derby DB properties
-   		- Change MySQL configurations
-   			- appcatalog.jdbc.url=jdbc:mysql://localhost:3306/app_catalog
-          	- appcatalog.jdbc.user=airavata
-         	- appcatalog.jdbc.password=airavata
-    - Data Catalog DB Configuration
-    	- Comment out the derby DB properties
-        - Change MySQL configurations
-    		- datacatalog.jdbc.url=jdbc:mysql://localhost:3306/data_catalog
-        	- datacatalog.jdbc.user=airavata
-        	- datacatalog.jdbc.password=airavata
-	- Workflow Catalog DB Configuration
-		- Comment out the derby DB properties
-        - Change MySQL configurations
-			- workflowcatalog.jdbc.url=jdbc:mysql://localhost:3306/workflow_catalog
-      		- workflowcatalog.jdbc.user=airavata
-      		- workflowcatalog.jdbc.password=airavata
+10. Update relevant necessary properties in airavata-server.properties file.<br>
+Change as required. For more details refer; <a href="../airavata-properties">Airavata Property File</a>.
+	- In sections
+		- API Server Registry Configuration
+		- Application Catalog DB Configuration
+		- Data Catalog DB Configuration
+		- Workflow Catalog DB Configuration
+		- Credential Store Module Configuration
+		Comment out derby DB properties.
+		Change MySQL configurations as per the databases created above.
+	- Make sure gateway is properly defined 
+		default.registry.gateway=php_reference_gateway
 	- Server module Configuration
 		- Make sure all servers required to start are added as given
 			- servers=apiserver,orchestrator,gfac,credentialstore
@@ -121,12 +106,6 @@ Change as required. Refer for more details;<a href="../Installations/airavata-pr
 			- start.credential.store=true
 		- Add the path to SSH key generation file
 			- E.g.: credential.store.keystore.url=/home/airavata/LocalAiravata/airavata-sym.jks
-		- Comment out the derby DB properties
-        - Change MySQL configurations
-        	- credential.store.jdbc.url=jdbc:mysql://localhost:3306/credential_store
-            - credential.store.jdbc.user=airavata
-            - credential.store.jdbc.password=airavata
-		- credential.store.keystore.url=/home/airavata/production-deployment/airavata_sym.jks
 	-  API Security Configuration
 		- Make sure
 			- api.secured=false
@@ -150,8 +129,6 @@ Change as required. Refer for more details;<a href="../Installations/airavata-pr
 			- To create a vitrual-host <pre><code>rabbitmqctl add_vhost messaging</code></pre>
 			- Provide permission to created username; 'airavata'  to the created vhost <pre><code>rabbitmqctl set_permissions -p messaging airavata ".*" ".*" ".*”</code></pre>
 			- Uncomment rabbitmq.broker.url=amqp://airavata:airavata@localhost:5672/messaging.
-			- If you need to stop RabbitMQ use <pre><code>rabbitmqctl stop</code></pre>
-			  If the RabbitMQ server stopped then the above user creation, vhost cretion and permission granting commmands need to run again after restarting the servers.
 11. Download and install Zookeeper. Use <a href="http://www.us.apache.org/dist/zookeeper/zookeeper-3.4.8/" target="_blank">Download Zookeeper</a> <br> You can download and install Zookeeper in the above created local folder; LocalAiravata
 12. Start Zookeeper
     - Copy the sample config file to zoo.cfg:  cp conf/zoo_sample.cfg conf/zoo.cfg
