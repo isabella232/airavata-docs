@@ -1,6 +1,5 @@
-## Airavata Code Upgrade
+## Airavata Update
 
-### Updating Airavata Codebase 
 1. In order to update Airavata with latest master code; go to the folder (Created in installation; LocalAiravata) initially created to clone Airavata.
 2. Within your local folder navigate to folder 'airavata' and execute <pre><code>git pull </code></pre>
 Hint: If you are in the wrong folder you would probably get message <pre><code>'fatal: Not a git repository (or any of the parent directories): .git'</code></pre>
@@ -19,17 +18,22 @@ Navigate to bin folder where airavata server exists (LocalAiravata/apache-airava
 7. Un-tar the copied new release
 <pre><code>tar -xvf apache-airavata-server-0.16-SNAPSHOT-bin.tar.gz</code></pre>
 8. Navigate to the new bin folder and back up airavata-server.properties and gfac-config.yaml files.
-8. Copy your previously used airavata-server.properties from the backed up release to bin folder (This is the easiest way to get the properties file updated. If you prefer, you can change the new file manually. &#9786;)
+9. Copy your previously used airavata-server.properties from the backed up release to bin folder (This is the easiest way to get the properties file updated. If you prefer, you can change the new file manually. &#9786;)
 <pre><code>/&#60;your local path&#62;/LocalAiravata/LocalAiravata/apache-airavata-server-0.16-SNAPSHOT-bk/bin/airavata-server.properties .</code></pre>
-9. Copy your previously used gfac-config.yaml from the backed up release
+10. Copy your previously used gfac-config.yaml from the backed up release
 <pre><code>cp /&#60;your local path&#62;/LocalAiravata/apache-airavata-server-0.16-SNAPSHOT-bk/bin/gfac-config.yaml .</code></pre>
-10. Now compare with the new airavata-server.properties and gfac-config.yaml and make necessary changes in the copied files.
-11. Check the path correctness of credential store keystore in airavata-server.properties file.
+11. Now compare with the new airavata-server.properties and gfac-config.yaml and make necessary changes in the copied files.
+Try <pre><code> diff airavata-server.properties airavata-server.properties-bk</code></pre>
+12. Check the path correctness of credential store keystore in airavata-server.properties file.
 <pre><code>credential.store.keystore.url=/&#60;your local path&#62;/LocalAiravata/airavata_sym.jks</code></pre>
-12. Go to lib folder and copy mySQL jar (mysql-connector-java-5.1.38-bin.jar) from old backed up lib to the new lib
+13. Go to lib folder and copy mySQL jar (mysql-connector-java-5.1.38-bin.jar) from old backed up lib to the new lib
 <pre><code>  cp /home/airavata/LocalAiravata/apache-airavata-server-0.16-SNAPSHOT-bk/lib/mysql-connector-java-5.1.38-bin.jar .</code></pre>
-13. Now restart airavata server in bin folder
+14. Now restart airavata server in bin folder
 <pre><code>./airavata-server.sh start</code></pre>
+15. Airavata ready for job submissions!
+16. For PGA updating steps try <a href="../PGA-Upgrades">PGA Update</a>
+
+
 
 
  
