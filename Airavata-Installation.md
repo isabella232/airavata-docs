@@ -85,50 +85,45 @@ Now copy the mysql.jar to lib  directory (<a href="http://dev.mysql.com/download
 <pre><code>vi apache-airavata-server-0.16-SNAPSHOT/bin</code></pre>
 10. Update relevant necessary properties in airavata-server.properties file.<br>
 Change as required. For more details refer; <a href="../airavata-properties">Airavata Property File</a>.
-	- In sections
-		- API Server Registry Configuration
-		- Application Catalog DB Configuration
-		- Data Catalog DB Configuration
-		- Workflow Catalog DB Configuration
-		- Credential Store Module Configuration
-		Comment out derby DB properties.
-		Change MySQL configurations as per the databases created above.
-	- Make sure gateway is properly defined 
+	- In sections; API Server Registry Configuration, Application Catalog DB Configuration, Data Catalog DB Configuration, Workflow Catalog DB Configuration, Credential Store Module Configuration<br>
+		- Comment out derby DB properties.<br>
+		- Change MySQL configurations as per the databases created above.
+	- Make sure gateway ID is properly defined;<br> 
 		default.registry.gateway=php_reference_gateway
 	- Server module Configuration
-		- Make sure all servers required to start are added as given
-			- servers=apiserver,orchestrator,gfac,credentialstore
+		- Make sure all servers required to start are added as given <br>
+			servers=apiserver,orchestrator,gfac,credentialstore
 	- API Server SSL Configurations
-		- Give the correct path for key generation file. This is in the bin directory and it is shipped default with Airavata.
-			- apiserver.keystore=/home/airavata/LocalAiravata/apache-airavata-server-0.16-SNAPSHOT/bin/airavata.jks
+		- Give the correct path for key generation file. This is in the bin directory and it is shipped default with Airavata.<br>
+		apiserver.keystore=/home/airavata/LocalAiravata/apache-airavata-server-0.16-SNAPSHOT/bin/airavata.jks
 	- Credential Store module Configuration
-		- Make sure its set to 'true' in
-			- start.credential.store=true
-		- Add the path to SSH key generation file
-			- E.g.: credential.store.keystore.url=/home/airavata/LocalAiravata/airavata-sym.jks
+		- Make sure its set to 'true' in<br>
+		start.credential.store=true
+		- Add the path to SSH key generation file <br>
+		E.g.: credential.store.keystore.url=/home/airavata/LocalAiravata/airavata-sym.jks
 	-  API Security Configuration
-		- Make sure
-			- api.secured=false
-			- TLS.enabled=false
+		- Make sure <br>
+		api.secured=false<br>
+		TLS.enabled=false
 	-  Monitoring Module Configuration
-      	- Add your email address, username and password for email monitoring. This is the email account the job status change emails will be received from compute resources.
-                 email.based.monitor.host=imap.gmail.com
-                 email.based.monitor.address=jobs@sample.org
-                 email.based.monitor.password=SamplePassword
+      	- Add your email address, username and password for email monitoring.<br> This is the email account the job status change emails will be received from compute resources.
+		 email.based.monitor.host=imap.gmail.com<br>
+		 email.based.monitor.address=jobs@sample.org<br>
+		 email.based.monitor.password=SamplePassword<br>
 	-  Zookeeper Server Configuration
-		- For 'Production' scenario make;
-			- embedded.zk=false
+		- For 'Production' scenario make;<br>
+		embedded.zk=false
 	- AMQP Notification Configuration
-		- Users can use RabbitMQ as 'Guest' users. This is the easy method. For this uncomment
-			- rabbitmq.broker.url=amqp://localhost:5672
-		- To use as a 'Production' user
-			- Navigate to RabbitMQ bin folder.
-			- Make sure the RabbitMQ server is running. For production use <pre><code>rabbitmq-server -detached</code></pre> to start.
-			- Create a virtual-host and user with a password. Follow documentation in <a href="http://blog.dtzq.com/2012/06/rabbitmq-users-and-virtual-hosts.html" target="_blank">RabbitMQ Users & VirtualHost</a>
-			- To create a user; <pre><code>rabbitmqctl add_user airavata airavata</code></pre>
-			- To create a vitrual-host <pre><code>rabbitmqctl add_vhost messaging</code></pre>
-			- Provide permission to created username; 'airavata'  to the created vhost <pre><code>rabbitmqctl set_permissions -p messaging airavata ".*" ".*" ".*”</code></pre>
-			- Uncomment rabbitmq.broker.url=amqp://airavata:airavata@localhost:5672/messaging.
+		- Users can use RabbitMQ as 'Guest' users. This is the easy method. For this uncomment <br>
+		rabbitmq.broker.url=amqp://localhost:5672
+		- To use as a 'Production' user <br>
+		Navigate to RabbitMQ bin folder.<br>
+		Make sure the RabbitMQ server is running. For production use <pre><code>rabbitmq-server -detached</code></pre>
+		Create a virtual-host and user with a password. Follow documentation in <a href="http://blog.dtzq.com/2012/06/rabbitmq-users-and-virtual-hosts.html" target="_blank">RabbitMQ Users & VirtualHost</a>
+		To create a user; <pre><code>rabbitmqctl add_user airavata airavata</code></pre>
+		To create a vitrual-host <pre><code>rabbitmqctl add_vhost messaging</code></pre>
+		Provide permission to created username; 'airavata' to the created vhost <pre><code>rabbitmqctl set_permissions -p messaging airavata ".*" ".*" ".*”</code></pre>
+		Uncomment rabbitmq.broker.url=amqp://airavata:airavata@localhost:5672/messaging.
 11. Download and install Zookeeper. Use <a href="http://www.us.apache.org/dist/zookeeper/zookeeper-3.4.8/" target="_blank">Download Zookeeper</a> <br> You can download and install Zookeeper in the above created local folder; LocalAiravata
 12. Start Zookeeper
     - Copy the sample config file to zoo.cfg:  cp conf/zoo_sample.cfg conf/zoo.cfg
