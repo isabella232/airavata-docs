@@ -44,7 +44,7 @@ When executing above it will ask you for root password; provide it.
 10. Create databases required for Airavata
 <pre><code>create database app_catalog;</code></pre>
 <pre><code>create database experiment_catalog;</code></pre>
-<pre><code>create database data_catalog;</code></pre>
+<pre><code>create database replica_catalog;</code></pre>
 <pre><code>create database credential_store;</code></pre>
 <pre><code>create database workflow_catalog;</code></pre>
 11. Grant permission to these databases for a new user which would be used by Airavata<br>
