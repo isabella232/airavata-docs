@@ -15,9 +15,9 @@
 3.  Data Catalog DB Configuration
     - Comment out the derby DB properties
     - Change MySQL configurations
-    	- datacatalog.jdbc.url=jdbc:mysql://localhost:3306/airavata_datacatalog
-        - datacatalog.jdbc.user=airavata
-        - datacatalog.jdbc.password=airavata
+    	- replicacatalog.jdbc.url=jdbc:mysql://localhost:3306/airavata_datacatalog
+        - replicacatalog.jdbc.user=airavata
+        - replicacatalog.jdbc.password=airavata
 4.  Workflow Catalog DB Configuration
 	- Comment out the derby DB properties
     - Change MySQL configurations
@@ -65,4 +65,4 @@
 		- Provide permission to created 'Username'  to the created vhost <pre><code>rabbitmqctl set_permissions -p messaging airavata ".*" ".*" ".*”</code></pre>
 		- Uncomment rabbitmq.broker.url=amqp://Username:Password@localhost:5672/Vhost. Add the created username, password and Vhost in the URL.
 		- If you need to stop RabbitMQ use <pre><code>rabbitmqctl stop</code></pre>
-		If the RabbitMQ server stopped then the above user creation, vhost cretion and permission granting commmands need to run again after restarting the servers.
+		- If the RabbitMQ server stopped then the above user creation, vhost creation and permission granting commands need to run again after restarting the servers.
