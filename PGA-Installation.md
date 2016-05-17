@@ -38,7 +38,7 @@
 <pre><code>cp - R airavata-php-gateway /* .</code></pre>
 3. In the gateway folder do a <pre><code>composer update</code></pre>
 4. Create a directory in var/www/ for user data (E.g.:gateway-user-data). 
-5. Copy pga_config.template and make  pga_config.php
+5. Copy ./app/config/pga_config.php.template to ./app/config/pga_config.php 
 6. In pga_config.php change airavata server, change;
 	-  Airavata Client Configurations
 		- 'airavata-server' => 'localhost’,
