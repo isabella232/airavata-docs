@@ -133,5 +133,5 @@ Change as required. For more details refer; <a href="../airavata-properties">Air
 14. If you are in the target folder use given to start Airavata server;<br>
 <pre><code>sh apache-airavata-server-0.16-SNAPSHOT/bin/airavata-server.sh start</code></pre>
 15. To monitor the server starting up, view the airavata server log;<br>
-<pre><code>tail -f logs/airavata.out</code></pre>	
+<pre><code>tail -f logs/airavata.log</code></pre>	
 16. For subsequent Airavata copies; in the local Airavata folder where source code is cloned do a git clone https://github.com/apache/airavata.git for the latest trunk.
