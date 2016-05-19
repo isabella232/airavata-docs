@@ -89,6 +89,7 @@ Error: ERROR org.apache.airavata.registry.core.app.catalog.impl.StorageResourceI
 <br><b class="blue"> Q12.</b> I am getting error <br>
 2016-05-19 16:17:08,225 [main] ERROR org.apache.airavata.server.ServerMain  - Server Start Error:
 java.lang.RuntimeException: Failed to create database connection pool. <br>
+
 What should i do?
 <br><b class="blue">Answer: </b> Airavata cannot create database connection ebcause the mysql jar is not eixsting. Please follow step 8 of documentation in Installation --> Airavata --> Airavata Installation
 
