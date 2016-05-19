@@ -13,7 +13,7 @@ email.based.monitor.store.protocol=imaps (either imaps or pop3)</pre></code>
 <br><br><b class="blue"> Q4.</b>  In my Airavata log I have error messages like
 <br>ERROR org.apache.airavata.api.server.handler.AiravataServerHandler  - Error occurred while retrieving SSH public keys for gateway
 <br>ERROR org.apache.airavata.credential.store.server.CredentialStoreServerHandler  - Error occurred while retrieving credentials
-<br>What should I do?
+<br></br>What should I do?<br>
 <br><b class="blue">Answer: </b> This could be due to missing tables in your credential store database. Check whether CREDENTIALS and COMMUNITY_USER tables exits. If not create then using
 <pre><code>CREATE TABLE COMMUNITY_USER
 (
@@ -54,16 +54,16 @@ email.based.monitor.store.protocol=imaps (either imaps or pop3)</pre></code>
     <br><b class="blue">Answer: </b>If you are facing this behavior first check whether you have enabled mod_rewrite module in apache webserver.
     <br>And also check whether you have set AllowOverride All in the Vhost configuration file in apache web server. <br>(e.g file location is /etc/apache2/sites-available/default and there should be two places where you want to change)
 <br><pre><code>
-     <VirtualHost *:80>
-        ServerAdmin webmaster@dummy-host.example.com
-        DocumentRoot /var/www/html/portal/public
-        ServerName pga.example.com
-        <Directory "/var/www/html/portal/public">
-           AllowOverride all
-        </Directory>
-        ErrorLog logs/pga_error_log
-        CustomLog logs/pga--access_log common
-    </VirtualHost></code></pre>
+<VirtualHost *:80>
+    ServerAdmin webmaster@dummy-host.example.com
+    DocumentRoot /var/www/html/portal/public
+    ServerName pga.example.com
+    <Directory "/var/www/html/portal/public">
+       AllowOverride all
+    </Directory>
+    ErrorLog logs/pga_error_log
+    CustomLog logs/pga--access_log common
+</VirtualHost></code></pre>
     <br>
 <br><b class="blue"> Q8.</b> I get the Error message Permission Denied to app/storage directory.<br>
     <br><b class="blue">Answer: </b>Execute the following command and grant all permissions; <pre><code> sudo chmod -R 777 app/storage</code></pre>
@@ -71,13 +71,26 @@ email.based.monitor.store.protocol=imaps (either imaps or pop3)</pre></code>
 <br><b class="blue"> Q9.</b> In Ubuntu environment when executing sudo composer update it fails with message "Mcrypt PHP extension required".
  <br><b class="blue">Answer: </b>To fix this install PHP mcrypt extension by following the below steps;
  <pre><code>sudo apt-get install php5-mcrypt</code></pre>
-    use locate mcrypt.so ,to get its locaton
-    locate mcrypt.ini and open the mcrypt.ini file
-    sudo pico /etc/php5/mods-available/mcrypt.ini
-    change the at line a extension=<location of e mcrypt.so file> eg:/usr/lib/php5/20121212/mcrypt.so
-    save changes.
-    execute the command:  sudo php5enmod mcrypt
-    Now restart the apache server again and test PGA web-interface.
+  Locate mcrypt.so ,to get its location
+  Locate mcrypt.ini and open the mcrypt.ini file
+    <pre><code>sudo pico /etc/php5/mods-available/mcrypt.ini</code></pre>
+  Change the at line a extension=<location of the mcrypt.so file> eg:/usr/lib/php5/20121212/mcrypt.so Save changes.
+  Execute the command:  <pre><code>sudo php5enmod mcrypt</code></pre>
+  Now restart the apache server again and test PGA web-interface
 
 <br><b class="blue"> Q10.</b> When tried to login or create a new user account an Error is thrown which is similar to PHP Fatal error:  SOAP-ERROR: Parsing WSDL: Couldn't load from...
     <br><b class="blue">Answer: </b> If you face this kind of an error first check whether you have enabled PHP SOAP and OpenSSL extensions. If even after enabling them the issue is still occurring try updating the PHP OpenSSL extension. (Using command like yum update openssl)
+    
+<br><b class="blue"> Q11.</b> If you are seeing an error similar to following in your airavata.log <br>
+Error: ERROR org.apache.airavata.registry.core.app.catalog.impl.StorageResourceImpl  - Error while retrieving storage resource...
+       javax.persistence.NoResultException: Query "SELECT p FROM StorageResource p WHERE p.storageResourceId =:param0" selected no result, but expected unique result.
+<br><b class="blue">Answer: </b> Add storage resource ID in to the pga_config.php in your gateway code/app/config directory.  
+         
+<br><b class="blue"> Q12.</b> I am getting error <br>
+2016-05-19 16:17:08,225 [main] ERROR org.apache.airavata.server.ServerMain  - Server Start Error:
+java.lang.RuntimeException: Failed to create database connection pool. <br>
+What should i do?
+<br><b class="blue">Answer: </b> Airavata cannot create database connection ebcause the mysql jar is not eixsting. Please follow step 8 of documentation in Installation --> Airavata --> Airavata Installation
+
+
+       
