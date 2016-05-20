@@ -80,7 +80,7 @@ OR
 For more information visit <a href="https://cwiki.apache.org/confluence/display/AIRAVATA/Credential+Store+Configuration+Guide/" target="_blank">Credential Store Configuration Documentation</a>
 8. In order to copy mysql jar file (always download the latest available); navigate to Airavata lib directory
 <pre><code>cd /LocalFolderPath/apache-airavata-server-0.16-SNAPSHOT/lib</code></pre>
-Now copy the mysql.jar to lib  directory (<a href="http://dev.mysql.com/downloads/connector/j/" target="_blank">Download mysql.jar</a>).
+Now copy the mysql jar (e.g. mysql-connector-java-5.1.39-bin.jar) to lib  directory (<a href="http://dev.mysql.com/downloads/connector/j/" target="_blank">Download mysql.jar</a>).
 9. Navigate to bin folder which contains file airavata-server.properties and open it;
 <pre><code>vi apache-airavata-server-0.16-SNAPSHOT/bin</code></pre>
 10. Update relevant necessary properties in airavata-server.properties file.<br>
