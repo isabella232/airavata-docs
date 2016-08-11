@@ -12,7 +12,8 @@ OR
     - Last name
     - Preferred username & password as the admin (This is the username you will use to login to WSO2 IS and gateway as the admin user)
     - Email account
-3. Once the tenant is created you will receive
+3. When Airavata team receives your request they will communicate with you if more information is required.
+4. Once the tenant is created you will receive
     - URL for WSO2 IS
     - Username and password to login to WSO2 IS
 <br>
