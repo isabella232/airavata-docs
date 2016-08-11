@@ -60,7 +60,7 @@ NOTE: Grant permission to every databased created above. % can be replaced by  '
 1. Create a folder in your local machine (E.g.: mkdir LocalAiravata).<br>
 2. Clone the master source (If you have not taken a clone prior) code from github to the created folder.<br>
 <pre><code>git clone https://github.com/apache/airavata.git</code></pre>
-3. After cloning is completed, build the source code by executing following maven command (In LocalAiravata directory you made);
+3. After cloning is completed, build the source code by executing following maven command (In LocalAiravata/airavata);
 <pre><code>mvn clean install</code></pre>
 Hint: To avoid tests (recommended for first time users) use
 <pre><code>mvn clean install -Dmaven.test.skip=true</code></pre>
