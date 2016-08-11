@@ -6,4 +6,4 @@
 <pre><code> composer update </code></pre>
 This may take little time....
 3. You are all set with latest updates!
-4. 16. For PGA updating steps try <a href="../Airavata-Upgrades">Airavata Update</a>
+4. 16. For Airavata updating steps try <a href="../Airavata-Upgrades">Airavata Update</a>
