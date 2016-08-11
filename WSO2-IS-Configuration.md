@@ -1,8 +1,8 @@
-## WSO2 IS (Identity Server)
+## WSO2 Identity Server (IS)
 
-The steps are for IS configuration when IS is hosted by AIravata team. n this situation you will be a tenant created under Airavata hosted IS.
+The steps below are for IS configuration when IS is hosted by Airavata team. In this situation you will be a tenant created under Airavata hosted IS.
 
-### First You Need to;
+### Request a Tenant Account
 1. Request from Airavata team for a new Tenant account. For this use
 <br><a href="http://airavata.apache.org/community/mailing-lists.html" target="_blank">Airavata mailing list</a>
 OR
@@ -17,8 +17,8 @@ OR
     - Username and password to login to WSO2 IS
 <br>
 <br>
-### Configuration
-1. Login to IS server as the gateway admin; Tenant user.
+### Configure Your Tenant
+1. Login to IS server as the gateway admin tenant user.
     - Use the URL provided by the Airavata team; <a href="https://idp.scigap.org:9443/carbon/admin/login.jsp" target="_blank">WSO2 URL for Gateway Admin</a>
     - Use the username and password provided by you. (Please change your password in first login)
 2. Navigate to Main Tab -->Service Providers --> Add
