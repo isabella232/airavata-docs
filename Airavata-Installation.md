@@ -38,7 +38,7 @@
 8. Start maria DB with;
 <pre><code>systemctl start mariadb</code><pre>
 9. While maria DB is running run
-<pre><code>mysql _secure_installation</code></pre>
+<pre><code>mysql_secure_installation</code></pre>
 When executing above it will ask you for root password; provide it.
 10. Now login as the root user providing the password you gave above.
 10. Create databases required for Airavata
@@ -70,7 +70,7 @@ Path:
 5. Navigate to locally created directory (LocalAiravata) copy the tar file
 <pre><code>cp airavata/distribution/target/apache-airavata-server-0.16-SNAPSHOT-bin.tar.gz ./</code></pre>
 OR
-<pre><code>cp airavata/distribution/target/apache-airavata-server-0.16-SNAPSHOT-bin.tar.zip ./</code></pre>
+<pre><code>cp airavata/distribution/target/apache-airavata-server-0.16-SNAPSHOT-bin.zip ./</code></pre>
 6. Now unzip either the tar or zip file of Airavata server distribution;
 <pre><code>unzip apache-airavata-server-0.16-SNAPSHOT-bin.zip</code></pre>
 OR
@@ -82,7 +82,7 @@ For more information visit <a href="https://cwiki.apache.org/confluence/display/
 <pre><code>cd /LocalFolderPath/apache-airavata-server-0.16-SNAPSHOT/lib</code></pre>
 Now copy the mysql jar (e.g. mysql-connector-java-5.1.39-bin.jar) to lib  directory (<a href="http://dev.mysql.com/downloads/connector/j/" target="_blank">Download mysql.jar</a>).
 9. Navigate to bin folder which contains file airavata-server.properties and open it;
-<pre><code>vi apache-airavata-server-0.16-SNAPSHOT/bin</code></pre>
+<pre><code>vi apache-airavata-server-0.16-SNAPSHOT/bin/airavata-server.properties</code></pre>
 10. Update relevant necessary properties in airavata-server.properties file.<br>
 Change as required. For more details refer; <a href="../airavata-properties">Airavata Property File</a>.
 	- In sections; API Server Registry Configuration, Application Catalog DB Configuration, Data Catalog DB Configuration, Workflow Catalog DB Configuration, Credential Store Module Configuration<br>
