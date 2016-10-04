@@ -4,26 +4,27 @@ site_name: Airavata Documentation
 docs_dir: .
 
 pages:
-- Home: 'index.md'
-- Installations:
-  - Airavata: 'Airavata-Installation.md'
-  - PGA: 'PGA-Installation.md'
-  - WSO2 IS: 'Own-WSO2-IS-Configuration.md'
-  - Airavata Property File: 'airavata-properties.md'
-- Configuration:
+- <h5>Home</h5>: 'index.md'
+- <h5>User Guide</h5>: 'User-Guide.md'
+- <h5>Installations</h5>:
+    - Airavata: 'Airavata-Installation.md'
+    - PGA: 'PGA-Installation.md'
+    - WSO2 IS: 'Own-WSO2-IS-Configuration.md'
+    - Airavata Property File: 'airavata-properties.md'
+    - Installation FAQ: 'FAQ.md'
+- <h5>Configuration</h5>:
   - PGA: 'Gateway-Configurations.md'
   - WSO2 IS: 'WSO2-IS-Configuration.md'
-- Gateway Maintenance:
-  - Code Upgrades:
+- <h5>Gateway Maintenance</h5>:
+  - <h6>Code Upgrades</h6>:
       - Airavata: 'Airavata-Upgrades.md'
       - PGA: 'PGA-Upgrades.md'
-  - Admin Dashboard: 'Admin-Maintenance.md'
-- Documentation:
+  - <h6>Admin Dashboard</h6>: 'Admin-Maintenance.md'
+- <h5>Documentation</h5>:
   - User Profiles: 'User-Profiles.md'
   - Applications: 'Application-CookBook.md'
   - Airavata API: 'AiravataApi.md'
-- FAQ: 'FAQ.md'
-- Contact Us: 'Contact-Us.md'
+- <h5>Contact Us</h5>: 'Contact-Us.md'
 
 theme: readthedocs
 
