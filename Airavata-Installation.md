@@ -129,9 +129,9 @@ Change as required. For more details refer; <a href="../airavata-properties">Air
     - Copy the sample config file to zoo.cfg:  cp conf/zoo_sample.cfg conf/zoo.cfg
     - Navigate to the Zookeeper bin directory and start zookeeper <pre><code>zkServer.sh start</code></pre>
 13. In bin start the Airavata server and monitor log messages; This may require JAVA_HOME to be defined. Some configurations such as in  bin/zoo.cfg and bin/airavata-server.properties  may have to be adjusted if some ports are already in use. Ports need to be open as well.
-<pre><code>sh airavata-server.sh start</code></pre> (This will run the airavata server in the background in demon mode)<br>
+<pre><code>sh airavata-server-start.sh all</code></pre> (This will run the airavata server in the background in demon mode)<br>
 14. If you are in the target folder use given to start Airavata server;<br>
-<pre><code>sh apache-airavata-server-0.16-SNAPSHOT/bin/airavata-server.sh start</code></pre>
+<pre><code>sh apache-airavata-server-0.16-SNAPSHOT/bin/airavata-server-start.sh all</code></pre>
 15. To monitor the server starting up, view the airavata server log;<br>
 <pre><code>tail -f logs/airavata.log</code></pre>	
 16. For subsequent Airavata copies; in the local Airavata folder where source code is cloned do a git clone https://github.com/apache/airavata.git for the latest trunk.
