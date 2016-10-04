@@ -97,8 +97,6 @@ Change as required. For more details refer; <a href="../airavata-properties">Air
 		- Give the correct path for key generation file. This is in the bin directory and it is shipped default with Airavata.<br>
 		apiserver.keystore=/home/airavata/LocalAiravata/apache-airavata-server-0.16-SNAPSHOT/bin/airavata.jks
 	- Credential Store module Configuration
-		- Make sure its set to 'true' in<br>
-		start.credential.store=true
 		- Add the path to SSH key generation file <br>
 		E.g.: credential.store.keystore.url=/home/airavata/LocalAiravata/airavata-sym.jks
 	-  API Security Configuration
