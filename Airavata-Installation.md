@@ -3,8 +3,8 @@
 
 <br><b>Click your option;</b></br>
 
-[<button type="button" style="color:#3232ff;text-align:center;font-weight:bold;background-color:darkgray;width:200px;border-radius:4px">Airavata Prerequisites</button>](#Airavata) &nbsp; &nbsp; &nbsp;
-[<button type="button" style="color:#3232ff;text-align:center;font-weight:bold;background-color:darkgray;width:200px;border-radius:4px">Airavata on CentOS 7</button>](#AiravataCent) <br></br>
+[<button type="button" style="color:#f2f2f2;text-align:center;font-weight:normal;background-color:#3980c6;width:180px;border: 2px solid #3980c6;border-radius:4px">Airavata Prerequisites</button>](#Airavata) &nbsp; &nbsp; &nbsp;
+[<button type="button" style="color:#f2f2f2;text-align:center;font-weight:normal;background-color:#3980c6;width:180px;border: 2px solid #3980c6;border-radius:4px">Airavata on CentOS 7</button>](#AiravataCent) <br/>
 
 
 ### <h3 id="Airavata">General Prerequisites</h3>
