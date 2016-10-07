@@ -31,8 +31,6 @@
 	- Give the correct path for key generation file. This is in the bin directtory and it is shipped defualt with Airavata.
 		- apiserver.keystore=/home/airavata/LocalAiravata/apache-airavata-server-0.16-SNAPSHOT/bin/airavata.jks
 7.  Credential Store module Configuration
-	- Make sure its 'true' in
-		- start.credential.store=true
 	- Add the path to SSH key generation file
 		- E.g.: credential.store.keystore.url=/home/airavata/LocalAiravata/airavata-sym.jks
 	- Comment out the derby DB properties
