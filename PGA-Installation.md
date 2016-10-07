@@ -1,20 +1,21 @@
 ## PGA Installation
 
-[<button type="button" style="color:#f2f2f2;text-align:center;font-weight:normal;background-color:#3980c6;width:160px;border: 2px solid #3980c6;border-radius:4px">PGA on Cent OS</button>](#headPGACENTOS) &nbsp; &nbsp; &nbsp;
-[<button type="button" style="color:#f2f2f2;text-align:center;font-weight:normal;background-color:#3980c6;width:160px;border: 2px solid #3980c6;border-radius:4px">PGA on MAC OS</button>](#headPGAMAC)  &nbsp; &nbsp; &nbsp;
-[<button type="button" style="color:#f2f2f2;text-align:center;font-weight:normal;background-color:#3980c6;width:160px;border: 2px solid #3980c6;border-radius:4px">PGA on Ubuntu OS</button>](#headPGAUB)  &nbsp; &nbsp; &nbsp;
+<b>Pick your OS...</b></br/>
+[<button type="button" style="color:#f2f2f2;text-align:center;font-weight:lighter;background-color:#2481b9;width:160px;border: 2px solid #2481b9;border-radius:4px">Cent OS</button>](#headPGACENTOS) &nbsp; &nbsp; &nbsp;
+[<button type="button" style="color:#f2f2f2;text-align:center;font-weight:lighter;background-color:#2481b9;width:160px;border: 2px solid #2481b9;border-radius:4px">MAC OS</button>](#headPGAMAC)  &nbsp; &nbsp; &nbsp;
+[<button type="button" style="color:#f2f2f2;text-align:center;font-weight:lighter;background-color:#2481b9;width:160px;border: 2px solid #2481b9;border-radius:4px">Ubuntu OS</button>](#headPGAUB)  &nbsp; &nbsp; &nbsp;
 
 ### <a name="head1234">General Prerequisites</a>
-1. A Unix or Unix like operating system
-2. A web server (e.g apache web server) with PHP 5.4 or higher. Make sure have enabled mod_rewrite module in httpd.conf file and enable PHP SOAP extension
+1. A Unix or Unix like operating system.
+2. A web server (e.g apache web server) with PHP 5.4 or higher. Make sure to have enabled mod_rewrite module in httpd.conf file and enable PHP SOAP extension.
 3. Composer
 4. MYSQL database (Required if the user is hosting Airavata on his own. To communicate with hosted Airavata this step is not relevant)
 5. MCrypt PHP extension
 6. Enable OpenSSL PHP extension
-7. Follow instructions given in links to install the prerequisites based on the OS ;
-	- On Ubunutu: http://www.dev-metal.com/install-laravel-4-ubuntu-12-04-lts/
-	- On Centos: https://www.digitalocean.com/community/tutorials/how-to-install-laravel-4-on-a-centos-6-vps
-	- On MAC OS: http://sangatpedas.com/20140219/installing-laravel-osx-mavericks/
+7. Follow instructions given in links to install the prerequisites based on the OS.
+	- <a href="http://www.dev-metal.com/install-laravel-4-ubuntu-12-04-lts/" target="_blank"> Ubunutu prerequisites</a> 
+	- <a href="https://www.digitalocean.com/community/tutorials/how-to-install-laravel-4-on-a-centos-6-vps" target="_blank"> Cent OS prerequisites</a>
+	- <a href="http://sangatpedas.com/20140219/installing-laravel-osx-mavericks/" target="_blank"> MAC prerequisites</a>
 8. Important: Do not need to install Laravel. You can skip the steps given on the links
 9. WSO2 IS server
 
@@ -63,7 +64,6 @@ This is to make sure the gateway folder is readable by http
 9. ls - lZ shows the SELinux context. After the above chcon command do the same for storage folder as well 
 <pre><code>su -c "chcon -R -h -t httpd_sys_script_rw_t [fullpath]/app/storage”</code></pre>
 This is to make sure the storage folder is writable.
-<br></br>
 10. Configure firewall to allow http and https
 	- Check existing configurations using <pre><code>firewall-cmd --zone=public --list-services</code></pre> 
 	- To open access  for http <pre><code>firewall-cmd --zone=public --permanent --add-service=http</code></pre>
@@ -83,13 +83,13 @@ This is to make sure the storage folder is writable.
 
 
 ### <a name="headPGAMAC">PGA  Installation on MAC Yosemite OS</a>
-#### Pre-Installations
-1. To install MCrypt for PHP on MAC please follow the steps in http://coolestguidesontheplanet.com/install-mcrypt-php-mac-osx-10-10-yosemite-development-server/.
-2. First check wether your MAC has Apache installed. To check availability;
+#### Pre-Installation 
+1. Follow instructions in <a href="http://coolestguidesontheplanet.com/install-mcrypt-php-mac-osx-10-10-yosemite-development-server/." target="_blank">MCrypt Installation</a> for PHP on MAC
+2. First check whether your MAC has Apache installed. To check availability;
 <pre><code>apache ctrl start</code></pre>
 3. To stop running Apache use;
 <pre><code>apache ctl stop</code></pre>
-4. Once above is completed follow the steps given in https://web.archive.org/web/20150507101703/http://sangatpedas.com/20140219/installing-laravel-osx-mavericks for
+4. Once above is completed follow the <a href="https://web.archive.org/web/20150507101703/http://sangatpedas.com/20140219/installing-laravel-osx-mavericks" target="_blank"> Installation Steps</a> given for
 	- Configuring Apache
 	- Installing Composer (Use sudo commands as and when required for installation)
 5. To install Composer use 
@@ -97,7 +97,7 @@ This is to make sure the storage folder is writable.
 6. Then move Composer using 
 <pre><code>mv composer.phar /usr/local/bin/composer</code></pre>
 
-#### Download and Configure PGA
+#### PGA Installation 
 1. Go to cd /Library/WebServer/Documents
 2. Take a copy from GIT using 
 <pre><code>git clone https://github.com/apache/airavata-php-gateway.git</code></pre>
@@ -115,7 +115,6 @@ Script php artisan clear-compiled handling the post-update-cmd event returned wi
 [RuntimeException]
 Error Output:
 </code></pre>	
-
 7. Install mcrypt installation 
 <a href="http://coolestguidesontheplanet.com/install-mcrypt-php-mac-osx-10-10-yosemite-development-server/" target="_blank">MCrypt Installation</a>
 8. (Optional) Go to [PGA_HOME]/app/config/pga_config.php and change the configuration to match your settings
@@ -144,7 +143,7 @@ IMPORTANT: In places where the hosted PGA link is used please replace by your lo
 
 
 ### <a name="headPGAUB">PGA  Installation on Ubuntu OS</a>
-#### Pre-Installations
+#### Pre-Installation
 1. To install dependencies use commands in <a href="http://www.dev-metal.com/install-laravel-4-ubuntu-12-04-lts/" target="_blank">Ubuntu Installation</a>
 <br>In the command avoid installing mysql and mariaDB.
 2. Enable the appropriate extensions: navigate to php.ini
@@ -157,8 +156,7 @@ IMPORTANT: In places where the hosted PGA link is used please replace by your lo
 <pre><code>sudo vi /etc/httpd/conf/httpd.conf</code></pre>
 	- Find 'AllowOverride None' and change to 'AllowOverride All' (Two places to change)
 
-
-#### Download and Configure PGA
+#### PGA Installation
 1. The following guide give a sample installation starting from a fresh Ubunutu 12.04 installation. Similar instructions should be used in other operating systems.
 2. Update the ubuntu package manager
 <pre><code>sudo apt-get update</pre></code>
@@ -190,17 +188,3 @@ IMPORTANT: In places where the hosted PGA link is used please replace by your lo
 <br>(which should be there TWO times) and change both to “AllowOverride All“. Search for these two lines.</br>
 <br>
 11. Exit and save with CTRL+X, Y, ENTER.
-
-#### Download PGA from GIT
-1. Download PGA from github to the document root of you web server /var/www. 
-<br>
-2. Use git clone https://github.com/apache/airavata-php-gateway.git or download the zip from the github web page.
-<br>
-3. Go inside the PGA directory (e.g /var/www/airavata-php-gateway)<br>
-4. Make sure the storage folder is writable
-<pre><code>sudo chmod -R 755 app/storage</code></pre>
-5. Go to [PGA_HOME]/app/config/pga_config.php and change the configuration to match your settings<br>
-6. Now issue composer install command
-<pre><code>sudo composer install</code></pre>
-7. Restart the web server
-<pre><code>sudo service apache2 restart</code></pre>
