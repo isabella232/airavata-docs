@@ -1,10 +1,9 @@
 
 ## Install Apache Airavata
 
-<br><b>Click your option;</b></br>
-
-[<button type="button" style="color:#f2f2f2;text-align:center;font-weight:lighter;background-color:#2481b9;width:180px;border: 2px solid #3980c6;border-radius:4px">Airavata Prerequisites</button>](#Airavata) &emsp;
-[<button type="button" style="color:#f2f2f2;text-align:center;font-weight:lighter;background-color:#2481b9;width:180px;border: 2px solid #2481b9;border-radius:4px">Airavata on CentOS 7</button>](#AiravataCent) <br/>
+<b>Select...</b><br/>
+[<button type="button" style="color:#f2f2f2;text-align:center;font-weight:lighter;background-color:#2481b9;width:160px;border: 2px solid #3980c6;border-radius:4px">Airavata Prerequisites</button>](#Airavata) &emsp;
+[<button type="button" style="color:#f2f2f2;text-align:center;font-weight:lighter;background-color:#2481b9;width:160px;border: 2px solid #2481b9;border-radius:4px">Airavata on CentOS 7</button>](#AiravataCent) <br/>
 
 ### <h3 id="Airavata">General Prerequisites</h3>
 1. JAVA 8
