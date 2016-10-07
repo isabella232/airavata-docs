@@ -38,7 +38,7 @@
 8. Start maria DB with;
 <pre><code>systemctl start mariadb</code><pre>
 9. While maria DB is running run
-<pre><code>mysql _secure_installation</code></pre>
+<pre><code>mysql_secure_installation</code></pre>
 When executing above it will ask you for root password; provide it.
 10. Now login as the root user providing the password you gave above.
 10. Create databases required for Airavata
@@ -70,7 +70,7 @@ Path:
 5. Navigate to locally created directory (LocalAiravata) copy the tar file
 <pre><code>cp airavata/distribution/target/apache-airavata-server-0.16-SNAPSHOT-bin.tar.gz ./</code></pre>
 OR
-<pre><code>cp airavata/distribution/target/apache-airavata-server-0.16-SNAPSHOT-bin.tar.zip ./</code></pre>
+<pre><code>cp airavata/distribution/target/apache-airavata-server-0.16-SNAPSHOT-bin.zip ./</code></pre>
 6. Now unzip either the tar or zip file of Airavata server distribution;
 <pre><code>unzip apache-airavata-server-0.16-SNAPSHOT-bin.zip</code></pre>
 OR
@@ -82,7 +82,7 @@ For more information visit <a href="https://cwiki.apache.org/confluence/display/
 <pre><code>cd /LocalFolderPath/apache-airavata-server-0.16-SNAPSHOT/lib</code></pre>
 Now copy the mysql jar (e.g. mysql-connector-java-5.1.39-bin.jar) to lib  directory (<a href="http://dev.mysql.com/downloads/connector/j/" target="_blank">Download mysql.jar</a>).
 9. Navigate to bin folder which contains file airavata-server.properties and open it;
-<pre><code>vi apache-airavata-server-0.16-SNAPSHOT/bin</code></pre>
+<pre><code>vi apache-airavata-server-0.16-SNAPSHOT/bin/airavata-server.properties</code></pre>
 10. Update relevant necessary properties in airavata-server.properties file.<br>
 Change as required. For more details refer; <a href="../airavata-properties">Airavata Property File</a>.
 	- In sections; API Server Registry Configuration, Application Catalog DB Configuration, Data Catalog DB Configuration, Workflow Catalog DB Configuration, Credential Store Module Configuration<br>
@@ -97,8 +97,6 @@ Change as required. For more details refer; <a href="../airavata-properties">Air
 		- Give the correct path for key generation file. This is in the bin directory and it is shipped default with Airavata.<br>
 		apiserver.keystore=/home/airavata/LocalAiravata/apache-airavata-server-0.16-SNAPSHOT/bin/airavata.jks
 	- Credential Store module Configuration
-		- Make sure its set to 'true' in<br>
-		start.credential.store=true
 		- Add the path to SSH key generation file <br>
 		E.g.: credential.store.keystore.url=/home/airavata/LocalAiravata/airavata-sym.jks
 	-  API Security Configuration
@@ -129,9 +127,9 @@ Change as required. For more details refer; <a href="../airavata-properties">Air
     - Copy the sample config file to zoo.cfg:  cp conf/zoo_sample.cfg conf/zoo.cfg
     - Navigate to the Zookeeper bin directory and start zookeeper <pre><code>zkServer.sh start</code></pre>
 13. In bin start the Airavata server and monitor log messages; This may require JAVA_HOME to be defined. Some configurations such as in  bin/zoo.cfg and bin/airavata-server.properties  may have to be adjusted if some ports are already in use. Ports need to be open as well.
-<pre><code>sh airavata-server.sh start</code></pre> (This will run the airavata server in the background in demon mode)<br>
+<pre><code>sh airavata-server-start.sh all</code></pre> (This will run the airavata server in the background in demon mode)<br>
 14. If you are in the target folder use given to start Airavata server;<br>
-<pre><code>sh apache-airavata-server-0.16-SNAPSHOT/bin/airavata-server.sh start</code></pre>
+<pre><code>sh apache-airavata-server-0.16-SNAPSHOT/bin/airavata-server-start.sh all</code></pre>
 15. To monitor the server starting up, view the airavata server log;<br>
 <pre><code>tail -f logs/airavata.log</code></pre>	
 16. For subsequent Airavata copies; in the local Airavata folder where source code is cloned do a git clone https://github.com/apache/airavata.git for the latest trunk.
