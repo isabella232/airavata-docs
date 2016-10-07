@@ -1,9 +1,8 @@
 ## PGA Installation
 
-[<button type="button"  style="color:#3232ff;text-align:center;font-weight:bold;background-color:darkgray;width:200px;border-radius:4px">PGA on Cent OS</button>](#headPGACENTOS) &nbsp; &nbsp; &nbsp;
-[<button type="button" style="color:#3232ff;text-align:center;font-weight:bold;background-color:darkgray;width:200px;border-radius:4px">PGA on MAC OS</button>](#headPGAMAC)  &nbsp; &nbsp; &nbsp;
-[<button type="button" style="color:#3232ff;text-align:center;font-weight:bold;background-color:darkgray;width:200px;border-radius:4px">PGA on Ubuntu OS</button>](#headPGAUB)  &nbsp; &nbsp; &nbsp;
-
+[<button type="button" style="color:#f2f2f2;text-align:center;font-weight:normal;background-color:#3980c6;width:160px;border: 2px solid #3980c6;border-radius:4px">PGA on Cent OS</button>](#headPGACENTOS) &nbsp; &nbsp; &nbsp;
+[<button type="button" style="color:#f2f2f2;text-align:center;font-weight:normal;background-color:#3980c6;width:160px;border: 2px solid #3980c6;border-radius:4px">PGA on MAC OS</button>](#headPGAMAC)  &nbsp; &nbsp; &nbsp;
+[<button type="button" style="color:#f2f2f2;text-align:center;font-weight:normal;background-color:#3980c6;width:160px;border: 2px solid #3980c6;border-radius:4px">PGA on Ubuntu OS</button>](#headPGAUB)  &nbsp; &nbsp; &nbsp;
 
 ### <a name="head1234">General Prerequisites</a>
 1. A Unix or Unix like operating system
