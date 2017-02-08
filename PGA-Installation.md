@@ -40,9 +40,9 @@
 4. Create a directory in var/www/ for user data (E.g.:gateway-user-data). 
 5. Make this user data directory writeable by Apache httpd by making the following
 SELinux update as root:
-```
-chcon -R -t httpd_sys_rw_content_t /path/to/gateway-user-data
-```
+
+        chcon -R -t httpd_sys_rw_content_t /path/to/gateway-user-data
+
 6. Copy ./app/config/pga_config.php.template to ./app/config/pga_config.php 
 7. In pga_config.php change airavata server, change;
 	-  Airavata Client Configurations
