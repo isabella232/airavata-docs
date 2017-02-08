@@ -8,6 +8,7 @@ OR
 
 Issue Reporting
 Any issue encountered with Airavata or our gateway please log through;
+
 <a href="https://issues.apache.org/jira/browse/AIRAVATA-1889?jql=project%20%3D%20AIRAVATA" target="_blank">Airavata JIRA</a>
 <br></br>
 NOTE: If you don't have an account in Apache JIRA you have to create one prior to submitting issues.
