@@ -60,16 +60,57 @@ Project is simply a collection of experiments. When creating an experiment it wi
 ### <h3 id="GatewayAdmin">User Guide for Gateway Admin/PI</h3>
 For step by step user guide refer <a href="https://cwiki.apache.org/confluence/display/AIRAVATA/Tutorial+05+-+PHP+Reference+Gateway+for+Airavata+-+Gateway+Admin+Guide"target="_blank">Gateway Admin User Guide</a>
 
-<h5 id="application">Configure Applications</h5>
-1. How to make input file available as an executable?
+##### <h5 id="application">Application Property Descriptions</h5>
+1. Application Input Properties
+	- <b>Add Application Input:</b> </br>
+	Click this button to add inputs in Application Interface
+		- <b>Name:</b> </br>
+		Identifier of the application input
+		- <b>Value:</b></br> 
+		This could be a STRING value or it can also be used to set input file name.
+		- <b>Type: </b></br>
+		Input type, List contain STRING, INTEGER, FLOAT, URI, STDOUT and STDERR
+		- <b>Application Arguments: </b></br>
+		These are are the characters you would want on commandline in job execution for each input file or character input.
+		- <b>Standard Input: </b></br>
+		Futuristic property and not in real use at the moment
+		-<b> User Friendly Description: </b></br>
+		A description about the input to the gateway user. This will be displayed for users at experiment creation.
+		- <b>Input Order: </b></br>
+		this is a number field. This will be the order inputs displayed in experiment creation.
+		- <b>Data is Staged:</b></br>
+		- <b>Is the Input Required: </b></br>
+		Futuristic property and not in real use at the moment. Whether set to true or false all inputs are currently treated as mandatory.
+		- <b>Required in Commandline:</b></br> 
+		When this is set to true the arguments and the input file or the value will be available in job execution commandline in job script.
+		- <b>Meta Data:</b></br>
+2. Application Output Properties
+	- <b>Add Application Output</b></br>
+	Click this button to add outputs in Application Interface. Only the outputs added here will be brought back to PGA and displayed for users to download through the portal.
+		- <b>Name:</b></br> 
+		This is the label for the output.
+		- <b>Value:</b></br>
+		This would be the actual name of the output airavata brings back to the PGA.
+		- <b>Type:</b></br>
+		Tye of the output. This is mostly depended on the application. To troubleshoot for almost all applications define STDOUT and STDERR
+		- <b>Application Argument:</b></br>
+		This would be arguments for outputs need to be in commandline.
+		- <b>Data Movement: </b></br>
+		Futuristic property and not in real use at the moment. Whether set to true or false all outputs are currently brought back to PGA.
+		- <b>Is the Output required?:</b></br>
+		- <b>Required on command line?:</b></br>
+		When this is set to true the arguments and the output file or the value will be available in job execution commandline in job script.
+		- <b>Location:</b></br>
+		- <b>Search Query:</b></br>	
+3. How to make input file available as an executable?
 	- Input files defined are copied to the experiment working directory.
 	- To make available at commandline set 'Required on Commandline' = true
 	- To add a commandline argument for a given file add 'Application Argument' for each input file
-2. In Application Interface what is the use of 'Enable Optional File Inputs'	
+4. In Application Interface what is the use of 'Enable Optional File Inputs'	
 	- By setting 'Enable Optional File Inputs' = true user can add none or many input files at experiment creation.
 	- In Airavata any input file required for the application to execute need to be defined as a separate input.
     - When inputs are defined they are treated as 'Mandatory' inputs.
-3. To bring all the files in the working directory set 'Enable Archiving Working Directory' = true
-4. Where do I add remote resource execution commands?
+5. To bring all the files in the working directory set 'Enable Archiving Working Directory' = true
+6. Where do I add remote resource execution commands?
 	- In Admin Dashboard --> Application Deployment
 	
