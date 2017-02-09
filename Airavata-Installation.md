@@ -1,5 +1,4 @@
-
-## Install Apache Airavata
+##  <h2 id="AiravataCent">Install Apache Airavata</h2>
 
 <b>Select...</b><br/>
 [<button type="button" style="color:#f2f2f2;text-align:center;font-weight:lighter;background-color:#2481b9;width:160px;border: 2px solid #3980c6;border-radius:4px">Airavata Prerequisites</button>](#Airavata) &emsp;
@@ -131,3 +130,5 @@ Change as required. For more details refer; <a href="../airavata-properties">Air
 15. To monitor the server starting up, view the airavata server log;<br>
 <pre><code>tail -f logs/airavata.log</code></pre>	
 16. For subsequent Airavata copies; in the local Airavata folder where source code is cloned do a git clone https://github.com/apache/airavata.git for the latest trunk.
+
+Next is <a href="/PGA-Installation/" target="_blank">PGA Installation on CentOS 7</a>
