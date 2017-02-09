@@ -193,3 +193,5 @@ IMPORTANT: In places where the hosted PGA link is used please replace by your lo
 <br>(which should be there TWO times) and change both to “AllowOverride All“. Search for these two lines.</br>
 <br>
 11. Exit and save with CTRL+X, Y, ENTER.
+
+Go to <a href="/Airavata-Installation/" target="_blank">Airavata Installation on CentOS 7</a>
