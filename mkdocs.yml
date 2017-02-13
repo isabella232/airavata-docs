@@ -6,13 +6,13 @@ docs_dir: .
 pages:
 - <h5>Home</h5>: 'index.md'
 - <h5>User Guide</h5>: 'User-Guide.md'
-- <h5>Installations</h5>:
-    - Airavata: 'Airavata-Installation.md'
-    - PGA: 'PGA-Installation.md'
-    - WSO2 IS: 'Own-WSO2-IS-Configuration.md'
-    - Airavata Property File: 'airavata-properties.md'
-    - Installation FAQ: 'FAQ.md'
+- <h5>System Installations</h5>:
+  - Airavata: 'Airavata-Installation.md'
+  - PGA: 'PGA-Installation.md'
+  - WSO2 IS: 'Own-WSO2-IS-Configuration.md'
+  - Airavata Property File: 'airavata-properties.md'
 - <h5>Configuration</h5>:
+  - Admin Tutorials: 'Admin-Tutorials.md'
   - PGA: 'Gateway-Configurations.md'
   - WSO2 IS: 'WSO2-IS-Configuration.md'
 - <h5>Gateway Maintenance</h5>:
@@ -24,6 +24,7 @@ pages:
   - User Profiles: 'User-Profiles.md'
   - Applications: 'Application-CookBook.md'
   - Airavata API: 'AiravataApi.md'
+- <h5>FAQ</h5>: 'FAQ.md'
 - <h5>Contact Us</h5>: 'Contact-Us.md'
 
 theme: readthedocs
