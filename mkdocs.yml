@@ -21,6 +21,7 @@ pages:
       - PGA: 'PGA-Upgrades.md'
   - <h6>Admin Dashboard</h6>: 'Admin-Maintenance.md'
 - <h5>Documentation</h5>:
+  - User Tutorials: 'User-Tutorials.md'
   - User Profiles: 'User-Profiles.md'
   - Applications: 'Application-CookBook.md'
   - Airavata API: 'AiravataApi.md'
