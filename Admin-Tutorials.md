@@ -82,7 +82,7 @@ Quickest way to confirm Airavata and PGA setup. This will tell you what you need
         - Application Module: Echo
         - Application Compute Host: Local (Local machine has to be added as a compute resource prior to this step)
         - Application Executable Path: /home/airavata/ECHO/echo_wrapper.sh (Local to where you have airavata installed)
-        - Application Parallelism Type: SERIAL
+        - Application Parallelism Type: SERIAL </br>
 ![Screenshot](img/AppDeployment.png)
 4. Echo_wrapper.sh contains;
 <pre><code>
@@ -168,7 +168,7 @@ This is a tutorial to configuring and running an application on XSEDE resource t
         - Application Parallelism Type: SERIAL
         - Application Deployment Description: Gaussian provides capabilities for electronic structure modeling.
         - Module Load Commands: module load gaussian
-        - Post Job Commands: mkdir -p "$PWD"_restart; cp *.chk ${pwd}_restart; mv *.rwf* ${pwd}_restart; (Why? - any command you would want to execute after post job execution)
+        - Post Job Commands: mkdir -p "$PWD"_restart; cp *.chk ${pwd}_restart; mv *.rwf* ${pwd}_restart; (Why? - any command you would want to execute after post job execution)</br>
 ![Screenshot](img/GauAppDep.png)
 
 Work-in-Progress
