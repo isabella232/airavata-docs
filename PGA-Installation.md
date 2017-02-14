@@ -194,4 +194,4 @@ IMPORTANT: In places where the hosted PGA link is used please replace by your lo
 <br>
 11. Exit and save with CTRL+X, Y, ENTER.
 
-Go to <a href="/Airavata-Installation/" target="_blank">Airavata Installation on CentOS 7</a>
+Go to <a href="Airavata-Installation" target="_blank">Airavata Installation on CentOS 7</a>
