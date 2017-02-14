@@ -4,19 +4,35 @@ This page is dedicated to Gateway Admins!
 
 ### Prior to starting your configurations
 1. You have admin access to the PGA portal, Admin Dashboard
+    - How to check?
+        - Log in to the gateway portal
+        - You would land on Admin Dashboard with "Let's Get Started!"
+        - Click 'Browse Application Modules'
+        - Do you see button 'Create new Application Interface' ? Then you are good.
 2. Storage resource ID added to the pga_config.php </br>
-3. Credentials generated, updated in PGA and added to authorized_keys file in compute resources
-4. Credentials generated, updated in PGA and added to authorized_keys file in storage resources
+    - If not go to  
+        - Admin Dashboard --> Storage Resources --> Browse
+        - Locate your resource and copy the ID
+        - Paste it in pga_config.php file in pga/app/config directory.
+3. Credentials generated, assigned and added to authorized_keys files of resources
+    - To generate key refer <a href=/Gateway-Configurations/#Credentials> Credential Store</a>
+    - Token Assignment <a href=/Gateway-Configurations/#Preference> Gateway Management</a>
+    - Copy the public key for the assigned token frm credential store and add it to authorized_keys file in both compute and storage resources.
 
 NOTE: If you are using a hosted gateway the 2 and 4 would be taken cared by the SciGaP team.
 
 ### Select Your Quick Start Tutorial
 1. <a href="#LocalJob">Running Echo on Local Machine</a></br>
 2. <a href="#GaussianJob">Gaussian Job Submission to Comet (XSEDE resource)</a></br>
-3. <a href="#PrePostCommands">Add Environment Variables, Pre and Post Job Commands for an Application</a></br>
-4. <a href="#SampleApp">Samples Application Configurations</a></br>
-5. <a href= "#QOS&Reservation">Add Gateway QOS and Reservation for a Cluster</a></br>
-6. <a href= "#Preference">Add Storage Resource Preferences</a></br>
+3. <a href="#PrePostCommands">Add Pre and Post Job Commands for an Application</a></br>
+4. <a href="#SampleApp">Add Environment Variables for an Application Deployment</a></br>
+5. <a href= "#Resources">Know your Compute & Storage Resources</a></br>
+6. <a href= "#Preference">Gateway Preference Management</a></br>
+7. <a href= "#GtwyAccess">Managing User Accounts</a></br>
+8. <a href= "#Notices">Communication with Gateway Users</a></br>
+9. <a href= "#Traffic">Monitor Gateway Traffic</a></br>
+10. <a href= "#Secure">Using Credential Store</a></br>
+
 
 #####<h5 id="LocalJob">Running Echo on Local Machine</h5>
 Quickest way to confirm Airavata and PGA setup. This will tell you what you need to do to Echo a simple 'Hello World' in your local machine
@@ -170,6 +186,11 @@ This is a tutorial to configuring and running an application on XSEDE resource t
         - Module Load Commands: module load gaussian
         - Post Job Commands: mkdir -p "$PWD"_restart; cp *.chk ${pwd}_restart; mv *.rwf* ${pwd}_restart; (Why? - any command you would want to execute after post job execution)</br>
 ![Screenshot](img/GauAppDep.png)
+
+##### <h5 id="PrePostCommands">Add Pre and Post Job Commands for an Application</h5>
+This tutorial demonstrates use of pre and post job commands and how they appear in job submission script
+
+1. 
 
 Work-in-Progress
 
