@@ -102,7 +102,66 @@ What should i do?
 
 ### <h3 id="ConfigFGAQ">Configuration FAQs</h3>
 
-Coming Soon
+	
+<br><b class="blue"> Q1 </b> What each application input property mean? </br>
+<b class="blue">Answer: </b> </br>
+    - <b>Name:</b> </br>
+    Identifier of the application input</br>
+    - <b>Value:</b></br> 
+    This could be a STRING value or it can also be used to set input file name.</br>
+    - <b>Type: </b></br>
+    Input type, List contain STRING, INTEGER, FLOAT, URI, STDOUT and STDERR</br>
+    - <b>Application Arguments: </b></br>
+    These are are the characters you would want on commandline in job execution for each input file or character input.</br>
+    - <b>Standard Input: </b></br>
+    Futuristic property and not in real use at the moment</br>
+    -<b> User Friendly Description: </b></br>
+    A description about the input to the gateway user. This will be displayed for users at experiment creation.</br>
+    - <b>Input Order: </b></br>
+    this is a number field. This will be the order inputs displayed in experiment creation.</br>
+    - <b>Data is Staged:</b></br>
+    - <b>Is the Input Required: </b></br>
+    Futuristic property and not in real use at the moment. Whether set to true or false all inputs are currently treated as mandatory.</br>
+    - <b>Required in Commandline:</b></br> 
+    When this is set to true the arguments and the input file or the value will be available in job execution commandline in job script.</br>
+    - <b>Meta Data:</b></br>
+
+<br><b class="blue"> Q2 </b> Application Output Properties</br>
+<b class="blue">Answer: </b>
+<b>Add Application Output</b></br>
+    - <b>Name:</b></br> 
+    This is the label for the output.</br>
+    - <b>Value:</b></br>
+    This would be the actual name of the output airavata brings back to the PGA.</br>
+    - <b>Type:</b></br>
+    Tye of the output. This is mostly depended on the application. To troubleshoot for almost all applications define STDOUT and STDERR</br>
+    - <b>Application Argument:</b></br>
+    This would be arguments for outputs need to be in commandline.</br>
+    - <b>Data Movement: </b></br>
+    Futuristic property and not in real use at the moment. Whether set to true or false all outputs are currently brought back to PGA.</br>
+    - <b>Is the Output required?:</b></br>
+    - <b>Required on command line?:</b></br>
+    When this is set to true the arguments and the output file or the value will be available in job execution commandline in job script.</br>
+    - <b>Location:</b></br>
+    - <b>Search Query:</b></br>	
+
+<br><b class="blue"> Q3 </b> How to make input file available as an executable?</br>
+<b class="blue">Answer: </b><br>
+    - Input files defined are copied to the experiment working directory.</br>
+    - To make available at commandline set 'Required on Commandline' = true</br>
+    - To add a commandline argument for a given file add 'Application Argument' for each input file</br>
+
+<br><b class="blue"> Q4 </b> In Application Interface what is the use of 'Enable Optional File Inputs'	</br>
+<b class="blue">Answer: </b></br>
+    - By setting 'Enable Optional File Inputs' = true user can add none or many input files at experiment creation.</br>
+    - In Airavata any input file required for the application to execute need to be defined as a separate input.</br>
+    - When inputs are defined they are treated as 'Mandatory' inputs.</br>
+
+<br><b class="blue"> Q5 </b> Where do I add remote resource execution commands?</br>
+<b class="blue">Answer: </b>In Admin Dashboard --> Application Deployment </br>
+- Add module load commands</br>
+- Pre and post job commands</br>
+- Environment variables
 
 ### <h3 id="userFAQ"> User FAQs </h3>
 <b class="blue"> Q1 </b> What is the Project? </br>
@@ -153,66 +212,7 @@ Coming Soon
 
 <br><b class="blue"> Q12 </b> I want to change the wall-time of my experiment before launch. How can I do?<br/>
 <b class="blue">Answer: </b> Experiments in CREATED state can be modified through Experiment Summary page. Click 'Edit' change values and Save or Save and Launch.
-	
-<br><b class="blue"> Q13 </b> What each application input property mean? </br>
-<b class="blue">Answer: </b> </br>
-    - <b>Name:</b> </br>
-    Identifier of the application input</br>
-    - <b>Value:</b></br> 
-    This could be a STRING value or it can also be used to set input file name.</br>
-    - <b>Type: </b></br>
-    Input type, List contain STRING, INTEGER, FLOAT, URI, STDOUT and STDERR</br>
-    - <b>Application Arguments: </b></br>
-    These are are the characters you would want on commandline in job execution for each input file or character input.</br>
-    - <b>Standard Input: </b></br>
-    Futuristic property and not in real use at the moment</br>
-    -<b> User Friendly Description: </b></br>
-    A description about the input to the gateway user. This will be displayed for users at experiment creation.</br>
-    - <b>Input Order: </b></br>
-    this is a number field. This will be the order inputs displayed in experiment creation.</br>
-    - <b>Data is Staged:</b></br>
-    - <b>Is the Input Required: </b></br>
-    Futuristic property and not in real use at the moment. Whether set to true or false all inputs are currently treated as mandatory.</br>
-    - <b>Required in Commandline:</b></br> 
-    When this is set to true the arguments and the input file or the value will be available in job execution commandline in job script.</br>
-    - <b>Meta Data:</b></br>
 
-<br><b class="blue"> Q14 </b> Application Output Properties</br>
-<b class="blue">Answer: </b>
-<b>Add Application Output</b></br>
-    - <b>Name:</b></br> 
-    This is the label for the output.</br>
-    - <b>Value:</b></br>
-    This would be the actual name of the output airavata brings back to the PGA.</br>
-    - <b>Type:</b></br>
-    Tye of the output. This is mostly depended on the application. To troubleshoot for almost all applications define STDOUT and STDERR</br>
-    - <b>Application Argument:</b></br>
-    This would be arguments for outputs need to be in commandline.</br>
-    - <b>Data Movement: </b></br>
-    Futuristic property and not in real use at the moment. Whether set to true or false all outputs are currently brought back to PGA.</br>
-    - <b>Is the Output required?:</b></br>
-    - <b>Required on command line?:</b></br>
-    When this is set to true the arguments and the output file or the value will be available in job execution commandline in job script.</br>
-    - <b>Location:</b></br>
-    - <b>Search Query:</b></br>	
-
-<br><b class="blue"> Q15 </b> How to make input file available as an executable?</br>
-<b class="blue">Answer: </b><br>
-    - Input files defined are copied to the experiment working directory.</br>
-    - To make available at commandline set 'Required on Commandline' = true</br>
-    - To add a commandline argument for a given file add 'Application Argument' for each input file</br>
-
-<br><b class="blue"> Q16 </b> In Application Interface what is the use of 'Enable Optional File Inputs'	</br>
-<b class="blue">Answer: </b></br>
-    - By setting 'Enable Optional File Inputs' = true user can add none or many input files at experiment creation.</br>
-    - In Airavata any input file required for the application to execute need to be defined as a separate input.</br>
-    - When inputs are defined they are treated as 'Mandatory' inputs.</br>
-
-<br><b class="blue"> Q17 </b> Where do I add remote resource execution commands?</br>
-<b class="blue">Answer: </b>In Admin Dashboard --> Application Deployment </br>
-- Add module load commands</br>
-- Pre and post job commands</br>
-- Environment variables
 	
 	
 
