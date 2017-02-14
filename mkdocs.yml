@@ -5,7 +5,6 @@ docs_dir: .
 
 pages:
 - <h5>Home</h5>: 'index.md'
-- <h5>User Guide</h5>: 'User-Guide.md'
 - <h5>System Installations</h5>:
   - Airavata: 'Airavata-Installation.md'
   - PGA: 'PGA-Installation.md'
