@@ -131,4 +131,4 @@ Change as required. For more details refer; <a href="../airavata-properties">Air
 <pre><code>tail -f logs/airavata.log</code></pre>	
 16. For subsequent Airavata copies; in the local Airavata folder where source code is cloned do a git clone https://github.com/apache/airavata.git for the latest trunk.
 
-Next is <a href="/PGA-Installation/" target="_blank">PGA Installation on CentOS 7</a>
+Next is <a href="PGA-Installation" target="_blank">PGA Installation on CentOS 7</a>
