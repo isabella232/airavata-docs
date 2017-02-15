@@ -2,7 +2,7 @@
 ### You Need to Have
 1. Airavata & PGA installed and running.
 2. Tenant created in WSO2 IS hosted by you or Airavata team.
-3. Administrator privileges to the gateway.
+3. Administrator privileges to the gateway. (How do you know? - Can you view Admin Dashboard and view buttons to create applications)
 <br>
 <br>
 ### Apache Airavata Component Configuration
@@ -69,7 +69,9 @@
 ### <h3 id="AppCatalog">Application Catalog</h3>
 1. Gateway admin add applications in to the gateway. Adding an application is a 3 step process.
 2. Admin need to add application module, interface and deployment information in order to launch specific application jobs on compute resources.
-3. What each step means?
+3. Relationship between application module, interface and deployments.
+![Screenshot](img/AppCatalog.png)
+4. What each step means?
 	- <b class="blue">Application Module</b>
 		- Navigation: Admin Dashboard &#8658; App Catalog &#8658; Module
 		- This is the simple introduction of the application; Name, Version and Description.
@@ -88,14 +90,16 @@
 		- Navigation: Admin Dashboard &#8658; App Catalog &#8658; Deployment
 			- Application deployment describes application deployment details on a specific resource.
 			- For an application for each resource there is a separate deployment.
+			- A single application can be deployed in multiple resources.
+			- Multiple application modules can be deployed in a single resource. E.g: Gaussian09 and Gaussian16 both exists in bridges.psc.edu and they both use same application interface.
 <br>
 <br>
 ### <h3 id="Credentials">Credential Store</h3>
 1. Navigation: Admin Dashboard &#8658; Credential Store
 2. This interface is used to generate SSH key + token pairs.
 3. These generated keys can be added in to the authorized key files in each resource for SSH key based communication.
-4. Generated key can be either assigned at gateway level; one key + token pair  for all the resources OR have separate keys for each resource.
-5. SSH keys are used for communication with compute resources and storage resources.
+4. Generated key can be either assigned at gateway level; one key + token pair  for all the resources OR have separate key for each resource.
+5. SSH keys are used for communication with compute resources, storage resources and WSO2 identity server.
 
 ### <h3 id="Preference">WSO2 IS Configuration</h3>
 1. Setting up WSO2 IS for the new gateway.
