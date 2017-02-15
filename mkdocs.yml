@@ -22,7 +22,7 @@ pages:
 - <h5>Documentation</h5>:
   - User Tutorials: 'User-Tutorials.md'
   - User Profiles: 'User-Profiles.md'
-  - Applications: 'Application-CookBook.md'
+  - Software Applications: 'Application-CookBook.md'
   - Airavata API: 'AiravataApi.md'
 - <h5>FAQ</h5>: 'FAQ.md'
 - <h5>Contact Us</h5>: 'Contact-Us.md'
