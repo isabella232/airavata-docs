@@ -24,6 +24,11 @@ pages:
   - User Profiles: 'User-Profiles.md'
   - Software Applications: 'Application-CookBook.md'
   - Airavata API: 'AiravataApi.md'
+- <h5>Technical Documentation</h5>:
+  - <h6>Sharing Documentation</h6>:
+      - Index: 'Sharing-Docs.md'
+      - Sharing CPI: 'CPI.md'
+      - Sharing Models: 'Models.md'
 - <h5>FAQ</h5>: 'FAQ.md'
 - <h5>Contact Us</h5>: 'Contact-Us.md'
 
