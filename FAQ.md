@@ -98,11 +98,9 @@ Error: ERROR org.apache.airavata.registry.core.app.catalog.impl.StorageResourceI
 java.lang.RuntimeException: Failed to create database connection pool. <br>
 
 What should i do?
-<br><b class="blue">Answer: </b> Airavata cannot create database connection ebcause the mysql jar is not eixsting. Please follow step 8 of documentation in Installation --> Airavata --> Airavata Installation
+<br><b class="blue">Answer: </b> Airavata cannot create database connection because the mysql jar is not existing. Please follow step 8 of documentation in Installation --> Airavata --> Airavata Installation
 
 ### <h3 id="ConfigFGAQ">Configuration FAQs</h3>
-
-	
 <br><b class="blue"> Q1 </b> What each application input property mean? </br>
 <b class="blue">Answer: </b> </br>
     - <b>Name:</b> </br>
@@ -148,8 +146,8 @@ What should i do?
 <br><b class="blue"> Q3 </b> How to make input file available as an executable?</br>
 <b class="blue">Answer: </b><br>
     - Input files defined are copied to the experiment working directory.</br>
-    - To make available at commandline set 'Required on Commandline' = true</br>
-    - To add a commandline argument for a given file add 'Application Argument' for each input file</br>
+    - Input files will be available in commandline when 'Required on Commandline' = true</br>
+    - To add a commandline argument for a input file add 'Application Argument' for each input file. This will also define the order of files in commandline.</br>
 
 <br><b class="blue"> Q4 </b> In Application Interface what is the use of 'Enable Optional File Inputs'	</br>
 <b class="blue">Answer: </b></br>
@@ -205,7 +203,7 @@ What should i do?
 	Experiments only in operation (LAUNCHED, EXECUTING experiment statuses) can be cancelled.
 
 <br><b class="blue"> Q10 </b> 2. When I cancel do I still receive any outputs generated?<br/>
-<b class="blue">Answer: </b> When the user requested the cancel files will be not transferred from the remote resource. But however by the time 'Cancel' was triggered if the output files were transferred to PGA data directories they will be displayed.
+<b class="blue">Answer: </b> Files will be not transferred from the remote resource if the experiment is cancelled. However, if the output files were transferred to PGA data directories prior to the cancel request then they will be displayed.
 
 <br><b class="blue"> Q11 </b> How can I run same application with different different inputs?<br/>
 <b class="blue">Answer: </b> Simply clone an existing experiment and change the input files and launch.
