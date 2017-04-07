@@ -10,7 +10,7 @@
 2. Gateway Admin need to configure;<br>
 	- <a href="#CompResource">Compute Resources</a><br>
 	- <a href="#StoreResource">Storage Resources</a><br>
-	- <a href= "#Preference">Resource Preferences</a><br>
+	- <a href= "#Preference">Gateway Management</a><br>
 	- <a href= "#AppCatalog">Application Catalog</a><br>
 		- Application Module<br>
 		- Application Interface<br>
@@ -18,14 +18,19 @@
 	- <a href= "#Credentials">Credential Store</a>
 		- Generate Credential Store Token + SSH Key.
 		- Add these to authorized key files and into resource preferences.
-<br>
+	- <a href= "#Notices">Notices</a>
+		- Notices for all active gateway users.
+	- <a href= "#ISConfiguration">Identity Management</a>	
+
+<b>NOTE</b>: for gateways hosted by SciGaP gateway admins/PIs not required to register the compute resources and storage resource. Please skip the 1st and 2nd and go to Gateway Management section.
 <br>
 ###<h3 id="CompResource">Compute Resources</h3>
 1. Navigate to Admin Dashboard &#8658; Compute Resources &#8658; Register
 2. Add Host Name, Description and create the resource.
+<br>Hint: host name is used when ssh to the resource from airavata.
 3. Then keep adding information on rest of the appeared tabs.
-	- Queues (Queue name is uniqie and cannot be updated. Can delete and create new if required)
-	- File Systems (This is only for information capturing for future use. Currently this information is not used)
+	- Queues (Queue name is unique and cannot be updated. Can delete and create new if required)
+	- File Systems (This is only for information capturing for future use. Currently this information is not used. So can skip if you want)
 	- Job Submission Interfaces
 	- Data Movement Interfaces
 5. Similarly you can add multiple compute resources in to your gateway by selecting 'Register' from the left-hand-side menu.
@@ -38,13 +43,14 @@
 2. Add Storage Name, Description and create the resource.
 3. Then add data storage information in
 	- Data Movement Interfaces
-5. Similarly you can add multiple storage resources in to your gateway by selecting 'Register' from the left-hand-side menu.
-6. To view the added resources navigate to Admin Dashboard &#8658; Storage Resources &#8658; Browse
-7. All the resources will be listed. Gateway admin can view, edit, delete them.
+4. Similarly you can add multiple storage resources in to your gateway by selecting 'Register' from the left-hand-side menu.
+5. To view the added resources navigate to Admin Dashboard &#8658; Storage Resources &#8658; Browse
+6. All the resources will be listed. Gateway admin can view, edit, delete them. 
+7. Although enable and disable can be done in registration it's functionality is not yet implemented.
 <br>
 <br>
-###<h3 id="Preference">GatewayPreferences for Resources</h3>
-1. Navigate Admin Dashboard &#8658; Gateway Profile
+###<h3 id="Preference">Gateway Management of Resources</h3>
+1. Navigate Admin Dashboard &#8658; Gateway Management
 2. Both compute resource and storage resource specific preferences are defined here.
 3. To add compute resource related preferences click "Add a Compute Resource Preference" and select the resource from the drop-down list.
 4. Add/select preferred options and click "Set preferences".
@@ -52,11 +58,16 @@
 4. For each compute resource, gateway admin need to specify;
   	- Preferences can be overridden by Airavata - Yes/No?
   	- Resource login name
-  	- Preferred job submission and data movement protocols
+  	- Preferred job submission protocols
+  	- Preferred data movement protocols
   	- Preferred queue
   	- Scratch location
   	- Project allocation number
-  	- Resource specific credential store token (When added Base Credential Store Token is not valid for the specific resource)
+  	- Resource specific credential store token <br>(When added Base Credential Store Token is not valid for the specific resource)
+  	- Gateway ID for usage reporting <br>(This field will only appear if the compute resource registration is set to report usage details back to the resource)
+  	- Quality of service
+  	- Reservation name
+  	- Reservation start and end date time
 5. For adding storage resource preference click "Add a Storage Resource Preferences", and rest is similar to adding a compute resource preference.
 6. For a gateway currently when a storage resource is selected, that resource ID need to be added in to the pga_config.php file in config folder of the hosted gateway.
 7. For storage resource preference, gateway admin need to add;
@@ -101,7 +112,7 @@
 4. Generated key can be either assigned at gateway level; one key + token pair  for all the resources OR have separate key for each resource.
 5. SSH keys are used for communication with compute resources, storage resources and WSO2 identity server.
 
-### <h3 id="Preference">WSO2 IS Configuration</h3>
+### <h3 id="ISConfiguration">Identity Server Configuration</h3>
 1. Setting up WSO2 IS for the new gateway.
 2. Once PGA is cloned all information related to user identity will be in app/config/pga_config.php. No modifications required for users who are using 	hosted IS.
 3. For user identity management we could either use Airavata WSO2 IS or users own WSO2 IS.
