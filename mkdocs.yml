@@ -11,9 +11,9 @@ pages:
   - WSO2 IS: 'Own-WSO2-IS-Configuration.md'
   - Airavata Property File: 'airavata-properties.md'
 - <h5>Configuration</h5>:
-  - Admin Tutorials: 'Admin-Tutorials.md'
   - PGA: 'Gateway-Configurations.md'
   - WSO2 IS: 'WSO2-IS-Configuration.md'
+  - Admin Tutorials: 'Admin-Tutorials.md'
 - <h5>Gateway Maintenance</h5>:
   - <h6>Code Upgrades</h6>:
       - Airavata: 'Airavata-Upgrades.md'
