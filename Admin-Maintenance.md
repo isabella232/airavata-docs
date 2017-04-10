@@ -64,7 +64,7 @@ NOTE: In order to enable disable resources you require super admin rights to the
 1. Gateway admin can switch between options of opening the gateway to all account creations OR gateway admin to activate accounts after creation.
 2. In order to do open the gateway to all,
         - If the gateway is hosted by Airavata team, please request from them
-        - If you are hosting the gateway navigate to <pre><code>vi /var/www/html/airavata-php-gateway/app/config/pga_config.php</code></pre> Then change the initial user role to 'gateway-user'
+        - If you are hosting the gateway, navigate to <pre><code>vi /var/www/html/airavata-php-gateway/app/config/pga_config.php</code></pre> Then change the initial user role to 'gateway-user'
         <pre><code>
                 /**
                  * Initial user role. This is the initial user role assigned to a new
