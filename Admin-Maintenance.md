@@ -1,19 +1,24 @@
 ## Gateway Maintenance
 
-### <h3 id="Airavata"> Assist Gateway Users</h3>
 <b class="blue">Q1.</b> One of my gateway users wants me to investigate his FAILED experiment. How should I proceed?
 <br><b class="blue">Answer:</b> To investigate a specific FAILED experiment or failed experiment within a time frame,<br>
 1. Navigate to AdminDashboard &#8658; Experiment Statistics <br>
-2. Search the experiment by using the experiment ID or by giving the Creation Time 'To' and 'From' <br>
-3. You could also use pre-defined selection criteria ('Get Experiments from Last 24 Hours' OR 'Get Experiments from Last Week')<br/>
+2. Search the experiment by using the experiment ID. <br>
+OR
+3. Search by providing the creation time period. You can further filter by giving <br>
+        - Gateway username<br>
+        - Application<br>
+        - Compute Resource <br>
+4. You could also use pre-defined selection criteria ('Get Experiments from Last 24 Hours' OR 'Get Experiments from Last Week')<br/>
+5. Once the experiment/s listed click on the 'Check Stats'
+6. Experiment task breakdown is listed and as the admin you could locate which task failed. Advice the gateway user accordingly.
 
-
-### <h3 id="Airavata">Day-to-Day Maintenance</h3>
 <b class="blue">Q2.</b> One of the resources used by my gateway is not available for the day. How to stop user job submissions?
 <br><b class="blue">Answer:</b> To temporarily stop users submitting jobs to a particular resource...<br>
 1. Navigate to AdminDashboard &#8658; Compute Resources (Browse)<br>
 2. Un-check the  'Enabled' box for the specific resource. This disables job submissions for the resource<br>
 3. To enable job submission simply check the box and you are back in track!<br>
+NOTE: In order to enable disable resources you require super admin rights to the gateway. If not you need to contact SciGaP admins.
 
 <b class="blue">Q3.</b> How to upgrade access for a gateway user?
 <br><b class="blue">Answer:</b> User access can be upgraded or downgraded by changing the assigned user role.<br>
@@ -53,3 +58,19 @@
 1.  Navigate to Admin Dashboard&#8658;Notices <br>
 2. Use 'Create a New Notice' button add a new notice. <br>
 3. Based on the published date you provided it will be available for users as a Notice !
+
+<b class="blue">Q7.</b> How to open the gateway to any user who create an user account? In the gateway not required to enable/activate user accounts.
+<br><b class="blue">Answer:</b><br>
+1. Gateway admin can switch between options of opening the gateway to all account creations OR gateway admin to activate accounts after creation.
+2. In order to do open the gateway to all,
+        - If the gateway is hosted by Airavata team, please request from them
+        - If you are hosting the gateway navigate to <pre><code>vi /var/www/html/airavata-php-gateway/app/config/pga_config.php</code></pre> Then change the initial user role to 'gateway-user'
+        <pre><code>
+                /**
+                 * Initial user role. This is the initial user role assigned to a new
+                 * user. Set this to one of the three roles above to automatically
+                 * grant new users that role, or set to some other role ('user-pending')
+                 * to require admin approval before users have access.
+                 */
+                'initial-role-name' => 'gateway-user',
+        </code></pre>
