@@ -9,7 +9,7 @@ This page is dedicated to Gateway Admins!
         - You would land on Admin Dashboard with "Let's Get Started!"
         - Click 'Browse Application Modules'
         - Do you see button 'Create new Application Interface' ? Then you are good.
-2. Storage resource ID added to the pga_config.php </br>
+2. Storage resource ID is added to the pga_config.php </br>
     - If not go to  
         - Admin Dashboard --> Storage Resources --> Browse
         - Locate your resource and copy the ID
@@ -35,10 +35,10 @@ NOTE: If you are using a hosted gateway the 2 and 4 would be taken cared by the 
 
 
 #####<h5 id="LocalJob">Running Echo on Local Machine</h5>
-Quickest way to confirm Airavata and PGA setup. This will tell you what you need to do to Echo a simple 'Hello World' in your local machine
+Quickest way to confirm Airavata and PGA setup. This will tell you what you need to do to Echo a simple 'Hello World' in your local machine.
 
 1. Create new application module: Echo
-    - Navigate to Admin Dashboard &rarr; App Catalog &rarr; Apllication Module 
+    - Navigate to Admin Dashboard &rarr; App Catalog &rarr; Application Module 
     - Click Create a new Application Module
     - Enter Application Module Name: Echo
     - Enter Application Module Version: Echo 1.0 (Not mandatory)
@@ -61,6 +61,7 @@ Quickest way to confirm Airavata and PGA setup. This will tell you what you need
         - Type: STRING
         - Application Arguments:
         - Standard Input: False (Why? - Futuristic property and not in real use at the moment)
+        - Is Read Only: False (Why? - When this is set to true the input value will only be 'read-only'. User cannot change at experiment creation,edit or clone).
         - User Friendly Description: Enter STRING input for Echo (Not mandatory)
         - Input Order: 1
         - Data is Staged: True
@@ -100,7 +101,7 @@ Quickest way to confirm Airavata and PGA setup. This will tell you what you need
         - Application Executable Path: /home/airavata/ECHO/echo_wrapper.sh (Local to where you have airavata installed)
         - Application Parallelism Type: SERIAL </br>
 ![Screenshot](img/AppDeployment.png)
-4. Echo_wrapper.sh contains;
+4. echo_wrapper.sh contains;
 <pre><code>
     #!/bin/bash
     #sleep 10
@@ -111,13 +112,14 @@ Quickest way to confirm Airavata and PGA setup. This will tell you what you need
 This is a tutorial to configuring and running an application on XSEDE resource through PGA portal.
 
 1. Create new application module: Gaussian
-    - Navigate to Admin Dashboard &rarr; App Catalog &rarr; Apllication Module 
+    - Navigate to Admin Dashboard &rarr; App Catalog &rarr; Application Module 
     - Click Create a new Application Module
     - Enter Application Module Name: Gaussian
     - Enter Application Module Version: Gaussian 09 (Not mandatory)
     - Enter Description: Gaussian provides capabilities for electronic structure modeling
     - Create
     - This create the Gaussian module </br>
+![Screenshot](img/GauAppMod.png)
 2. Create the application interface: Gaussian
     - Navigate to Admin Dashboard &rarr; App Catalog &rarr; Application Interface
     - Click 'Create new Application Interface'
@@ -130,7 +132,7 @@ This is a tutorial to configuring and running an application on XSEDE resource t
         - Click Add Application Input
         - Name: Input-File
         - Value: 
-        - Type: URI (Why - This is the type for file uploads)
+        - Type: URI (Why? - This is the type for file uploads)
         - Application Arguments:
         - Standard Input: False (Why? - Futuristic property and not in real use at the moment)
         - User Friendly Description: Gaussian input file specifying desired calculation type, model chemistry, molecular system and other parameters. (This is information to the user at creating job experiment. Not mandatory)
