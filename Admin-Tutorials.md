@@ -11,7 +11,7 @@ This page is dedicated to Gateway Admins!
         - Do you see button 'Create new Application Interface' ? Then you are good.
 2. Storage resource ID is added to the pga_config.php </br>
     - If not go to  
-        - Admin Dashboard --> Storage Resources --> Browse
+        - Admin Dashboard &rarr; Storage Resources &rarr; Browse
         - Locate your resource and copy the ID
         - Paste it in pga_config.php file in pga/app/config directory.
 3. Credentials generated, assigned and added to authorized_keys files of resources
@@ -190,9 +190,117 @@ This is a tutorial to configuring and running an application on XSEDE resource t
 ![Screenshot](img/GauAppDep.png)
 
 ##### <h5 id="PrePostCommands">Add Pre and Post Job Commands for an Application</h5>
-This tutorial demonstrates use of pre and post job commands and how they appear in job submission script
+- This tutorial demonstrates use of pre and post job commands and how they appear in job submission script. <br>
+- For application executions we would require to use pre and post job commands. 
+- In this tutorial we are using an application which has both pre and post job commands in use. Existence of pre and post job commands could be application specific or specific to the application residing compute resource.
 
-1. 
+###### <b><u>NEK5000 </u></b>
+1. Create new application module: NEK5000
+    - Navigate to Admin Dashboard &rarr; App Catalog &rarr; Application Module 
+    - Click Create a new Application Module
+    - Enter Application Module Name: NEK5000
+    - Enter Application Module Version: (Not mandatory)
+    - Enter Description: Open source, highly scalable and portable spectral element code designed to simulate
+    - Create
+    - This create the NEK5000 module </br>
+![Screenshot](img/NEK5000AppMod.png)
+2. Create the application interface: NEK5000
+    - Navigate to Admin Dashboard &rarr; App Catalog &rarr; Application Interface
+    - Click 'Create new Application Interface'
+    - Add Application Name: NEK5000
+    - Add Application Description: Open source, highly scalable and portable spectral element code designed to simulate
+    - Select Application Module: NEK5000 ( If multiple modules are using same interface here you can add multiple modules. Ex: Gaussian 03 and Gaussian 09 modules)
+    - Set 'Enable Archiving Working Directory' to True (Why? - This is set to true when you want to bring back all the files in working directory back to PGA. Caution: If there are very large files they may not be able to SCP)
+    - Set 'Enable Optional File Inputs' to False (Why? - Set to false because there won't be any additional optional inputs for NEK5000)
+    - Provide application inputs
+        - Click Add Application Input
+        - 1st Input
+            - Name: Basename
+            - Value: nek5kbasename
+            - Type: STRING (Why? - Input is a string value)
+            - Application Arguments:
+            - Standard Input: False (Why? - Futuristic property and not in real use at the moment)
+            - Is Read Only: True (Why? - This value should not be changed by the gateway user at experiment creation)
+            - User Friendly Description:
+            - Input Order: 0
+            - Data is Staged: False
+            - Is the Input Required: True
+            - Required in Commandline: True
+            - Meta Data:
+        - 2nd Input
+            - Name: User-Subroutine-File
+            - Value: nek5kbasename.usr (Why? - Name of the file upload will be changed to the name given as the value here. Application level requirement)
+            - Type: URI
+            - Application Arguments:
+            - Standard Input: False (Why? - Futuristic property and not in real use at the moment)
+            - Is Read Only: False (Why? - This is a URI type input.)
+            - User Friendly Description: .usr File (Why? - This provides user with information related to the input file.)
+            - Input Order: 1
+            - Data is Staged: False
+            - Is the Input Required: True
+            - Required in Commandline: False
+            - Meta Data:
+        - 3rd Input
+            - Name: Runtime-Parameter-File
+            - Value: nek5kbasename.rea (Why? - Name of the file upload will be changed to the name given as the value here. Application level requirement)
+            - Type: URI
+            - Application Arguments:
+            - Standard Input: False (Why? - Futuristic property and not in real use at the moment)
+            - Is Read Only: False (Why? - This is a URI type input.)
+            - User Friendly Description: .rea File (Why? - This provides user with information related to the input file.)
+            - Input Order: 2
+            - Data is Staged: False
+            - Is the Input Required: True
+            - Required in Commandline: False
+            - Meta Data:
+    - Provide application outputs</br>
+    NOTE: 3 application outputs to define. </br>
+        - 1st Output
+            - Click Add Application Output
+            - Name: Gaussian-Application-Output
+            - Value: Gaussian.log
+            - Type: URI
+            - Application Argument:
+            - Data Movement: True
+            - Is the Output required?: True
+            - Required on command line?: True
+            - Location:
+            - Search Query:</br>
+        - 2nd output
+            - Click Add Application Output
+            - Name: Gaussian-Standard-Out
+            - Value:
+            - Type: STDOUT
+            - Application Argument:
+            - Data Movement: False
+            - Is the Output required?: True
+            - Required on command line?: True
+            - Location:
+            - Search Query:</br>
+        - 3rd output
+            - Click Add Application Output
+            - Name: Gaussian-Standard-Error
+            - Value:
+            - Type: STDERR
+            - Application Argument:
+            - Data Movement: False
+            - Is the Output required?: True
+            - Required on command line?: True
+            - Location:
+            - Search Query:</br>
+![Screenshot](img/NEKAppInt1.png) ![Screenshot](img/NEKAppInt2.png) ![Screenshot](img/NEKAppInt3.png) ![Screenshot](img/NEKAppInt4.png) ![Screenshot](img/NEKAppInt5.png) ![Screenshot](img/NEKAppInt6.png) ![Screenshot](img/NEKAppInt7.png) </br></br>
+3. Create the application deployment: Gaussian on Comet
+    - Navigate to Admin Dashboard &rarr; App Catalog &rarr; Application Deployment
+    - Click 'Create new Application Deployment'
+        - Application Module: Gaussian
+        - Application Compute Host: comet.sdsc.edu (Your comet specific gateway preferences need to be added in 'Gateway Management' prior to this)
+        - Application Executable Path: g09
+        - Application Parallelism Type: SERIAL
+        - Application Deployment Description: Gaussian provides capabilities for electronic structure modeling.
+        - Module Load Commands: module load gaussian
+        - Post Job Commands: mkdir -p "$PWD"_restart; cp *.chk ${pwd}_restart; mv *.rwf* ${pwd}_restart; (Why? - any command you would want to execute after post job execution)</br>
+![Screenshot](img/GauAppDep.png)
+
 
 Work-in-Progress
 
