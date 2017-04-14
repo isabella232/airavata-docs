@@ -253,52 +253,91 @@ This is a tutorial to configuring and running an application on XSEDE resource t
             - Is the Input Required: True
             - Required in Commandline: False
             - Meta Data:
+        - 4th Input
+            - Name: Size-for-Memory-Allocation
+            - Value:
+            - Type: URI
+            - Application Arguments:
+            - Standard Input: False (Why? - Futuristic property and not in real use at the moment)
+            - Is Read Only: False (Why? - This is a URI type input.)
+            - User Friendly Description: SIZE File (Why? - This provides user with information related to the input file.)
+            - Input Order: 3
+            - Data is Staged: False
+            - Is the Input Required: True
+            - Required in Commandline: False
+            - Meta Data:
     - Provide application outputs</br>
     NOTE: 3 application outputs to define. </br>
         - 1st Output
             - Click Add Application Output
-            - Name: Gaussian-Application-Output
-            - Value: Gaussian.log
+            - Name: NEK5000-Compilation-Output
+            - Value: compiler.out
             - Type: URI
             - Application Argument:
-            - Data Movement: True
+            - Data Movement: False
             - Is the Output required?: True
             - Required on command line?: True
             - Location:
             - Search Query:</br>
-        - 2nd output
+        - 2nd Output
             - Click Add Application Output
-            - Name: Gaussian-Standard-Out
+            - Name: NEK5000-Output_tarball
+            - Value: nek5kbasename.tgz
+            - Type: URI
+            - Application Argument:
+            - Data Movement: False
+            - Is the Output required?: True
+            - Required on command line?: False
+            - Location:
+            - Search Query:</br>
+        - 3rd Output
+            - Click Add Application Output
+            - Name: NEK5000-Session-Out
+            - Value: session.log
+            - Type: URI
+            - Application Argument:
+            - Data Movement: False
+            - Is the Output required?: True
+            - Required on command line?: True
+            - Location:
+            - Search Query:</br>            
+        - 4th output
+            - Click Add Application Output
+            - Name: NEK5000-Standard-Out
             - Value:
             - Type: STDOUT
             - Application Argument:
             - Data Movement: False
             - Is the Output required?: True
-            - Required on command line?: True
+            - Required on command line?: False
             - Location:
             - Search Query:</br>
-        - 3rd output
+        - 5th output
             - Click Add Application Output
-            - Name: Gaussian-Standard-Error
+            - Name: NEK5000-Standard-Error
             - Value:
             - Type: STDERR
             - Application Argument:
             - Data Movement: False
             - Is the Output required?: True
-            - Required on command line?: True
+            - Required on command line?: False
             - Location:
             - Search Query:</br>
 ![Screenshot](img/NEKAppInt1.png) ![Screenshot](img/NEKAppInt2.png) ![Screenshot](img/NEKAppInt3.png) ![Screenshot](img/NEKAppInt4.png) ![Screenshot](img/NEKAppInt5.png) ![Screenshot](img/NEKAppInt6.png) ![Screenshot](img/NEKAppInt7.png) </br></br>
-3. Create the application deployment: Gaussian on Comet
+3. Create the application deployment: NEK5000 on BigRed2 (BigRed2 is the IU cluster. Using just as an example)
     - Navigate to Admin Dashboard &rarr; App Catalog &rarr; Application Deployment
     - Click 'Create new Application Deployment'
         - Application Module: Gaussian
-        - Application Compute Host: comet.sdsc.edu (Your comet specific gateway preferences need to be added in 'Gateway Management' prior to this)
-        - Application Executable Path: g09
-        - Application Parallelism Type: SERIAL
+        - Application Compute Host: bigred2.uits.iu.edu (Your cluster specific gateway preferences need to be added in 'Gateway Management' prior to this)
+        - Application Executable Path: ./nek5000
+        - Application Parallelism Type: CRAY_MPI
         - Application Deployment Description: Gaussian provides capabilities for electronic structure modeling.
-        - Module Load Commands: module load gaussian
-        - Post Job Commands: mkdir -p "$PWD"_restart; cp *.chk ${pwd}_restart; mv *.rwf* ${pwd}_restart; (Why? - any command you would want to execute after post job execution)</br>
+        - Module Load Commands: module swap PrgEnv-cray PrgEnv-gnu; module load nek5000 visit ffmpeg
+        - Pre Job Commands: 
+            - echo "nek5kbasename" > genmap.in;  echo "0.2" >> genmap.in;
+            - echo nek5kbasename  > ./SESSION.NAME; echo 'pwd'/' >>  ./SESSION.NAME;
+        - Post Job Commands: 
+            - mkdir -p "$PWD"_restart; cp *.chk ${pwd}_restart; mv *.rwf* ${pwd}_restart; (Why? - any command you would want to execute after post job execution)</br>
 ![Screenshot](img/GauAppDep.png)
 
 
