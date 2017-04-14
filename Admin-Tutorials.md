@@ -339,6 +339,8 @@ This is a tutorial to configuring and running an application on XSEDE resource t
         - Post Job Commands: 
             - mkdir -p "$PWD"_restart; cp *.chk ${pwd}_restart; mv *.rwf* ${pwd}_restart; (Why? - any command you would want to execute after post job execution)</br>
 ![Screenshot](img/GauAppDep.png)
+4. NEK5000 job script. <br>Please view the existence and placement of both pre and post job commands in the job script.
+![Screenshot](img/NEK5000job.png)
 
 
 Work-in-Progress
