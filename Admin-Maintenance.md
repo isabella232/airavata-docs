@@ -55,16 +55,16 @@ NOTE: In order to enable disable resources you require super admin rights to the
 
 <b class="blue">Q6.</b> I want to send notices to my gateway users. How?
 <br><b class="blue">Answer:</b><br>
-1.  Navigate to Admin Dashboard&#8658;Notices <br>
+1.  Navigate to Admin Dashboard &#8658; Notices <br>
 2. Use 'Create a New Notice' button add a new notice. <br>
 3. Based on the published date you provided it will be available for users as a Notice !
 
 <b class="blue">Q7.</b> How to open the gateway to any user who create an user account? In the gateway not required to enable/activate user accounts.
 <br><b class="blue">Answer:</b><br>
-1. Gateway admin can switch between options of opening the gateway to all account creations OR gateway admin to activate accounts after creation.
-2. In order to do open the gateway to all,
-        - If the gateway is hosted by Airavata team, please request from them
-        - If you are hosting the gateway, navigate to <pre><code>vi /var/www/html/airavata-php-gateway/app/config/pga_config.php</code></pre> Then change the initial user role to 'gateway-user'
+1. Gateway admin can switch between options of opening the gateway to all account creations OR gateway admin to activate accounts after creation.<br>
+2. In order to do open the gateway to all,<br>
+        - If the gateway is hosted by Airavata team, please request from them <br>
+        - If you are hosting the gateway, navigate to <pre><code>vi /var/www/html/airavata-php-gateway/app/config/pga_config.php</code></pre> Then change the initial user role to 'gateway-user' <br>
         <pre><code>
                 /**
                  * Initial user role. This is the initial user role assigned to a new
@@ -74,3 +74,14 @@ NOTE: In order to enable disable resources you require super admin rights to the
                  */
                 'initial-role-name' => 'gateway-user',
         </code></pre>
+        
+<b class="blue">Q7.</b> I want my gateway users to use their own compute resource allocation to submit jobs through the gateway. How to do this?
+<br><b class="blue">Answer:</b><br>
+1. Users can add their own allocation account details. <br>
+2. In order to do so first login to the gateway.<br>
+3. Then Go to User Settings &#8658; Compute Resources<br>
+4. Click the 'Add a Compute Resource Account' and enter all the details and save.<br>
+
+After at experiment creation,edit and clone<br>
+1. When you select the compute resource which has your account defined in the gateway, default option is to submit the job using user's own account.<br>
+2. User has the option of selecting community account for job submission as well.<br>
