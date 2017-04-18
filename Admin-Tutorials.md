@@ -26,7 +26,7 @@ NOTE: If you are using a hosted gateway the 2 and 4 would be taken cared by the 
 2. <a href="#GaussianJob">Gaussian Job Submission to Comet (XSEDE resource)</a></br>
 3. <a href="#PrePostCommands">Add Pre and Post Job Commands for an Application</a></br>
 4. <a href="#SampleApp">Add Environment Variables for an Application Deployment</a></br>
-5. <a href= "#Resources">Know your Compute & Storage Resources</a></br>
+5. <a href= "#Resources">Register your Compute & Storage Resources</a></br>
 6. <a href= "#Preference">Gateway Preference Management</a></br>
 7. <a href= "#GtwyAccess">Managing User Accounts</a></br>
 8. <a href= "#Notices">Communication with Gateway Users</a></br>
@@ -342,8 +342,113 @@ This is a tutorial to configuring and running an application on XSEDE resource t
 4. NEK5000 job script. <br>Please view the existence and placement of both pre and post job commands in the job script.
 ![Screenshot](img/NEK5000job.png)
 
+Refer <a href="/Gateway-Configurations/#AppCatalog" target="_blank">Application Configuration</a> for more generic details.
+
+##### <h5 id="SampleApp">Add Environment Variables for an Application Deployment</h5>
+1. 
+
+
+##### <h5 id="Resources">Register your Compute & Storage Resources</h5><br>
+###### <b><u>Register Local Resource </u></b>
+NOTE: Gateway admins can only add compute resources and storage resources if they have super admin access to the gateway portal. If the portal is hosted locally they would have super admin access.
+
+1. Navigate to Admin Dashboard &rarr; Compute Resource &rarr; Register <br>
+2. Provide
+    - Host Name: Local Resource<br>
+    - Host Aliases: <br>
+    - IP Addresses:<br>
+    - Resource Description: My local resource for application execution ( Just a description)<br>
+    - Create<br>
+3. In Queues tab<br>
+    - Click 'Add a Queue'<br>
+    - Queue Name: Normal ( Per resource this is a unique value. Once created cannot edit the name. If need to change, delete and create again)<br>
+    - Queue Description: Local resource normal for job submission<br>
+    - Queue Max Run Time (In Minutes): (Note required for the local resource)<br>
+    - Queue Max Nodes: (Note required for the local resource)<br>
+    - Queue Max Processors: (Note required for the local resource)<br>
+    - Max Jobs in Queue: (Note required for the local resource)<br>
+    - Max Memory For Queue( In MB ): (Note required for the local resource)<br>
+4. File System<br>
+    - Nothing to add here, this is futuristic development.<br>
+5. Job Submission Interface<br>
+    - Click on the tab<br>
+    - Add a new Job Submission Interface<br>
+    - Job Submission Protocol: Local<br>
+    - Select resource manager type: FORK<br>
+    - Job Commands (SUBMISSION): /bin/sh<br>
+    - Add Job Submission Protocol<br>
+6.  Data Movement Interface<br>
+    - Add a new Data Submission Interface<br>
+    - Data Movement Protocol: Local<br>
+    - Add Job Submission Protocol<br>
+Now the Local resource is ready for job submissions.<br>
+
+###### <b><u>Register a XSEDE Resource </u></b>
+1. Navigate to Admin Dashboard &rarr; Compute Resource &rarr; Register <br>
+2. Provide
+    - Host Name: comet.sdsc.edu<br>
+    - Host Aliases: <br>
+    - IP Addresses:<br>
+    - Resource Description: SDSC Comet Cluster ( Just a description)<br>
+    - Create<br>
+3. In Queues tab<br>
+    - Click 'Add a Queue'<br>
+    - Queue 1
+        - Queue Name: compute ( Per resource this is a unique value. Once created cannot edit the name. If need to change, delete and create again)<br>
+        - Queue Description: Used for access to regular compute nodes<br>
+        - Queue Max Run Time (In Minutes): 280 (Note required for the local resource)<br>
+        - Queue Max Nodes: 72 (Note required for the local resource)<br>
+        - Queue Max Processors: 1728 (Note required for the local resource)<br>
+        - Max Jobs in Queue: 0 (Note required for the local resource)<br>
+        - Max Memory For Queue( In MB ): (Note required for the local resource)<br>
+    - Queue 2
+        - Queue Name: shared ( Per resource this is a unique value. Once created cannot edit the name. If need to change, delete and create again)<br>
+        - Queue Description: Single-node jobs using fewer than 24 cores<br>
+        - Queue Max Run Time (In Minutes): 2880 (Note required for the local resource)<br>
+        - Queue Max Nodes: 1 (Note required for the local resource)<br>
+        - Queue Max Processors: 24 (Note required for the local resource)<br>
+        - Max Jobs in Queue: 0 (Note required for the local resource)<br>
+        - Max Memory For Queue( In MB ): (Note required for the local resource)<br>
+4. File System<br>
+    - Nothing to add here, this is futuristic development.<br>
+5. Job Submission Interface<br>
+    - Click on the tab<br>
+    - Add a new Job Submission Interface<br>
+    - Job Submission Protocol: SSH<br>
+    - Select Security Protocol: SSH_KEYS
+    - SSH Port: 22
+    - Select resource manager type: SLURM<br>
+    - Job Manager Bin Path: /usr/bin/
+    - Job Commands (SUBMISSION): sbatch<br>
+    - Job Commands (JOB_MONITORING): squeue<br>
+    - Job Commands (DELETION): scancel<br>
+    - Parallelism Prefixes (MPI): mpiexec <br>
+    - Add Job Submission Protocol<br>
+6.  Data Movement Interface<br>
+    - Add a new Data Submission Interface<br>
+    - Data Movement Protocol: SCP<br>
+    - Select Security Protocol: SSH_KEYS <br>
+    - SSH Port: 22 <br>
+    - Add Data Movement Protocol<br>
+Now the Local resource is ready for job submissions.<br>
+Comet is ready for job submissions.     
+
+
+###### <b><u>Register a Campus Resource </u></b>
+NOTE: Adding a campus resource is similar to adding a XSEDE resource. Same steps to follow with similar information.
+
+##### <h5 id="Resources">Gateway Preference Management</h5>
+1. 
+##### <h5 id="Resources">Managing User Accounts</h5>
+1. 
+##### <h5 id="Resources">Communication with Gateway Users</h5>
+1. 
+##### <h5 id="Resources">Monitor Gateway Traffic</h5>
+1. 
+##### <h5 id="Resources">Using Credential Store</h5>
+1. 
 
 Work-in-Progress
 
-Refer <a href="/Gateway-Configurations/#AppCatalog" target="_blank">Application Configuration</a> for more generic details.
+
 
