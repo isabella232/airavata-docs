@@ -2,56 +2,72 @@
 1.  API Server Registry Configuration
 	- Comment out the derby DB properties
 	- Change MySQL configurations
-		- registry.jdbc.url=jdbc:mysql://localhost:3306/airavata_expcatalog (replace 'localhost' with correct server name if the DB is in a different server)
+		- registry.jdbc.url=jdbc:mysql://localhost:3306/experiment_catalog (replace 'localhost' with correct server name if the DB is in a different server)
 		- registry.jdbc.user=airavata
 		- registry.jdbc.password=airavata
-		- default.registry.gateway=php_reference_gateway (give the gateway name you prefer. Default exists in the file)
+		- enable.sharing=true (This will set sharing within the gateway to be enabled. This is the advices mode)
+		- default.registry.gateway=php_reference_gateway (Give the gateway name you prefer. Default exists in the file)
+		- super.tenant.gatewayId=php_reference_gateway (Since you are hosting your own gateway this is the ID of your own gateway)
 2.  Application Catalog DB Configuration
    	- Comment out the derby DB properties
    	- Change MySQL configurations
-   		- appcatalog.jdbc.url=jdbc:mysql://localhost:3306/airavata_appcatalog
-          - appcatalog.jdbc.user=airavata
-         - appcatalog.jdbc.password=airavata
-3.  Data Catalog DB Configuration
+   		- appcatalog.jdbc.url=jdbc:mysql://localhost:3306/app_catalog
+        - appcatalog.jdbc.user=airavata
+        - appcatalog.jdbc.password=airavata
+3.  Replica Catalog DB Configuration
     - Comment out the derby DB properties
     - Change MySQL configurations
-    	- replicacatalog.jdbc.url=jdbc:mysql://localhost:3306/airavata_datacatalog
+    	- replicacatalog.jdbc.url=jdbc:mysql://localhost:3306/replica_catalog
         - replicacatalog.jdbc.user=airavata
         - replicacatalog.jdbc.password=airavata
 4.  Workflow Catalog DB Configuration
 	- Comment out the derby DB properties
     - Change MySQL configurations
-		- workflowcatalog.jdbc.url=jdbc:mysql://localhost:3306/airavata_wfcatalog
-      	- workflowcatalog.jdbc.user=airavatadb
-      	- workflowcatalog.jdbc.password=airavatadb
-5.  Server module Configuration
+		- workflowcatalog.jdbc.url=jdbc:mysql://localhost:3306/workflow_catalog
+      	- workflowcatalog.jdbc.user=airavata
+      	- workflowcatalog.jdbc.password=airavata
+5. Sharing Catalog DB Configuration
+	- Comment out the derby DB properties
+		- sharingcatalog.jdbc.url=jdbc:mysql://localhost:3306/sharing_catalog
+		- sharingcatalog.jdbc.user=airavata
+		- sharingcatalog.jdbc.password=airavata
+6. Sharing Registry Server Configuration
+	- 
+7. User Profile MongoDB Configuration
+	- 
+8. Server Module Configuration
 	- Make sure all servers required to start are added as given
-		- servers=apiserver,orchestrator,gfac,credentialstore
-6.  API Server SSL Configurations
-	- Give the correct path for key generation file. This is in the bin directtory and it is shipped defualt with Airavata.
+		- servers=credentialstore,apiserver,orchestrator,gfac
+9. API Server Configurations
+
+10. API Server SSL Configurations
+	- Give the correct path for key generation file. This is in the bin directory and it is shipped default with Airavata.
 		- apiserver.keystore=/home/airavata/LocalAiravata/apache-airavata-server-0.16-SNAPSHOT/bin/airavata.jks
-7.  Credential Store module Configuration
+11. Orchestrator Server Configurations
+
+12. GFac Server Configurations
+
+13. Registry Server Configurations
+
+14. Airavata Workflow Interpreter Configurations
+
+15. Job Scheduler can send informative email messages.........
+
+16. Credential Store module Configuration
 	- Add the path to SSH key generation file
 		- E.g.: credential.store.keystore.url=/home/airavata/LocalAiravata/airavata-sym.jks
 	- Comment out the derby DB properties
     - Change MySQL configurations
-        - credential.store.jdbc.url=jdbc:mysql://localhost:3306/airavata_credentialstore
-        - credential.store.jdbc.user=airavatadb
-        - credential.store.jdbc.password=airavatadb
+        - credential.store.jdbc.url=jdbc:mysql://localhost:3306/credential_store
+        - credential.store.jdbc.user=airavata
+        - credential.store.jdbc.password=airavata
 		- credential.store.keystore.url=/home/airavata/production-deployment/airavata_sym.jks
-8.   API Security Configuration
-	- Make sure
-		- api.secured=false
-		- TLS.enabled=false
-9.  Monitoring Module Configuration
-      - Add your email address, username and password for email monitoring. This is the email account the job status change emails will be received from compute resources.
-                 email.based.monitor.host=imap.gmail.com
-                 email.based.monitor.address=jobs@sample.org
-                 email.based.monitor.password=SamplePassword
-10. Zookeeper Server Configuration
-	- For 'Production' scenario make;
-		- embedded.zk=false
-11. AMQP Notification Configuration
+17. Monitoring Module Configuration
+    - Add your email address, username and password for email monitoring. This is the email account the job status change emails will be received from compute resources.
+	- email.based.monitor.host=imap.gmail.com
+	- email.based.monitor.address=jobs@sample.org
+	- email.based.monitor.password=SamplePassword
+18. AMQP Notification Configuration
 	- Users can use RabbitMQ as 'Guest' users. This is the easy method. For this uncomment
 		- rabbitmq.broker.url=amqp://localhost:5672
 	- To use as a 'Production' user
@@ -64,3 +80,15 @@
 		- Uncomment rabbitmq.broker.url=amqp://Username:Password@localhost:5672/Vhost. Add the created username, password and Vhost in the URL.
 		- If you need to stop RabbitMQ use <pre><code>rabbitmqctl stop</code></pre>
 		- If the RabbitMQ server stopped then the above user creation, vhost creation and permission granting commands need to run again after restarting the servers.
+19. Zookeeper Server Configuration
+	- For 'Production' scenario make;
+		- embedded.zk=false
+20. Aurora Scheduler Configuration
+
+
+21. API Security Configuration
+	- Make sure
+		- api.secured=false
+		- TLS.enabled=false
+
+
