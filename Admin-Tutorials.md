@@ -22,11 +22,11 @@ This page is dedicated to Gateway Admins!
 NOTE: If you are using a hosted gateway the 2 and 4 would be taken cared by the SciGaP team.
 
 ### Select Your Quick Start Tutorial
-1. <a href="#LocalJob">Running Echo on Local Machine</a></br>
+1. <a href= "#Resources">Register your Compute & Storage Resources</a></br> 
 2. <a href="#GaussianJob">Gaussian Job Submission to Comet (XSEDE resource)</a></br>
-3. <a href="#PrePostCommands">Add Pre and Post Job Commands for an Application</a></br>
-4. <a href="#SampleApp">Add Environment Variables for an Application Deployment</a></br>
-5. <a href= "#Resources">Register your Compute & Storage Resources</a></br>
+3. <a href="#LocalJob">Running Echo on Local Machine</a></br>
+4. <a href="#PrePostCommands">Add Pre and Post Job Commands for an Application</a></br>
+5. <a href="#SampleApp">Add Environment Variables for an Application Deployment</a></br>
 6. <a href= "#Preference">Gateway Preference Management</a></br>
 7. <a href= "#GtwyAccess">Managing User Accounts</a></br>
 8. <a href= "#Notices">Communication with Gateway Users</a></br>
