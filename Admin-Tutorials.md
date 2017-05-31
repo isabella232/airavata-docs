@@ -359,7 +359,7 @@ NOTE: Gateway admins can only add compute resources and storage resources if the
     - IP Addresses:<br>
     - Resource Description: My local resource for application execution ( Just a description)<br>
     - Create<br>
-3. In Queues tab<br>
+3. In Queues tab<br> (A queue is not required ideally, but as per the gateway logic, queue is required)
     - Click 'Add a Queue'<br>
     - Queue Name: Normal ( Per resource this is a unique value. Once created cannot edit the name. If need to change, delete and create again)<br>
     - Queue Description: Local resource normal for job submission<br>
@@ -437,15 +437,27 @@ Comet is ready for job submissions.
 ###### <b><u>Register a Campus Resource </u></b>
 NOTE: Adding a campus resource is similar to adding a XSEDE resource. Same steps to follow with similar information.
 
-##### <h5 id="Resources">Gateway Preference Management</h5>
+##### <h5 id="Preferences">Gateway Preference Management</h5><br>
+###### <b><u>Gateway Preferences for Local Resource </u></b>
+1. Navigate to Admin Dashboard &rarr; Gateway Management
+2. Click: Add a Computer Resource Preference
+3. Select "Local Resource" from the list
+4. Provide Data:
+    - Override by Airavata: True
+    - Login Username: Not Required
+    - Preferred Job Submission Protocol: Local
+    - Preferred Data Movement Protocol: Local
+    - Preferred Batch Queue: Normal
+    - Scratch Location: /Users/Eroma/working_dirs (This is simply a location in your local machine to have the working directories created and inout and output files written)
+
+
+##### <h5 id="GtwyAccess">Managing User Accounts</h5>
 1. 
-##### <h5 id="Resources">Managing User Accounts</h5>
+##### <h5 id="Notices">Communication with Gateway Users</h5>
 1. 
-##### <h5 id="Resources">Communication with Gateway Users</h5>
+##### <h5 id="Traffic">Monitor Gateway Traffic</h5>
 1. 
-##### <h5 id="Resources">Monitor Gateway Traffic</h5>
-1. 
-##### <h5 id="Resources">Using Credential Store</h5>
+##### <h5 id="Secure">Using Credential Store</h5>
 1. 
 
 Work-in-Progress
