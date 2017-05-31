@@ -438,17 +438,43 @@ Comet is ready for job submissions.
 NOTE: Adding a campus resource is similar to adding a XSEDE resource. Same steps to follow with similar information.
 
 ##### <h5 id="Preferences">Gateway Preference Management</h5><br>
-###### <b><u>Gateway Preferences for Local Resource </u></b>
+###### <b><u>Gateway Preference for a XSEDE Resource </u></b>
+1. Navigate to Admin Dashboard &rarr; Gateway Management
+2. Click: Add a Computer Resource Preference
+3. Select "comet.sdsc.edu" from the list
+4. Provide Data:
+    - Override by Airavata: True
+    - Login Username: TestUser1 (This is the login username for the comet allocation. Adding at gateway level, this is a community allocation login username)
+    - Preferred Job Submission Protocol: SSH
+    - Preferred Data Movement Protocol: SCP
+    - Preferred Batch Queue: Compute
+    - Scratch Location: /oasis/scratch/comet/TestUser1/temp_project/airavata_workdirs (Test scratch location, not an actual. This scratch is also provided with the allocation by XSEDE)
+    - Allocation Project Number: test123 (Test project number. Project number of the XSEDE resource need to be added here)
+    - Resource Specific Credential Store Token: Select a token from the list. Public key of this token need to be added to authorized_keys in your comet.sdsc.edu allocation)
+    - Quality of Service: (If you have a QOS provided from XSEDE, please add here. The format to add: <</pre></code>queue1>=<</pre></code>qos1>, <</pre></code>queue2>=<</pre></code>qos2>)
+    - Reservation Name: Not Required
+    - Reservation Start Time: Not Required
+    - Reservation End Time: Not Required
+5. Set preferences.
+###### <b><u>Gateway Preference for a Local Resource </u></b>
 1. Navigate to Admin Dashboard &rarr; Gateway Management
 2. Click: Add a Computer Resource Preference
 3. Select "Local Resource" from the list
 4. Provide Data:
     - Override by Airavata: True
-    - Login Username: Not Required
+    - Login Username: (Note required for the local resource)
     - Preferred Job Submission Protocol: Local
     - Preferred Data Movement Protocol: Local
     - Preferred Batch Queue: Normal
     - Scratch Location: /Users/Eroma/working_dirs (This is simply a location in your local machine to have the working directories created and inout and output files written)
+    - Allocation Project Number: (Note required for the local resource)
+    - Resource Specific Credential Store Token: (Note required for the local resource)
+    - Quality of Service: (Note required for the local resource)
+    - Reservation Name: (Note required for the local resource)
+    - Reservation Start Time: (Note required for the local resource)
+    - Reservation End Time: (Note required for the local resource)
+5. Set preferences.
+
 
 
 ##### <h5 id="GtwyAccess">Managing User Accounts</h5>
