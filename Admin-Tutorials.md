@@ -105,7 +105,7 @@ Quickest way to confirm Airavata and PGA setup. This will tell you what you need
 <pre><code>
     #!/bin/bash
     #sleep 10
-    echo "Echoed_Output="${@:1:($#-2)}"" >> "${@:(-2):1}" 2>> "${@:(-1):1}"
+    echo "Echoed_Output="${@:1:($#-2)}"" >> "${@:(-1):1}" 2>> "${@:(-2):1}"
 </code></pre>
            
 #####<h5 id="GaussianJob">Gaussian Job Submission to Comet  (XSEDE resource)</h5>
