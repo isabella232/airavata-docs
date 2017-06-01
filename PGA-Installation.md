@@ -1,4 +1,13 @@
 ## PGA Installation
+<b>NOTE</b><br>
+- These step by step instructions are for PGA with airavata 0.16 (previous) release.<br>
+- For the latest PGA installation, please use ansible playbooks.<br>
+- Here is link [1] to the playbook file on the ‘master’ branch. This playbook consist of two roles, env_setup [2] and pga [3] and you can look at those roles for further details.
+
+[1]  <a href="https://github.com/apache/airavata/blob/master/dev-tools/ansible/pga.yml" target="_blank"> PGA Ansible Playbooks</a>  <br>
+[2] <a href="https://github.com/apache/airavata/tree/master/dev-tools/ansible/roles/env_setup/tasks" target="_blank">Env_setup</a>  <br>
+[3] <a href="https://github.com/apache/airavata/tree/master/dev-tools/ansible/roles/pga" target="_blank">PGA</a>
+
 
 <b>Pick your OS...</b></br/>
 [<button type="button" style="color:#f2f2f2;text-align:center;font-weight:lighter;background-color:#2481b9;width:160px;border: 2px solid #2481b9;border-radius:4px">Cent OS</button>](#headPGACENTOS) &nbsp; &nbsp; &nbsp;
