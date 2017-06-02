@@ -7,7 +7,7 @@
 
 [1]  <a href="https://github.com/apache/airavata/blob/master/dev-tools/ansible/pga.yml" target="_blank"> PGA Ansible Playbooks</a>  <br>
 [2] <a href="https://github.com/apache/airavata/tree/master/dev-tools/ansible/roles/env_setup/tasks" target="_blank">Env_setup</a>  <br>
-[3] <a href="https://github.com/apache/airavata/tree/master/dev-tools/ansible/roles/pga" target="_blank">PGA</a>
+[3] <a href="https://github.com/apache/airavata/tree/master/dev-tools/ansible/roles/pga" target="_blank">PGA</a> <br>
 [4] <a href="https://github.com/apache/airavata/blob/master/dev-tools/ansible/README.md" target="_blank">READ ME</a>  <br>
 
 
