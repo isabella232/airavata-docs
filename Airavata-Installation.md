@@ -1,4 +1,11 @@
 ##  <h2 id="AiravataCent">Install Apache Airavata</h2>
+<b>NOTE</b> <br>
+- These step by step instructions are for Airavata 0.16 (previous) release. <br>
+- For the latest release 0.17 installation use Ansible scripts in [1] First read [2] <br>
+- The Ansible scripts are supported only for CentOS 7
+
+[1]  <a href="https://github.com/apache/airavata/blob/master/dev-tools/ansible/airavata.yml" target="_blank"> Airavata Ansible Playbooks</a>  <br>
+[2] <a href="https://github.com/apache/airavata/blob/master/dev-tools/ansible/README.md" target="_blank">READ ME</a>  <br>
 
 <b>Select...</b><br/>
 [<button type="button" style="color:#f2f2f2;text-align:center;font-weight:lighter;background-color:#2481b9;width:160px;border: 2px solid #3980c6;border-radius:4px">Airavata Prerequisites</button>](#Airavata) &emsp;
