@@ -6,7 +6,7 @@
 <tr>
 <td>sharing_cpi</td><td><a href="sharing_cpi.html#Svc_SharingRegistryService">SharingRegistryService</a><br/>
 <ul>
-<li><a href="sharing_cpi.html#Fn_SharingRegistryService_addChildGroupsToParentGroup">addChildGroupsToParentGroup</a></li>
+<li><a href="/Sharing CPI/#Fn_SharingRegistryService_addChildGroupsToParentGroup">addChildGroupsToParentGroup</a></li>
 <li><a href="sharing_cpi.html#Fn_SharingRegistryService_addUsersToGroup">addUsersToGroup</a></li>
 <li><a href="sharing_cpi.html#Fn_SharingRegistryService_createDomain">createDomain</a></li>
 <li><a href="sharing_cpi.html#Fn_SharingRegistryService_createEntity">createEntity</a></li>
