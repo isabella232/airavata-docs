@@ -4,33 +4,38 @@ site_name: Airavata Documentation
 docs_dir: .
 
 pages:
-- <h5>Home</h5>: 'index.md'
-- <h5>System Installations</h5>:
+- <h4>Home</h4>: 'index.md'
+- <h4>System Installations</h4>:
   - Airavata: 'Airavata-Installation.md'
   - PGA: 'PGA-Installation.md'
   - WSO2 IS: 'Own-WSO2-IS-Configuration.md'
   - Airavata Property File: 'airavata-properties.md'
-- <h5>Configuration</h5>:
+- <h4>Configuration</h4>:
   - PGA: 'Gateway-Configurations.md'
   - WSO2 IS: 'WSO2-IS-Configuration.md'
-  - Admin Tutorials: 'Admin-Tutorials.md'
-- <h5>Gateway Maintenance</h5>:
+- <h4>Gateway Maintenance</h4>:
   - <h6>Code Upgrades</h6>:
       - Airavata: 'Airavata-Upgrades.md'
       - PGA: 'PGA-Upgrades.md'
   - <h6>Admin Dashboard</h6>: 'Admin-Maintenance.md'
-- <h5>Documentation</h5>:
-  - User Tutorials: 'User-Tutorials.md'
+- <h4>User Documentation</h4>:
+  - <h6>Gateway User</h6>:
+      - User Tutorials: 'User-Tutorials.md'
+      - User Guide: 'User-Guides.md'
+  - <h6>Gateway Admin</h6>:
+      - Admin Tutorials: 'Admin-Tutorials.md'
+      - Admin Guide: 'User-Guides.md'
   - User Profiles: 'User-Profiles.md'
   - Software Applications: 'Application-CookBook.md'
+- <h4>Technical Documentation</h4>:
   - Airavata API: 'AiravataApi.md'
-- <h5>Technical Documentation</h5>:
   - <h6>Sharing Documentation</h6>:
       - Index: 'Sharing-Docs.md'
       - Sharing CPI: 'CPI.md'
       - Sharing Models: 'Models.md'
-- <h5>FAQ</h5>: 'FAQ.md'
-- <h5>Contact Us</h5>: 'Contact-Us.md'
+- <h4>FAQ</h4>: 'FAQ.md'
+- <h4>Previosur Relese Documentation</h4>: 'Previous-Release-Documentation.md'
+- <h4>Contact Us</h4>: 'Contact-Us.md'
 
 theme: readthedocs
 
