@@ -1,4 +1,3 @@
-Coming Soon
 
 ## Work-in-Progress
 ###For now please follow: <br>
