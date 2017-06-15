@@ -32,6 +32,7 @@ NOTE: If you are using a hosted gateway the 2 and 4 would be taken cared by the 
 8. <a href= "#GtwyAccess">Managing User Accounts</a></br>
 9. <a href= "#Notices">Communication with Gateway Users</a></br>
 10. <a href= "#Traffic">Monitor Gateway Traffic</a></br>
+11. <a href="https://cwiki.apache.org/confluence/display/AIRAVATA/Tutorial+05+-+PHP+Reference+Gateway+for+Airavata+-+Gateway+Admin+Guide" target="_blank"> PGA Portal Admin Tutorial</a>
 
 
 ##### <h5 id="Resources">Register your Compute & Storage Resources</h5><br>
