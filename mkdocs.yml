@@ -21,7 +21,6 @@ pages:
 - <h4>User Documentation</h4>:
   - <h6>Gateway User</h6>:
       - User Tutorials: 'User-Tutorials.md'
-      - User Guide: 'User-Guides.md'
   - <h6>Gateway Admin</h6>:
       - Admin Tutorials: 'Admin-Tutorials.md'
       - Admin Guide: 'User-Guides.md'
