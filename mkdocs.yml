@@ -23,7 +23,6 @@ pages:
       - User Tutorials: 'User-Tutorials.md'
   - <h6>Gateway Admin</h6>:
       - Admin Tutorials: 'Admin-Tutorials.md'
-      - Admin Guide: 'User-Guides.md'
   - User Profiles: 'User-Profiles.md'
   - Software Applications: 'Application-CookBook.md'
 - <h4>Technical Documentation</h4>:
