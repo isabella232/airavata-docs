@@ -27,87 +27,108 @@ NOTE: If you are using a hosted gateway the 2 and 4 would be taken cared by the 
 3. <a href="#LocalJob">Running Echo on Local Machine</a></br>
 4. <a href="#PrePostCommands">Add Pre and Post Job Commands for an Application</a></br>
 5. <a href="#SampleApp">Add Environment Variables for an Application Deployment</a></br>
-6. <a href= "#Preference">Gateway Preference Management</a></br>
-7. <a href= "#GtwyAccess">Managing User Accounts</a></br>
-8. <a href= "#Notices">Communication with Gateway Users</a></br>
-9. <a href= "#Traffic">Monitor Gateway Traffic</a></br>
-10. <a href= "#Secure">Using Credential Store</a></br>
+6. <a href= "#Secure">Using Credential Store</a></br>
+7. <a href= "#Preference">Gateway Preference Management</a></br>
+8. <a href= "#GtwyAccess">Managing User Accounts</a></br>
+9. <a href= "#Notices">Communication with Gateway Users</a></br>
+10. <a href= "#Traffic">Monitor Gateway Traffic</a></br>
 
 
-#####<h5 id="LocalJob">Running Echo on Local Machine</h5>
-Quickest way to confirm Airavata and PGA setup. This will tell you what you need to do to Echo a simple 'Hello World' in your local machine.
+##### <h5 id="Resources">Register your Compute & Storage Resources</h5><br>
+###### <b><u>Register Local Resource </u></b>
+<b class="lred"> NOTE:</b> Only Super gateway admins can add compute resources and storage resources. <br> Gateway need to be hsoted locally and have access to Compute Resources &rarr; Register <br>
+<br><b>What is a compute resource? </b><br>A compute resource is an object that represents a host, host cluster, or pool in a virtualization platform, a virtual data center, or an Amazon region on which machines can be provisioned. 
+<br>Compute resource could come as national resources, campus resources or even private cluster. 
+<br>NOTE:For testing purposes users (mainly gateway developers) this could even be the local machine.
 
-1. Create new application module: Echo
-    - Navigate to Admin Dashboard &rarr; App Catalog &rarr; Application Module 
-    - Click Create a new Application Module
-    - Enter Application Module Name: Echo
-    - Enter Application Module Version: Echo 1.0 (Not mandatory)
-    - Enter Description: Echo application for testing
-    - Create
-    - This create the Echo module </br>
-![Screenshot](img/AppModule.png) </br></br>
-2. Create the application interface: Echo
-    - Navigate to Admin Dashboard &rarr; App Catalog &rarr; Application Interface
-    - Click 'Create new Application Interface'
-    - Add Application Name: Echo
-    - Add Application Description: Echo Interface for testing
-    - Select Application Module: Echo
-    - Set 'Enable Archiving Working Directory' to False (Why? - This is set to true if you want to bring back all the files in working directory back to PGA)
-    - Set 'Enable Optional File Inputs' to False (Why? - Set to false because there won't be any additional optional inputs for Echo)
-    - Provide application inputs
-        - Click Add Application Input
-        - Name: Input-to-Echo
-        - Value: Echo Test 1......2......3....... (This value can be overridden at experiment creation)
-        - Type: STRING
-        - Application Arguments:
-        - Standard Input: False (Why? - Futuristic property and not in real use at the moment)
-        - Is Read Only: False (Why? - When this is set to true the input value will only be 'read-only'. User cannot change at experiment creation,edit or clone).
-        - User Friendly Description: Enter STRING input for Echo (Not mandatory)
-        - Input Order: 1
-        - Data is Staged: True
-        - Is the Input Required: True
-        - Required in Commandline: True
-        - Meta Data:
-    - Provide application outputs
-    NOTE: 3 application outputs to define.</br>
-        - 1st output
-            - Click Add Application Output
-            - Name: Echo-Standard-Out
-            - Value:
-            - Type: STDOUT
-            - Application Argument:
-            - Data Movement: False
-            - Is the Output required?: True
-            - Required on command line?: True
-            - Location:
-            - Search Query:</br>
-        - 2nd output
-            - Click Add Application Output
-            - Name: Echo-Standard-Error
-            - Value:
-            - Type: STDERR
-            - Application Argument:
-            - Data Movement: False
-            - Is the Output required?: True
-            - Required on command line?: True
-            - Location:
-            - Search Query:</br>
-![Screenshot](img/AppInterface1.png) ![Screenshot](img/AppInterface2.png) </br></br>
-3. Create the application deployment: Echo on Local Machine
-    - Navigate to Admin Dashboard &rarr; App Catalog &rarr; Application Deployment
-    - Click 'Create new Application Deployment'
-        - Application Module: Echo
-        - Application Compute Host: Local (Local machine has to be added as a compute resource prior to this step)
-        - Application Executable Path: /home/airavata/ECHO/echo_wrapper.sh (Local to where you have airavata installed)
-        - Application Parallelism Type: SERIAL </br>
-![Screenshot](img/AppDeployment.png)
-4. echo_wrapper.sh contains;
-<pre><code>
-    #!/bin/bash
-    #sleep 10
-    echo "Echoed_Output="${@:1:($#-2)}"" >> "${@:(-1):1}" 2>> "${@:(-2):1}"
-</code></pre>
-           
+1. Navigate to Admin Dashboard &rarr; Compute Resource &rarr; Register <br>
+2. Provide
+    - Host Name: Local Resource<br>
+    - Host Aliases: <br>
+    - IP Addresses:<br>
+    - Resource Description: My local resource for application execution ( Just a description)<br>
+    - Create<br>
+3. In Queues tab<br> (A queue is not required ideally, but as per the gateway logic, queue is required)
+    - Click 'Add a Queue'<br>
+    - Queue Name: Normal ( Per resource this is a unique value. Once created cannot edit the name. If need to change, delete and create again)<br>
+    - Queue Description: Local resource normal for job submission<br>
+    - Queue Max Run Time (In Minutes): (Note required for the local resource)<br>
+    - Queue Max Nodes: (Note required for the local resource)<br>
+    - Queue Max Processors: (Note required for the local resource)<br>  
+    - Max Jobs in Queue: (Note required for the local resource)<br>
+    - Max Memory For Queue( In MB ): (Note required for the local resource)<br>
+4. File System<br>
+    - Nothing to add here, this is futuristic development.<br>
+5. Job Submission Interface<br>
+    - Click on the tab<br>
+    - Add a new Job Submission Interface<br>
+    - Job Submission Protocol: Local<br>
+    - Select resource manager type: FORK<br>
+    - Job Commands (SUBMISSION): /bin/sh<br>
+    - Add Job Submission Protocol<br>
+6.  Data Movement Interface<br>
+    - Add a new Data Submission Interface<br>
+    - Data Movement Protocol: Local<br>
+    - Add Job Submission Protocol<br>
+Now the Local resource is ready for job submissions.<br>
+
+###### <b><u>Register a XSEDE Resource </u></b>
+1. Navigate to Admin Dashboard &rarr; Compute Resource &rarr; Register <br>
+2. Provide
+    - Host Name: comet.sdsc.edu<br>
+    - Host Aliases: <br>
+    - IP Addresses:<br>
+    - Resource Description: SDSC Comet Cluster ( Just a description)<br>
+    - Create<br>
+3. In Queues tab<br>
+    - Click 'Add a Queue'<br>
+    - Queue 1
+        - Queue Name: compute ( Per resource this is a unique value. Once created cannot edit the name. If need to change, delete and create again)<br>
+        - Queue Description: Used for access to regular compute nodes<br>
+        - Queue Max Run Time (In Minutes): 280 (Note required for the local resource)<br>
+        - Queue Max Nodes: 72 (Note required for the local resource)<br>
+        - Queue Max Processors: 1728 (Note required for the local resource)<br>
+        - Max Jobs in Queue: 0 (Note required for the local resource)<br>
+        - Max Memory For Queue( In MB ): (Note required for the local resource)<br>
+    - Queue 2
+        - Queue Name: shared ( Per resource this is a unique value. Once created cannot edit the name. If need to change, delete and create again)<br>
+        - Queue Description: Single-node jobs using fewer than 24 cores<br>
+        - Queue Max Run Time (In Minutes): 2880 (Note required for the local resource)<br>
+        - Queue Max Nodes: 1 (Note required for the local resource)<br>
+        - Queue Max Processors: 24 (Note required for the local resource)<br>
+        - Max Jobs in Queue: 0 (Note required for the local resource)<br>
+        - Max Memory For Queue( In MB ): (Note required for the local resource)<br>
+4. File System<br>
+    - Nothing to add here, this is futuristic development.<br>
+5. Job Submission Interface<br>
+    - Click on the tab<br>
+    - Add a new Job Submission Interface<br>
+    - Job Submission Protocol: SSH<br>
+    - Select Security Protocol: SSH_KEYS
+    - SSH Port: 22
+    - Select resource manager type: SLURM<br>
+    - Job Manager Bin Path: /usr/bin/
+    - Job Commands (SUBMISSION): sbatch<br>
+    - Job Commands (JOB_MONITORING): squeue<br>
+    - Job Commands (DELETION): scancel<br>
+    - Parallelism Prefixes (MPI): mpiexec <br>
+    - Add Job Submission Protocol<br>
+6.  Data Movement Interface<br>
+    - Add a new Data Submission Interface<br>
+    - Data Movement Protocol: SCP<br>
+    - Select Security Protocol: SSH_KEYS <br>
+    - SSH Port: 22 <br>
+    - Add Data Movement Protocol<br>
+Now the Local resource is ready for job submissions.<br>
+Comet is ready for job submissions.     
+
+
+###### <b><u>Register a Campus Resource </u></b>
+NOTE: Adding a campus resource is similar to adding a XSEDE resource. Same steps to follow with similar information.
+
+###### <b><u>Register Storage Resource</u></b>
+work-in=progress
+
 #####<h5 id="GaussianJob">Gaussian Job Submission to Comet  (XSEDE resource)</h5>
 This is a tutorial to configuring and running an application on XSEDE resource through PGA portal.
 
@@ -188,6 +209,80 @@ This is a tutorial to configuring and running an application on XSEDE resource t
         - Module Load Commands: module load gaussian
         - Post Job Commands: mkdir -p "$PWD"_restart; cp *.chk ${pwd}_restart; mv *.rwf* ${pwd}_restart; (Why? - any command you would want to execute after post job execution)</br>
 ![Screenshot](img/GauAppDep.png)
+
+#####<h5 id="LocalJob">Running Echo on Local Machine</h5>
+Quickest way to confirm Airavata and PGA setup. This will tell you what you need to do to Echo a simple 'Hello World' in your local machine.
+
+1. Create new application module: Echo
+    - Navigate to Admin Dashboard &rarr; App Catalog &rarr; Application Module 
+    - Click Create a new Application Module
+    - Enter Application Module Name: Echo
+    - Enter Application Module Version: Echo 1.0 (Not mandatory)
+    - Enter Description: Echo application for testing
+    - Create
+    - This create the Echo module </br>
+![Screenshot](img/AppModule.png) </br></br>
+2. Create the application interface: Echo
+    - Navigate to Admin Dashboard &rarr; App Catalog &rarr; Application Interface
+    - Click 'Create new Application Interface'
+    - Add Application Name: Echo
+    - Add Application Description: Echo Interface for testing
+    - Select Application Module: Echo
+    - Set 'Enable Archiving Working Directory' to False (Why? - This is set to true if you want to bring back all the files in working directory back to PGA)
+    - Set 'Enable Optional File Inputs' to False (Why? - Set to false because there won't be any additional optional inputs for Echo)
+    - Provide application inputs
+        - Click Add Application Input
+        - Name: Input-to-Echo
+        - Value: Echo Test 1......2......3....... (This value can be overridden at experiment creation)
+        - Type: STRING
+        - Application Arguments:
+        - Standard Input: False (Why? - Futuristic property and not in real use at the moment)
+        - Is Read Only: False (Why? - When this is set to true the input value will only be 'read-only'. User cannot change at experiment creation,edit or clone).
+        - User Friendly Description: Enter STRING input for Echo (Not mandatory)
+        - Input Order: 1
+        - Data is Staged: True
+        - Is the Input Required: True
+        - Required in Commandline: True
+        - Meta Data:
+    - Provide application outputs
+    NOTE: 3 application outputs to define.</br>
+        - 1st output
+            - Click Add Application Output
+            - Name: Echo-Standard-Out
+            - Value:
+            - Type: STDOUT
+            - Application Argument:
+            - Data Movement: False
+            - Is the Output required?: True
+            - Required on command line?: True
+            - Location:
+            - Search Query:</br>
+        - 2nd output
+            - Click Add Application Output
+            - Name: Echo-Standard-Error
+            - Value:
+            - Type: STDERR
+            - Application Argument:
+            - Data Movement: False
+            - Is the Output required?: True
+            - Required on command line?: True
+            - Location:
+            - Search Query:</br>
+![Screenshot](img/AppInterface1.png) ![Screenshot](img/AppInterface2.png) </br></br>
+3. Create the application deployment: Echo on Local Machine
+    - Navigate to Admin Dashboard &rarr; App Catalog &rarr; Application Deployment
+    - Click 'Create new Application Deployment'
+        - Application Module: Echo
+        - Application Compute Host: Local (Local machine has to be added as a compute resource prior to this step)
+        - Application Executable Path: /home/airavata/ECHO/echo_wrapper.sh (Local to where you have airavata installed)
+        - Application Parallelism Type: SERIAL </br>
+![Screenshot](img/AppDeployment.png)
+4. echo_wrapper.sh contains;
+<pre><code>
+    #!/bin/bash
+    #sleep 10
+    echo "Echoed_Output="${@:1:($#-2)}"" >> "${@:(-1):1}" 2>> "${@:(-2):1}"
+</code></pre>
 
 ##### <h5 id="PrePostCommands">Add Pre and Post Job Commands for an Application</h5>
 - This tutorial demonstrates use of pre and post job commands and how they appear in job submission script. <br>
@@ -345,97 +440,10 @@ This is a tutorial to configuring and running an application on XSEDE resource t
 Refer <a href="/Gateway-Configurations/#AppCatalog" target="_blank">Application Configuration</a> for more generic details.
 
 ##### <h5 id="SampleApp">Add Environment Variables for an Application Deployment</h5>
-1. 
+Work-in-Progress 
 
-
-##### <h5 id="Resources">Register your Compute & Storage Resources</h5><br>
-###### <b><u>Register Local Resource </u></b>
-NOTE: Gateway admins can only add compute resources and storage resources if they have super admin access to the gateway portal. If the portal is hosted locally they would have super admin access.
-
-1. Navigate to Admin Dashboard &rarr; Compute Resource &rarr; Register <br>
-2. Provide
-    - Host Name: Local Resource<br>
-    - Host Aliases: <br>
-    - IP Addresses:<br>
-    - Resource Description: My local resource for application execution ( Just a description)<br>
-    - Create<br>
-3. In Queues tab<br> (A queue is not required ideally, but as per the gateway logic, queue is required)
-    - Click 'Add a Queue'<br>
-    - Queue Name: Normal ( Per resource this is a unique value. Once created cannot edit the name. If need to change, delete and create again)<br>
-    - Queue Description: Local resource normal for job submission<br>
-    - Queue Max Run Time (In Minutes): (Note required for the local resource)<br>
-    - Queue Max Nodes: (Note required for the local resource)<br>
-    - Queue Max Processors: (Note required for the local resource)<br>
-    - Max Jobs in Queue: (Note required for the local resource)<br>
-    - Max Memory For Queue( In MB ): (Note required for the local resource)<br>
-4. File System<br>
-    - Nothing to add here, this is futuristic development.<br>
-5. Job Submission Interface<br>
-    - Click on the tab<br>
-    - Add a new Job Submission Interface<br>
-    - Job Submission Protocol: Local<br>
-    - Select resource manager type: FORK<br>
-    - Job Commands (SUBMISSION): /bin/sh<br>
-    - Add Job Submission Protocol<br>
-6.  Data Movement Interface<br>
-    - Add a new Data Submission Interface<br>
-    - Data Movement Protocol: Local<br>
-    - Add Job Submission Protocol<br>
-Now the Local resource is ready for job submissions.<br>
-
-###### <b><u>Register a XSEDE Resource </u></b>
-1. Navigate to Admin Dashboard &rarr; Compute Resource &rarr; Register <br>
-2. Provide
-    - Host Name: comet.sdsc.edu<br>
-    - Host Aliases: <br>
-    - IP Addresses:<br>
-    - Resource Description: SDSC Comet Cluster ( Just a description)<br>
-    - Create<br>
-3. In Queues tab<br>
-    - Click 'Add a Queue'<br>
-    - Queue 1
-        - Queue Name: compute ( Per resource this is a unique value. Once created cannot edit the name. If need to change, delete and create again)<br>
-        - Queue Description: Used for access to regular compute nodes<br>
-        - Queue Max Run Time (In Minutes): 280 (Note required for the local resource)<br>
-        - Queue Max Nodes: 72 (Note required for the local resource)<br>
-        - Queue Max Processors: 1728 (Note required for the local resource)<br>
-        - Max Jobs in Queue: 0 (Note required for the local resource)<br>
-        - Max Memory For Queue( In MB ): (Note required for the local resource)<br>
-    - Queue 2
-        - Queue Name: shared ( Per resource this is a unique value. Once created cannot edit the name. If need to change, delete and create again)<br>
-        - Queue Description: Single-node jobs using fewer than 24 cores<br>
-        - Queue Max Run Time (In Minutes): 2880 (Note required for the local resource)<br>
-        - Queue Max Nodes: 1 (Note required for the local resource)<br>
-        - Queue Max Processors: 24 (Note required for the local resource)<br>
-        - Max Jobs in Queue: 0 (Note required for the local resource)<br>
-        - Max Memory For Queue( In MB ): (Note required for the local resource)<br>
-4. File System<br>
-    - Nothing to add here, this is futuristic development.<br>
-5. Job Submission Interface<br>
-    - Click on the tab<br>
-    - Add a new Job Submission Interface<br>
-    - Job Submission Protocol: SSH<br>
-    - Select Security Protocol: SSH_KEYS
-    - SSH Port: 22
-    - Select resource manager type: SLURM<br>
-    - Job Manager Bin Path: /usr/bin/
-    - Job Commands (SUBMISSION): sbatch<br>
-    - Job Commands (JOB_MONITORING): squeue<br>
-    - Job Commands (DELETION): scancel<br>
-    - Parallelism Prefixes (MPI): mpiexec <br>
-    - Add Job Submission Protocol<br>
-6.  Data Movement Interface<br>
-    - Add a new Data Submission Interface<br>
-    - Data Movement Protocol: SCP<br>
-    - Select Security Protocol: SSH_KEYS <br>
-    - SSH Port: 22 <br>
-    - Add Data Movement Protocol<br>
-Now the Local resource is ready for job submissions.<br>
-Comet is ready for job submissions.     
-
-
-###### <b><u>Register a Campus Resource </u></b>
-NOTE: Adding a campus resource is similar to adding a XSEDE resource. Same steps to follow with similar information.
+##### <h5 id="Secure">Using Credential Store</h5>
+Work-in-Progress
 
 ##### <h5 id="Preferences">Gateway Preference Management</h5><br>
 ###### <b><u>Gateway Preference for a XSEDE Resource </u></b>
@@ -456,6 +464,7 @@ NOTE: Adding a campus resource is similar to adding a XSEDE resource. Same steps
     - Reservation Start Time: Not Required
     - Reservation End Time: Not Required
 5. Set preferences.
+
 ###### <b><u>Gateway Preference for a Local Resource </u></b>
 1. Navigate to Admin Dashboard &rarr; Gateway Management
 2. Click: Add a Computer Resource Preference
@@ -475,18 +484,25 @@ NOTE: Adding a campus resource is similar to adding a XSEDE resource. Same steps
     - Reservation End Time: (Note required for the local resource)
 5. Set preferences.
 
-
-
 ##### <h5 id="GtwyAccess">Managing User Accounts</h5>
-1. 
-##### <h5 id="Notices">Communication with Gateway Users</h5>
-1. 
-##### <h5 id="Traffic">Monitor Gateway Traffic</h5>
-1. 
-##### <h5 id="Secure">Using Credential Store</h5>
-1. 
 
-Work-in-Progress
+1. Read: <a href="/User-Profiles/" target="_blank"> User roles</a>
+2. To manage gateway users access use, Admin Dashboard &rarr; Users
+3. List users per user role by selecting the role from Role list.
+4. Search for the user account using search text field.
+5. Can search using 
+    - username
+6. User with the matching search string will be listed.
+7. Click 'Check roles'
+8. Add one or many roles selecting from the list and click Add roles. 
+9. Remove already existing roles.
+
+##### <h5 id="Notices">Communication with Gateway Users</h5>
+work-in-progress
+
+##### <h5 id="Traffic">Monitor Gateway Traffic</h5>
+ work-in-progress
+
 
 
 
