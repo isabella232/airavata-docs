@@ -19,10 +19,8 @@ pages:
       - PGA: 'PGA-Upgrades.md'
   - <h6>Admin Dashboard</h6>: 'Admin-Maintenance.md'
 - <h4>User Documentation</h4>:
-  - <h6>Gateway User</h6>:
-      - User Tutorials: 'User-Tutorials.md'
-  - <h6>Gateway Admin</h6>:
-      - Admin Tutorials: 'Admin-Tutorials.md'
+  - Gateway User Tutorials: 'User-Tutorials.md'
+  - Gateway Admin Tutorials: 'Admin-Tutorials.md'
   - User Profiles: 'User-Profiles.md'
   - Software Applications: 'Application-CookBook.md'
 - <h4>Technical Documentation</h4>:
