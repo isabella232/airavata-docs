@@ -6,13 +6,13 @@
 that can solve
 your Scientific Data Management requirements related to sharing and access controlling.</p>
 
-<p><span style="color: red; ">N.B. This component is under active development and this document will keep on evolving. Click <a href="./api-docs/index.html">here</a>
+<p><span style="color: red; ">N.B. This component is under active development and this document will keep on evolving. Click <a href="../Sharing-Docs">here</a>
 to see the API docs</span>
 </p>
 
 <div id="#concepts">
-<h3>Concepts & Terminology</h3>
-<img src="sharing_overview.png" alt="Sharing Concepts" height="600" width="800">
+<h3>Concepts & Terminology</h3></br>
+<img src="../img/sharing_overview.png" alt="Sharing Concepts" height="600" width="800">
 </div>
 <br/>
 
