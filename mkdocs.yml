@@ -27,9 +27,9 @@ pages:
   - Airavata API: 'AiravataApi.md'
   - <h6>Sharing Documentation</h6>:
       - Introduction: 'Sharing-Introduction.md'
-      - API Methods: 'Sharing-Docs.md'
-        - Sharing CPI: 'CPI.md'
-        - Sharing Models: 'Models.md'
+      - API Overview: 'Sharing-Docs.md'
+      - Sharing CPI: 'CPI.md'
+      - Sharing Models: 'Models.md'
 - <h4>FAQ</h4>: 'FAQ.md'
 - <h4>Previosur Relese Documentation</h4>: 'Previous-Release-Documentation.md'
 - <h4>Contact Us</h4>: 'Contact-Us.md'
