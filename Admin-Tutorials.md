@@ -128,7 +128,7 @@ Comet is ready for job submissions.
 NOTE: Adding a campus resource is similar to adding a XSEDE resource. Same steps to follow with similar information.
 
 ###### <b><u>Register Storage Resource</u></b>
-work-in=progress
+1. In order to register namvigate to admin dashboard --> Storage Resource
 
 #####<h5 id="GaussianJob">Gaussian Job Submission to Comet  (XSEDE resource)</h5>
 This is a tutorial to configuring and running an application on XSEDE resource through PGA portal.
