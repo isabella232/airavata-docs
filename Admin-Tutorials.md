@@ -127,11 +127,11 @@ Comet is ready for job submissions.
 ###### <b><u>Register a Campus Resource </u></b>
 NOTE: Adding a campus resource is similar to adding a XSEDE resource. Same steps to follow with similar information.
 
-###### <b><u>Register Storage Resource</u></b>
+###### <h6 id="StoreR"><b><u>Register Storage Resource</u></b></h6>
 1. Navigate to Admin Dashboard &rarr; Storage Resource &rarr; Register <br>
 2. Provide
-    - Host Name:
-    - Storage Resource Description:
+    - Host Name: sg03.iu.xsede.org
+    - Storage Resource Description: Storage for airavata gateway
     - Create
 3. In Data Movement Interfaces tab
     - Click 'Add a new Data Movement Interface'
@@ -510,7 +510,7 @@ Work-in-Progress
 ###### <b><u>Gateway Preference for the Storage Resource </u></b>
 1. Navigate to Admin Dashboard &rarr; Gateway Management.
 2. Click: Add a Storage Resource Preference.
-3. Select "sg03.iu.xsede.org" from the list (This is the resource you added above in <a href= "#StoreR">Register Storage Resource</a>)
+3. Select "sg03.iu.xsede.org" from the list (This is the resource you added above in <a href="#StoreR">Register Storage Resource</a>)
 4. Provide Data:
     - Login Username: pga (This is the username which uses to ssh to the storage resource)
     - File System Root Location: /var/www/portals/gateway-user-data/seagrid (The path which stores all user files, input files and output files)
