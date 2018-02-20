@@ -21,6 +21,7 @@ This page is dedicated to Gateway Admins!
 
 NOTE: If you are using a hosted gateway the 2 and 4 would be taken cared by the SciGaP team.
 
+
 ### Select Your Quick Start Tutorial
 1. <a href= "#Resources">Register your Compute & Storage Resources</a></br> 
 2. <a href="#GaussianJob">Gaussian Job Submission to Comet (XSEDE resource)</a></br>
@@ -123,12 +124,24 @@ Now the Local resource is ready for job submissions.<br>
 Now the Local resource is ready for job submissions.<br>
 Comet is ready for job submissions.     
 
-
 ###### <b><u>Register a Campus Resource </u></b>
 NOTE: Adding a campus resource is similar to adding a XSEDE resource. Same steps to follow with similar information.
 
 ###### <b><u>Register Storage Resource</u></b>
-1. In order to register namvigate to admin dashboard --> Storage Resource
+1. Navigate to Admin Dashboard &rarr; Storage Resource &rarr; Register <br>
+2. Provide
+    - Host Name:
+    - Storage Resource Description:
+    - Create
+3. In Data Movement Interfaces tab
+    - Click 'Add a new Data Movement Interface'
+    - Select 'SCP' from the list
+    - Select Security Protocol: SSH_KEYS
+    - Alternate SSH Host Name: Leave empty
+    - SSH Port: 22
+    - Add Data Movement Interface
+4. A single storage resource is sufficient for gateway which users PGA for all job submissions.
+
 
 #####<h5 id="GaussianJob">Gaussian Job Submission to Comet  (XSEDE resource)</h5>
 This is a tutorial to configuring and running an application on XSEDE resource through PGA portal.
@@ -211,6 +224,7 @@ This is a tutorial to configuring and running an application on XSEDE resource t
         - Post Job Commands: mkdir -p "$PWD"_restart; cp *.chk ${pwd}_restart; mv *.rwf* ${pwd}_restart; (Why? - any command you would want to execute after post job execution)</br>
 ![Screenshot](img/GauAppDep.png)
 
+
 #####<h5 id="LocalJob">Running Echo on Local Machine</h5>
 Quickest way to confirm Airavata and PGA setup. This will tell you what you need to do to Echo a simple 'Hello World' in your local machine.
 
@@ -284,6 +298,7 @@ Quickest way to confirm Airavata and PGA setup. This will tell you what you need
     #sleep 10
     echo "Echoed_Output="${@:1:($#-2)}"" >> "${@:(-1):1}" 2>> "${@:(-2):1}"
 </code></pre>
+
 
 ##### <h5 id="PrePostCommands">Add Pre and Post Job Commands for an Application</h5>
 - This tutorial demonstrates use of pre and post job commands and how they appear in job submission script. <br>
@@ -440,13 +455,20 @@ Quickest way to confirm Airavata and PGA setup. This will tell you what you need
 
 Refer <a href="/Gateway-Configurations/#AppCatalog" target="_blank">Application Configuration</a> for more generic details.
 
+
 ##### <h5 id="SampleApp">Add Environment Variables for an Application Deployment</h5>
 Work-in-Progress 
 
-##### <h5 id="Secure">Using Credential Store</h5>
-Work-in-Progress
 
-##### <h5 id="Preferences">Gateway Preference Management</h5><br>
+##### <h5 id="Secure">Using Credential Store</h5>
+1. Navigate to Admin Dashboard &rarr; Credential Store.
+2. Click 'Generate a new Token'.
+3. A new key+token will be generated.
+4. These keys are to use in SSH communications with compute resources and gateway storage resource.
+5. NOTE: Make usre not to delete once assigned to a compute resource to a storage resource.
+
+
+##### <h5 id="Preference">Gateway Preference Management</h5><br>
 ###### <b><u>Gateway Preference for a XSEDE Resource </u></b>
 1. Navigate to Admin Dashboard &rarr; Gateway Management
 2. Click: Add a Computer Resource Preference
@@ -485,8 +507,18 @@ Work-in-Progress
     - Reservation End Time: (Note required for the local resource)
 5. Set preferences.
 
-##### <h5 id="GtwyAccess">Managing User Accounts</h5>
+###### <b><u>Gateway Preference for the Storage Resource </u></b>
+1. Navigate to Admin Dashboard &rarr; Gateway Management.
+2. Click: Add a Storage Resource Preference.
+3. Select "sg03.iu.xsede.org" from the list (This is the resource you added above in <a href= "#StoreR">Register Storage Resource</a>)
+4. Provide Data:
+    - Login Username: pga (This is the username which uses to ssh to the storage resource)
+    - File System Root Location: /var/www/portals/gateway-user-data/seagrid (The path which stores all user files, input files and output files)
+    - Resource Specific Credential Store Token: Select a token from the list. (Public key of this token need to be added to authorized_keys in your sg03.iu.xsede.org 'pga' allocation)
+5. Set preferences.
 
+
+##### <h5 id="GtwyAccess">Managing User Accounts</h5><br>
 1. Read: <a href="/User-Profiles/" target="_blank"> User roles</a>
 2. To manage gateway users access use, Admin Dashboard &rarr; Users
 3. List users per user role by selecting the role from Role list.
@@ -498,10 +530,12 @@ Work-in-Progress
 8. Add one or many roles selecting from the list and click Add roles. 
 9. Remove already existing roles.
 
-##### <h5 id="Notices">Communication with Gateway Users</h5>
+
+##### <h5 id="Notices">Communication with Gateway Users</h5><br>
 work-in-progress
 
-##### <h5 id="Traffic">Monitor Gateway Traffic</h5>
+
+##### <h5 id="Traffic">Monitor Gateway Traffic</h5><br>
  work-in-progress
 
 
