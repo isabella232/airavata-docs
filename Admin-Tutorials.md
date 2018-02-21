@@ -524,7 +524,10 @@ Work-in-Progress
 3. List users per user role by selecting the role from Role list.
 4. Search for the user account using search text field.
 5. Can search using 
-    - username
+    - First Name
+    - Last Name
+    - Username
+    - Email
 6. User with the matching search string will be listed.
 7. Click 'Check roles'
 8. Add one or many roles selecting from the list and click Add roles. 
@@ -532,11 +535,32 @@ Work-in-Progress
 
 
 ##### <h5 id="Notices">Communication with Gateway Users</h5><br>
-work-in-progress
-
+1. Provides a method to notify the gateway user.
+2. When user logs in, a 'Bell' icon will be displayed with the number of unread messages next to Dashboard on top menu bar.
+3. Gateway admin can create these notices with an assigned priority.
+4. navigate to Admin Dashboard &rarr; Notices
+5. Click 'Create a New Notice'
+6. Provide:
+    - Notice Title: Gordon cluster is retiring (A heading for the notice)
+    - Notice Message: Gordon cluster is retiring from Dec 31st 2016. Preserve your files now.
+    - Publish Date: Select from the provided calendar
+    - Expiration Date: Not mandatory, if needed select from the provided calendar.
+    - Priority: LOW (Default is 'LOW'. Admin can change)   
+7. Mandatory fields are marked with a *
+    
 
 ##### <h5 id="Traffic">Monitor Gateway Traffic</h5><br>
- work-in-progress
+1. To monitor current gateway experiment and job statuses navigate to Admin Dashboard &rarr; Experiment Statistics.
+2. Gateway admin can view and filter experiments of the gateway using this page.
+3. In experiment summary by default gateway status for last 24 hours will be displayed.
+4. Two buttons, 'Get Experiments from last 24 Hours' and 'Get Experiments from Last Week' will group and list the experiments below for the selected time.
+5. In order to further filter the experiments use
+    - Username: AnneMarie (Gateway username need to be typed in)
+    - Application Name: Gaussian (All the application in teh gateway will be listed)
+    - Hostname: Comet.sdsc.edu (A drop down will provide all the compute resources to select from)
+    - Click 'Get Statistics'
+6. Once the experiments are filtered and grouped, click on the desired group (Existing experiments groups are 'Total','Created','Running', Completed','Cancelled' and 'Failed').
+7. When you list an experiment group you can select the experiment you want to view either in Experiment Summary (Click on Status) or in Details Summary (Click on Check Stats).
 
 
 
