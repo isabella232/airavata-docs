@@ -1,23 +1,19 @@
-<body>
-<div class="container-fluid">
-<h2>Welcome to Airavata Sharing Registry Service Documentation</h2>
+## Welcome to Airavata Sharing Registry Service Documentation
 
-<p>Airavata Data Sharing Registry Service is a general purpose <b>Collaborative Workspace Management Component</b>
-that can solve
-your Scientific Data Management requirements related to sharing and access controlling.</p>
+Airavata Data Sharing Registry Service is a general purpose **Collaborative Workspace Management Component** that can solve your Scientific Data Management requirements related to sharing and access controlling.
 
-<p><span style="color: red; ">N.B. This component is under active development and this document will keep on evolving. Click <a href="../Sharing-Docs">here</a>
-to see the API docs</span>
-</p>
+!!! note
+    This component is under active development and this document will keep on evolving. Click [here](api-overview.md) to see the API docs.
 
-<div id="#concepts">
+<!-- <div id="#concepts">
 <h3>Concepts & Terminology</h3></br>
-<img src="../img/sharing_overview.png" alt="Sharing Concepts" height="600" width="800">
+<img src="../../img/sharing_overview.png" alt="Sharing Concepts" height="600" width="800">
 </div>
-<br/>
+<br/> -->
 
-<div id="#getting-started">
-<h3>Getting started with the Java client</h3>
+<!-- Removed since the image is not available - Need to Update-->
+
+### Getting started with the Java client
 
 <div>
 <ol start="0">
@@ -356,7 +352,3 @@ to see the API docs</span>
     System.out.println(sharingServiceClient.searchEntities(domainId, "test-user-2", "EXPERIMENT", filters, 0, -1).size());
 </pre>
 </div>
-
-    </div>
-</div>
-</body>

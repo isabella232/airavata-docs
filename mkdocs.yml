@@ -1,40 +1,48 @@
-site_name: Airavata Documentation
- <div>0.17</div>
+site_name: Apache Airavata 0.17
+site_url: https://airavata.apache.org/
+site_description: Apache Airavata Documentation
 
-docs_dir: .
+repo_url: https://github.com/apache/airavata-docs
+
+docs_dir: docs
 
 pages:
-- <h4>Home</h4>: 'index.md'
-- <h4>System Installations</h4>:
-  - Airavata: 'Airavata-Installation.md'
-  - PGA: 'PGA-Installation.md'
-  - WSO2 IS: 'Own-WSO2-IS-Configuration.md'
-  - Airavata Property File: 'airavata-properties.md'
-- <h4>Configuration</h4>:
-  - PGA: 'Gateway-Configurations.md'
-  - WSO2 IS: 'WSO2-IS-Configuration.md'
-- <h4>Gateway Maintenance</h4>:
-  - <h6>Code Upgrades</h6>:
-      - Airavata: 'Airavata-Upgrades.md'
-      - PGA: 'PGA-Upgrades.md'
-  - <h6>Admin Dashboard</h6>: 'Admin-Maintenance.md'
-- <h4>User Documentation</h4>:
-  - Gateway User Tutorials: 'User-Tutorials.md'
-  - Gateway Admin Tutorials: 'Admin-Tutorials.md'
-  - User Profiles: 'User-Profiles.md'
-  - Software Applications: 'Application-CookBook.md'
-- <h4>Technical Documentation</h4>:
-  - Airavata API: 'AiravataApi.md'
-  - <h6>Sharing Documentation</h6>:
-      - Introduction: 'Sharing-Introduction.md'
-      - API Overview: 'Sharing-Docs.md'
-      - Sharing CPI: 'CPI.md'
-      - Sharing Models: 'Models.md'
-- <h4>FAQ</h4>: 'FAQ.md'
-- <h4>Previosur Relese Documentation</h4>: 'Previous-Release-Documentation.md'
-- <h4>Contact Us</h4>: 'Contact-Us.md'
+- Home: 'index.md'
+- Installation:
+  - Apache Airavata Installation: 'installation/airavata-installation.md'
+  - PGA Installation: 'installation/pga-installation.md'
+  - WSO2 IS Installation: 'installation/wso2-is-installation.md'
+  - Apache Airavata Server Properties: 'installation/airavata-server-properties.md'
+- Configuration:
+  - PGA Configuration: 'configuration/pga-configuration.md'
+  - WSO2 IS Configuration: 'configuration/wso2-is-configuration.md'
+- Maintenance:
+  - Code Update:
+      - Apache Airavata Update: 'maintenance/code-update/airavata-update.md'
+      - PGA Update: 'maintenance/code-update/pga-update.md'
+  - PGA Maintenance: 'maintenance/pga-maintenance.md'
+- User Documentation:
+  - Gateway User Tutorials: 'user-documentation/user-tutorials.md'
+  - Gateway Admin Tutorials: 'user-documentation/admin-tutorials.md'
+  - Apache Airavata User Profiles: 'user-documentation/airavata-user-profiles.md'
+  - Supported Applications: 'user-documentation/supported-applications.md'
+- Technical Documentation:
+  - Apache Airavata API: 'technical-documentation/airavata-api.md'
+  - Sharing Documentation:
+      - Introduction: 'technical-documentation/sharing-documentation/introduction.md'
+      - API Overview: 'technical-documentation/sharing-documentation/api-overview.md'
+      - Sharing CPI: 'technical-documentation/sharing-documentation/sharing-cpi.md'
+      - Sharing Models: 'technical-documentation/sharing-documentation/sharing-models.md'
+- FAQ: 'faq.md'
+- Previous Releses: 'previous-releases.md'
+- Contact Us: 'contact-us.md'
 
 theme: readthedocs
 
 extra_css:
   - css/extra.css
+
+markdown_extensions:
+  - toc:
+     permalink: 
+  - admonition

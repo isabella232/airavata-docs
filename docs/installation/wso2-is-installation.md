@@ -1,4 +1,5 @@
-    ## WSO2 IS Installation
+## WSO2 Identity Server (IS) Installation
+
 ### Installation
 1. Download IS 5.1.0 from <a href="http://wso2.com/products/identity-server/" target="_blank">WSO2 Site</a> and extract it.
 2. Open &#60;IS_HOME&#62;/repository/conf/carbon.xml and set the HideAdminServiceWSDLs property to false.

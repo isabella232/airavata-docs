@@ -1,4 +1,5 @@
-##<h2 id="airavata-properties.md">Apache Airavata Server Properties</h2>
+## Apache Airavata Server Properties
+
 1.  API Server Registry Configuration
 	- Comment out the derby DB properties
 	- Change MySQL configurations
@@ -90,5 +91,3 @@
 	- Make sure
 		- api.secured=false
 		- TLS.enabled=false
-
-

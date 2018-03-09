@@ -1,4 +1,4 @@
-## WSO2 Identity Server (IS)
+## WSO2 Identity Server (IS) Configuration
 
 The steps below are for IS configuration when IS is hosted by Airavata team. In this situation you will be a tenant created under Airavata hosted IS.
 
@@ -36,7 +36,4 @@ OR
 5. Navigate to Configure —> Claim management —>http://wso2.org/claims. And make "Supported by Default = true"
 6. Navigate to Configure --> Users & Roles --> Users. Find the admin user and click 'User Profile'. Add the username at the bottom and update.
 
-You are all set to start configuring the gateway for job submission. For Gateway Configurations visit <a href="#Gateway-Configuration.md">PGA Configuration</a>
-
-test
-test
+You are all set to start configuring the gateway for job submission. For Gateway Configurations visit [PGA Configuration](pga-configuration.md).

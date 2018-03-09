@@ -1,4 +1,4 @@
-# Apache Airavata....
+# Apache Airavata
 
 - A distributed framework that supports execution and management of computational scientific applications and workflows in grid based systems, remote clusters and cloud based systems.
 - Primarily focused on submitting and managing application executions and workflows in grid based systems.
