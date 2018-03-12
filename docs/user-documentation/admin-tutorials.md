@@ -15,8 +15,8 @@ This page is dedicated to Gateway Admins!
         - Locate your resource and copy the ID
         - Paste it in pga_config.php file in pga/app/config directory.
 3. Credentials generated, assigned and added to authorized_keys files of resources
-    - To generate key refer <a href=/Gateway-Configurations/#Credentials> Credential Store</a>
-    - Token Assignment <a href=/Gateway-Configurations/#Preference> Gateway Management</a>
+    - To generate key refer [Credential Store](../configuration/pga-configuration.md#credential-store)
+    - Token Assignment [Gateway Management](../configuration/pga-configuration.md#gateway-management-of-resources)
     - Copy the public key for the assigned token frm credential store and add it to authorized_keys file in both compute and storage resources.
 
 NOTE: If you are using a hosted gateway the 2 and 4 would be taken cared by the SciGaP team.
@@ -154,7 +154,7 @@ This is a tutorial to configuring and running an application on XSEDE resource t
     - Enter Description: Gaussian provides capabilities for electronic structure modeling
     - Create
     - This create the Gaussian module </br>
-![Screenshot](img/GauAppMod.png)
+![Screenshot](../img/gau-app-mod.png)
 2. Create the application interface: Gaussian
     - Navigate to Admin Dashboard &rarr; App Catalog &rarr; Application Interface
     - Click 'Create new Application Interface'
@@ -211,7 +211,10 @@ This is a tutorial to configuring and running an application on XSEDE resource t
             - Required on command line?: True
             - Location:
             - Search Query:</br>
-![Screenshot](img/GauAppInt1.png) ![Screenshot](img/GauAppInt2.png) ![Screenshot](img/GauAppInt3.png) </br></br>
+![Screenshot](../img/gau-app-int-1.png)
+![Screenshot](../img/gau-app-int-2.png)
+![Screenshot](../img/gau-app-int-3.png)
+</br></br>
 3. Create the application deployment: Gaussian on Comet
     - Navigate to Admin Dashboard &rarr; App Catalog &rarr; Application Deployment
     - Click 'Create new Application Deployment'
@@ -222,7 +225,7 @@ This is a tutorial to configuring and running an application on XSEDE resource t
         - Application Deployment Description: Gaussian provides capabilities for electronic structure modeling.
         - Module Load Commands: module load gaussian
         - Post Job Commands: mkdir -p "$PWD"_restart; cp *.chk ${pwd}_restart; mv *.rwf* ${pwd}_restart; (Why? - any command you would want to execute after post job execution)</br>
-![Screenshot](img/GauAppDep.png)
+![Screenshot](../img/gau-app-dep.png)
 
 
 #####<h5 id="LocalJob">Running Echo on Local Machine</h5>
@@ -236,7 +239,7 @@ Quickest way to confirm Airavata and PGA setup. This will tell you what you need
     - Enter Description: Echo application for testing
     - Create
     - This create the Echo module </br>
-![Screenshot](img/AppModule.png) </br></br>
+![Screenshot](../img/app-module.png) </br></br>
 2. Create the application interface: Echo
     - Navigate to Admin Dashboard &rarr; App Catalog &rarr; Application Interface
     - Click 'Create new Application Interface'
@@ -283,7 +286,9 @@ Quickest way to confirm Airavata and PGA setup. This will tell you what you need
             - Required on command line?: True
             - Location:
             - Search Query:</br>
-![Screenshot](img/AppInterface1.png) ![Screenshot](img/AppInterface2.png) </br></br>
+![Screenshot](../img/app-interface-1.png)
+![Screenshot](../img/app-interface-2.png)
+</br></br>
 3. Create the application deployment: Echo on Local Machine
     - Navigate to Admin Dashboard &rarr; App Catalog &rarr; Application Deployment
     - Click 'Create new Application Deployment'
@@ -291,7 +296,7 @@ Quickest way to confirm Airavata and PGA setup. This will tell you what you need
         - Application Compute Host: Local (Local machine has to be added as a compute resource prior to this step)
         - Application Executable Path: /home/airavata/ECHO/echo_wrapper.sh (Local to where you have airavata installed)
         - Application Parallelism Type: SERIAL </br>
-![Screenshot](img/AppDeployment.png)
+![Screenshot](../img/app-deployment.png)
 4. echo_wrapper.sh contains;
 <pre><code>
     #!/bin/bash
@@ -314,7 +319,7 @@ Quickest way to confirm Airavata and PGA setup. This will tell you what you need
     - Enter Description: Open source, highly scalable and portable spectral element code designed to simulate
     - Create
     - This create the NEK5000 module </br>
-![Screenshot](img/NEK5000AppMod.png)
+![Screenshot](../img/nek-5000-app-mod.png)
 2. Create the application interface: NEK5000
     - Navigate to Admin Dashboard &rarr; App Catalog &rarr; Application Interface
     - Click 'Create new Application Interface'
@@ -434,7 +439,14 @@ Quickest way to confirm Airavata and PGA setup. This will tell you what you need
             - Required on command line?: False
             - Location:
             - Search Query:</br>
-![Screenshot](img/NEKAppInt1.png) ![Screenshot](img/NEKAppInt2.png) ![Screenshot](img/NEKAppInt3.png) ![Screenshot](img/NEKAppInt4.png) ![Screenshot](img/NEKAppInt5.png) ![Screenshot](img/NEKAppInt6.png) ![Screenshot](img/NEKAppInt7.png) </br></br>
+![Screenshot](../img/nek-app-int-1.png)
+![Screenshot](../img/nek-app-int-2.png)
+![Screenshot](../img/nek-app-int-3.png)
+![Screenshot](../img/nek-app-int-4.png)
+![Screenshot](../img/nek-app-int-5.png)
+![Screenshot](../img/nek-app-int-6.png)
+![Screenshot](../img/nek-app-int-7.png)
+</br></br>
 3. Create the application deployment: NEK5000 on BigRed2 (BigRed2 is the IU cluster. Using just as an example)
     - Navigate to Admin Dashboard &rarr; App Catalog &rarr; Application Deployment
     - Click 'Create new Application Deployment'
@@ -449,11 +461,11 @@ Quickest way to confirm Airavata and PGA setup. This will tell you what you need
             - echo nek5kbasename  > ./SESSION.NAME; echo 'pwd'/' >>  ./SESSION.NAME;
         - Post Job Commands: 
             - mkdir -p "$PWD"_restart; cp *.chk ${pwd}_restart; mv *.rwf* ${pwd}_restart; (Why? - any command you would want to execute after post job execution)</br>
-![Screenshot](img/GauAppDep.png)
+![Screenshot](../img/gau-app-dep.png)
 4. NEK5000 job script. <br>Please view the existence and placement of both pre and post job commands in the job script.
-![Screenshot](img/NEK5000job.png)
+![Screenshot](../img/nek-5000-job.png)
 
-Refer <a href="/Gateway-Configurations/#AppCatalog" target="_blank">Application Configuration</a> for more generic details.
+Refer [Application Configuration](../configuration/pga-configuration.md#application-catalog) for more generic details.
 
 
 ##### <h5 id="SampleApp">Add Environment Variables for an Application Deployment</h5>
@@ -519,7 +531,7 @@ Work-in-Progress
 
 
 ##### <h5 id="GtwyAccess">Managing User Accounts</h5><br>
-1. Read: <a href="/User-Profiles/" target="_blank"> User roles</a>
+1. Read: [User roles](airavata-user-profiles.md)
 2. To manage gateway users access use, Admin Dashboard &rarr; Users
 3. List users per user role by selecting the role from Role list.
 4. Search for the user account using search text field.
@@ -561,7 +573,3 @@ Work-in-Progress
     - Click 'Get Statistics'
 6. Once the experiments are filtered and grouped, click on the desired group (Existing experiments groups are 'Total','Created','Running', Completed','Cancelled' and 'Failed').
 7. When you list an experiment group you can select the experiment you want to view either in Experiment Summary (Click on Status) or in Details Summary (Click on Check Stats).
-
-
-
-

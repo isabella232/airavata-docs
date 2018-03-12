@@ -1,5 +1,4 @@
-## <h2 id="AiravataCent"> FAQs</h2>
-
+## FAQs
 
 <a href="#InstallFAQ">Installation FAQs</a></br>
 <a href="#ConfigFGAQ">Configuration FAQs</a></br>
@@ -210,11 +209,3 @@ What should i do?
 
 <br><b class="blue"> Q12 </b> I want to change the wall-time of my experiment before launch. How can I do?<br/>
 <b class="blue">Answer: </b> Experiments in CREATED state can be modified through Experiment Summary page. Click 'Edit' change values and Save or Save and Launch.
-
-	
-	
-
-
-
-
-       

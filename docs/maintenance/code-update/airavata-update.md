@@ -1,4 +1,4 @@
-## Airavata Update
+## Apache Airavata Update
 
 1. In order to update Airavata with latest master code; go to the folder (Created in installation; LocalAiravata) initially created to clone Airavata.
 2. Within your local folder navigate to folder 'airavata' and execute <pre><code>git pull </code></pre>
@@ -31,11 +31,4 @@ Try <pre><code> diff airavata-server.properties airavata-server.properties-bk</c
 14. Now restart airavata server in bin folder
 <pre><code>./airavata-server.sh start</code></pre>
 15. Airavata ready for job submissions!
-16. For PGA updating steps try <a href="../PGA-Upgrades">PGA Update</a>
-
-
-
-
- 
-
-
+16. For PGA updating steps try [PGA Update](pga-update.md).

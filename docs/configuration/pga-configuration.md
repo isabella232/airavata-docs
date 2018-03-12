@@ -1,4 +1,4 @@
-## PGA Configurations
+## PGA Configuration
 ### You Need to Have
 1. Airavata & PGA installed and running.
 2. Tenant created in WSO2 IS hosted by you or Airavata team.
@@ -24,7 +24,7 @@
 
 <b>NOTE</b>: for gateways hosted by SciGaP gateway admins/PIs not required to register the compute resources and storage resource. Please skip the 1st and 2nd and go to Gateway Management section.
 <br>
-###<h3 id="CompResource">Compute Resources</h3>
+###Compute Resources
 1. Navigate to Admin Dashboard &#8658; Compute Resources &#8658; Register
 2. Add Host Name, Description and create the resource.
 <br>Hint: host name is used when ssh to the resource from airavata.
@@ -38,7 +38,7 @@
 7. All the resources will be listed. Gateway admin can view, edit, delete and enable and disable them.
 <br>
 <br>
-###<h3 id="StoreResource">Storage Resources</h3>
+###Storage Resources
 1. Navigate to Admin Dashboard &#8658; Storage Resources &#8658; Register
 2. Add Storage Name, Description and create the resource.
 3. Then add data storage information in
@@ -49,7 +49,7 @@
 7. Although enable and disable can be done in registration it's functionality is not yet implemented.
 <br>
 <br>
-###<h3 id="Preference">Gateway Management of Resources</h3>
+###Gateway Management of Resources
 1. Navigate Admin Dashboard &#8658; Gateway Management
 2. Both compute resource and storage resource specific preferences are defined here.
 3. To add compute resource related preferences click "Add a Compute Resource Preference" and select the resource from the drop-down list.
@@ -77,11 +77,11 @@
 8. Apart from adding preference the same interface is used to assign a 'Base Credential Store Token". If this is added this is the token used across the gateway for communication with all the compute resources and storage resource.
 <br>
 <br>
-### <h3 id="AppCatalog">Application Catalog</h3>
+###Application Catalog
 1. Gateway admin add applications in to the gateway. Adding an application is a 3 step process.
 2. Admin need to add application module, interface and deployment information in order to launch specific application jobs on compute resources.
 3. Relationship between application module, interface and deployments.
-![Screenshot](img/AppCatalog.png)
+![Screenshot](../img/app-catalog.png)
 4. What each step means?
 	- <b class="blue">Application Module</b>
 		- Navigation: Admin Dashboard &#8658; App Catalog &#8658; Module
@@ -105,14 +105,14 @@
 			- Multiple application modules can be deployed in a single resource. E.g: Gaussian09 and Gaussian16 both exists in bridges.psc.edu and they both use same application interface.
 <br>
 <br>
-### <h3 id="Credentials">Credential Store</h3>
+###Credential Store
 1. Navigation: Admin Dashboard &#8658; Credential Store
 2. This interface is used to generate SSH key + token pairs.
 3. These generated keys can be added in to the authorized key files in each resource for SSH key based communication.
 4. Generated key can be either assigned at gateway level; one key + token pair  for all the resources OR have separate key for each resource.
 5. SSH keys are used for communication with compute resources, storage resources and WSO2 identity server.
 
-### <h3 id="ISConfiguration">Identity Server Configuration</h3>
+###Identity Server Configuration
 1. Setting up WSO2 IS for the new gateway.
 2. Once PGA is cloned all information related to user identity will be in app/config/pga_config.php. No modifications required for users who are using 	hosted IS.
 3. For user identity management we could either use Airavata WSO2 IS or users own WSO2 IS.
@@ -128,8 +128,3 @@ You should be able to login to the Identity Server Web App using your browser wi
 <br>Gateway admin will be provided with;
 	- Domain URL for the Gateway
 	- Admin User name
-
-
-
-	
-

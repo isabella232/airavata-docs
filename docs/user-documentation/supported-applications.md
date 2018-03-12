@@ -1,4 +1,4 @@
-## Applications to Run in Gateway
+## Supported Applications
 
 ### Few Applications Supported by Airavata
 This list contains a sub section of application supported via gateways linked to Airavata. 
@@ -40,4 +40,4 @@ Inputs for all applications currently available in Airavata can be found <a href
 
 
 ### Application Configuration
-For sample configurations please refer <a href="/Admin-Tutorials" target="_blank">Admin Tutorials</a>
+For sample configurations please refer [Admin Tutorials](admin-tutorials.md)
