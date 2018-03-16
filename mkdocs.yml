@@ -14,6 +14,7 @@ pages:
   - WSO2 IS Installation: 'installation/wso2-is-installation.md'
   - Apache Airavata Server Properties: 'installation/airavata-server-properties.md'
 - Configuration:
+  - Keycloak Configuration: 'configuration/keycloak-configuration.md'
   - PGA Configuration: 'configuration/pga-configuration.md'
   - WSO2 IS Configuration: 'configuration/wso2-is-configuration.md'
 - Maintenance:
