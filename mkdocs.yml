@@ -15,7 +15,6 @@ pages:
 - Configuration:
   - Keycloak Configuration: 'configuration/keycloak-configuration.md'
   - PGA Configuration: 'configuration/pga-configuration.md'
-  - WSO2 IS Configuration: 'configuration/wso2-is-configuration.md'
 - Maintenance:
   - Code Update:
       - Apache Airavata Update: 'maintenance/code-update/airavata-update.md'
