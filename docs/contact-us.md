@@ -4,7 +4,7 @@ For your clarifications, Questions and Suggestions please contact us through
 
 OR
 
-<a href="https://www.hipchat.com/gMDHyN1KM" target="_blank">HipChat</a>
+<a>Chat</a>
 
 Issue Reporting
 Any issue encountered with Airavata or our gateway please log through;
