@@ -26,5 +26,4 @@ For more information on Airavata visit; <a href="http://airavata.apache.org/" ta
 OR<br>
 2. Having your own gateway hosted<br>
 you can contact a downstream project <a href="http://scigap.org/" target="_blank">Science Gateways Platform as a Service (SciGaP)</a> and request your gateway. 
-
-<br>SciGaP runs Apache Airavata as platform service. 
+<br>SciGaP runs Apache Airavata as a platform service. 
