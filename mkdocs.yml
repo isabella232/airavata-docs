@@ -16,7 +16,7 @@ pages:
 - System Configuration:
   - Keycloak Configuration: 'configuration/keycloak-configuration.md'
   - Django Configuration: 'configuration/pga-configuration.md'
-  - Django FAQ: 'maintenance/pga-maintenance.md'
+#  - Django FAQ: 'maintenance/pga-maintenance.md'
 - Installation:
   - Apache Airavata Installation: 'installation/airavata-installation.md'
   - Django Installation: 'installation/pga-installation.md'
