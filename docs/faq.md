@@ -7,10 +7,8 @@
 ### <h3 id="InstallFAQ">Installation FAQs </h3>
 <b class="blue"> Q1.</b> I have setup my own gateway and Airavata. When I log into the gateway I cannot create Compute resources. What should I do?</br>
 <b class="blue">Answer: </b> In your pga_config.php (in folder .../testdrive/app/config) under heading 'Portal Related Configurations' set 'super-admin-portal' => false, to true.</br>
-
 <br><b class="blue">Q2.</b> I don't get notifications when users create new accounts in my gateway. Why?</br>
 <b class="blue">Answer: </b> That's because you have not defined an email address in <br>'admin-emails' => ['xxx@xxx.com','yyy@yyy.com']. Here you can add one or many.</br>
-
 <br><br><b class="blue"> Q3.</b>  I am not receiving email notifications from compute resources for job status changes. What should I do?</br>
 <b class="blue">Answer: </b> In airavata-server.properties please locate and set your email account information.
 <pre><code>email.based.monitor.host=imap.gmail.com
@@ -42,7 +40,6 @@ email.based.monitor.store.protocol=imaps (either imaps or pop3)</pre></code>
         PRIMARY KEY (GATEWAY_ID, TOKEN_ID)
 );
 </pre></code>
-
 <br><br><b class="blue"> Q5.</b>  I cannot login to my Compute Resource and launch jobs from Airavata using the SSH key I generated. What should I do?
 <br><b class="blue">Answer: </b> Steps to use generated SSH key<br>
         - Generate SSH key + token using Credential Store<br>
@@ -74,7 +71,6 @@ email.based.monitor.store.protocol=imaps (either imaps or pop3)</pre></code>
     CustomLog logs/pga--access_log common
 </VirtualHost></code></pre>
     <br>
-
 <br><b class="blue"> Q8.</b> I get the Error message Permission Denied to app/storage directory.<br>
     <br><b class="blue">Answer: </b>Execute the following command and grant all permissions; <pre><code> sudo chmod -R 777 app/storage</code></pre>
 

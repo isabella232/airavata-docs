@@ -78,9 +78,11 @@
 <br>
 <br>
 ###Application Catalog
-1. Users in Admin group can add applications in to the gateway.
-2. Adding an application involves adding details in to the three tabs - Details, Interface and Deployments.
-4. What each tab means and capture?
+1. Gateway admin add applications in to the gateway. Adding an application is a 3 step process.
+2. Admin need to add application module, interface and deployment information in order to launch specific application jobs on compute resources.
+3. Relationship between application module, interface and deployments.
+![Screenshot](../img/app-catalog.png)
+4. What each step means?
 	- <b class="blue">Application Module</b>
 		- Navigation: Admin Dashboard &#8658; App Catalog &#8658; Module
 		- This is the simple introduction of the application; Name, Version and Description.
@@ -104,11 +106,25 @@
 <br>
 <br>
 ###Credential Store
-1. Navigation: Settings &#8658; Credential Store
+1. Navigation: Admin Dashboard &#8658; Credential Store
 2. This interface is used to generate SSH key + token pairs.
 3. These generated keys can be added in to the authorized key files in each resource for SSH key based communication.
-4. Generated key can be either assigned at gateway level or/and at individual resource allocation level; one key + token pair  for all the resources OR have separate key for each resource.
-5. SSH keys are used for communication with compute resources and storage resources.
+4. Generated key can be either assigned at gateway level; one key + token pair  for all the resources OR have separate key for each resource.
+5. SSH keys are used for communication with compute resources, storage resources and WSO2 identity server.
 
-###Keycloak Configuration
-<Will be added Soon!>
+###Identity Server Configuration
+1. Setting up WSO2 IS for the new gateway.
+2. Once PGA is cloned all information related to user identity will be in app/config/pga_config.php. No modifications required for users who are using 	hosted IS.
+3. For user identity management we could either use Airavata WSO2 IS or users own WSO2 IS.
+4. Download WSO2 Identity Server 5.0 from http://product-dist.wso2.com/products/identity-server/5.0.0/wso2is-5.0.0.zip
+5. Extract the downloaded IS binary archive to a location <IS_HOME>.
+6. Set JAVA_HOME variable and add jdk bin directory to the PATH variable.
+7. Open <IS_HOME>/repository/conf/carbon.xml and change the following property to false
+&#60;HideAdminServiceWSDLs&#62;false&#60;/HideAdminServiceWSDLs&#62;
+8. Execute the following command to run the server
+sh <IS_HOME>/bin/wso2server.sh
+You should be able to login to the Identity Server Web App using your browser with url http://localhost:9443/carbon . Default admin credentials are username: admin, password: admin
+9. For more information regarding WSO2 Identity Server refer <a href="https://docs.wso2.org/display/IS460/Deploying+in+Production" target="_blank">WSO2 IS Server</a>
+<br>Gateway admin will be provided with;
+	- Domain URL for the Gateway
+	- Admin User name

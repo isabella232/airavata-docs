@@ -1,15 +1,19 @@
-## Admin Settings Configurations
+## Admin Dashboard Configurations
 
 This page is dedicated to Gateway Admins!
 
 ### Prior to starting your configurations
-1. You need to have admin access to the Django portal, Settings. You need to be in 'Admin' role of the Admin Group.
+1. You have admin access to the PGA portal, Admin Dashboard
     - How to check?
         - Log in to the gateway portal
-        - You would land on Dashboard with all the applications you have access to launch jobs.
-        - Click 'Settings' from top right drop down menu.
-        - Do you see icon 'Application Catalog' ? In it can you create applications using 'New Application +'?.
-        - Then you are good !
+        - You would land on Admin Dashboard with "Let's Get Started!"
+        - Click 'Browse Application Modules'
+        - Do you see button 'Create new Application Interface' ? Then you are good.
+2. Storage resource ID is added to the pga_config.php </br>
+    - If not go to  
+        - Admin Dashboard &rarr; Storage Resources &rarr; Browse
+        - Locate your resource and copy the ID
+        - Paste it in pga_config.php file in pga/app/config directory.
 3. Credentials generated, assigned and added to authorized_keys files of resources
     - To generate key refer [Credential Store](../configuration/pga-configuration.md#credential-store)
     - Token Assignment [Gateway Management](../configuration/pga-configuration.md#gateway-management-of-resources)

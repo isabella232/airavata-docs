@@ -1,4 +1,4 @@
-site_name: Apache Airavata 0.18
+site_name: Apache Airavata 0.17
 site_url: https://airavata.apache.org/
 site_description: Apache Airavata Documentation
 
@@ -8,29 +8,25 @@ docs_dir: docs
 
 pages:
 - Home: 'index.md'
+- Installation:
+  - Apache Airavata Installation: 'installation/airavata-installation.md'
+  - PGA Installation: 'installation/pga-installation.md'
+  - Apache Airavata Server Properties: 'installation/airavata-server-properties.md'
+- Configuration:
+  - Keycloak Configuration: 'configuration/keycloak-configuration.md'
+  - PGA Configuration: 'configuration/pga-configuration.md'
+- Maintenance:
+  - Code Update:
+      - Apache Airavata Update: 'maintenance/code-update/airavata-update.md'
+      - PGA Update: 'maintenance/code-update/pga-update.md'
+  - PGA Maintenance: 'maintenance/pga-maintenance.md'
 - User Documentation:
   - Gateway User Tutorials: 'user-documentation/user-tutorials.md'
   - Gateway Admin Tutorials: 'user-documentation/admin-tutorials.md'
-  - Gateway Theme Implemenetation: 'user-documentation/cms-tutorials.md'
-  - Advance Application Configuration: 'user-documentation/JSON-tutorials.md'
-#  - Apache Airavata User Groups: 'user-documentation/airavata-user-profiles.md'
-#  - Application Support: 'user-documentation/supported-applications.md'
-#- System Configuration:
-#  - Keycloak Configuration: 'configuration/keycloak-configuration.md'
-#  - Django Configuration: 'configuration/pga-configuration.md'
-#  - Django FAQ: 'maintenance/pga-maintenance.md'
-- Installation:
-  - Apache Airavata Installation: 'installation/airavata-installation.md'
-  - Django Installation: 'installation/pga-installation.md'
-#  - Apache Airavata Server Properties: 'installation/airavata-server-properties.md'
-#  - Code Update:
-#  - Code Update:
-#      - Apache Airavata Update: 'maintenance/code-update/airavata-update.md'
-#      - PGA Update: 'maintenance/code-update/pga-update.md'
+  - Apache Airavata User Profiles: 'user-documentation/airavata-user-profiles.md'
+  - Supported Applications: 'user-documentation/supported-applications.md'
 - Technical Documentation:
   - Apache Airavata API: 'technical-documentation/airavata-api.md'
-  - Helix Job Management: 'technical-documentation/helix-job-management.md'
-  - Django Portal: 'technical-documentation/django-portal.md'
   - Sharing Documentation:
       - Introduction: 'technical-documentation/sharing-documentation/introduction.md'
       - API Overview: 'technical-documentation/sharing-documentation/api-overview.md'
