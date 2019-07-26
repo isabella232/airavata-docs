@@ -12,7 +12,7 @@ pages:
   - Quick Tutorials: 'user-documentation/user-tutorials.md'
   - Gateway Admin Tutorials: 'user-documentation/admin-tutorials.md'
   - Apache Airavata User Groups: 'user-documentation/airavata-user-profiles.md'
-  - Application Support: 'user-documentation/supported-applications.md'
+#  - Application Support: 'user-documentation/supported-applications.md'
 - System Configuration:
   - Keycloak Configuration: 'configuration/keycloak-configuration.md'
   - Django Configuration: 'configuration/pga-configuration.md'
