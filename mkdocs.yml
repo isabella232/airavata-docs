@@ -9,7 +9,7 @@ docs_dir: docs
 pages:
 - Home: 'index.md'
 - User Documentation:
-  - Gateway User Tutorials: 'user-documentation/user-tutorials.md'
+  - Quick Tutorials: 'user-documentation/user-tutorials.md'
   - Gateway Admin Tutorials: 'user-documentation/admin-tutorials.md'
   - Apache Airavata User Groups: 'user-documentation/airavata-user-profiles.md'
   - Application Support: 'user-documentation/supported-applications.md'
