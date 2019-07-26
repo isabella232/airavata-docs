@@ -29,6 +29,8 @@ pages:
 #      - PGA Update: 'maintenance/code-update/pga-update.md'
 - Technical Documentation:
   - Apache Airavata API: 'technical-documentation/airavata-api.md'
+  - Helix Job Management: 'technical-documentation/helix-job-management.md'
+  - Django Portal: 'technical-documentation/django-portal.md'
   - Sharing Documentation:
       - Introduction: 'technical-documentation/sharing-documentation/introduction.md'
       - API Overview: 'technical-documentation/sharing-documentation/api-overview.md'
