@@ -9,7 +9,7 @@ docs_dir: docs
 pages:
 - Home: 'index.md'
 - User Documentation:
-  - Quick Gateway Tutorials: 'user-documentation/user-tutorials.md'
+  - Gateway User Tutorials: 'user-documentation/user-tutorials.md'
   - Gateway Admin Tutorials: 'user-documentation/admin-tutorials.md'
   - Gateway Theme Implemenetation: 'user-documentation/cms-tutorials.md'
   - Advance Application Configuration: 'user-documentation/JSON-tutorials.md'
