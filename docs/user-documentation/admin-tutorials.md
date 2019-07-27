@@ -1,44 +1,63 @@
-## Admin Settings Configurations
+## Gateway Admin Tutorial
 
-This page is dedicated to Gateway Admins!
+###Quick Admin Instructions 
+This documentation is a quick set-up instructions for  gateway Settings configurations for Admins. For more details please refer to tutorials provide as well.
+<a href="https://cwiki.apache.org/confluence/display/AIRAVATA/Django+Portal+for+Airavata%3A+Gateway+Admin+Guide" target="_blank"> Django Portal Admin Instructions</a>
 
+## Gateway Admin Tutorials
 ### Prior to starting your configurations
-1. You need to have admin access to the Django portal, Settings. You need to be in 'Admin' role of the Admin Group.
+1. You need to have admin access to the Django portal, Settings. You need to be a member of the Admin Group.
     - How to check?
         - Log in to the gateway portal
         - You would land on Dashboard with all the applications you have access to launch jobs.
         - Click 'Settings' from top right drop down menu.
         - Do you see icon 'Application Catalog' ? In it can you create applications using 'New Application +'?.
-        - Then you are good !
-3. Credentials generated, assigned and added to authorized_keys files of resources
-    - To generate key refer [Credential Store](../configuration/pga-configuration.md#credential-store)
-    - Token Assignment [Gateway Management](../configuration/pga-configuration.md#gateway-management-of-resources)
-    - Copy the public key for the assigned token frm credential store and add it to authorized_keys file in both compute and storage resources.
+        - Then you are good !<br>
+    - If not, contact your gateway admin OR SciGaP team 
+<!--3. Credentials generated, assigned and added to authorized_keys files of compute resources -->
+<!--- To generate key refer [Credential Store](../configuration/pga-configuration.md#credential-store)-->
+<!--    - Token Assignment [Gateway Management](../configuration/pga-configuration.md#gateway-management-of-resources)-->
+<!--    - Copy the public key for the assigned token frm credential store and add it to authorized_keys file in both compute and storage resources.-->
 
-NOTE: If you are using a hosted gateway the 2 and 4 would be taken cared by the SciGaP team.
+<!--NOTE: If you are using a hosted gateway the 2 and 4 would be taken cared by the SciGaP team. -->
 
 
 ### Select Your Quick Start Tutorial
-1. <a href= "#Resources">Register your Compute & Storage Resources</a></br> 
-2. <a href="#GaussianJob">Gaussian Job Submission to Comet (XSEDE resource)</a></br>
-3. <a href="#LocalJob">Running Echo on Local Machine</a></br>
-4. <a href="#PrePostCommands">Add Pre and Post Job Commands for an Application</a></br>
-5. <a href="#SampleApp">Add Environment Variables for an Application Deployment</a></br>
-6. <a href= "#Secure">Using Credential Store</a></br>
-7. <a href= "#Preference">Gateway Preference Management</a></br>
-8. <a href= "#GtwyAccess">Managing User Accounts</a></br>
-9. <a href= "#Notices">Communication with Gateway Users</a></br>
-10. <a href= "#Traffic">Monitor Gateway Traffic</a></br>
-11. <a href="https://cwiki.apache.org/confluence/display/AIRAVATA/Tutorial+05+-+PHP+Reference+Gateway+for+Airavata+-+Gateway+Admin+Guide" target="_blank"> PGA Portal Admin Tutorial</a>
+1. <a href= "#Secure">Using Credential Store</a></br>
+2. <a href= "#Resources">Register your Compute & Storage Resources</a></br> 
+3. <a href= "#GroupResourceProfile">Configure Group Resource Profile (GRP)</a></br>
+4. <a href="#GaussianJob">Gaussian Job Submission to Comet (XSEDE resource)</a></br>
+5. <a href="#LocalJob">Running Echo on Local Machine</a></br>
+6. <a href="#PrePostCommands">Add Pre and Post Job Commands for an Application</a></br>
+7. <a href="#SampleApp">Add Environment Variables for an Application Deployment</a></br>
+8. <a href= "#Preference">Gateway Preference Management</a></br>
+9. <a href= "#GtwyAccess">Managing Users & User Groups</a></br>
+10. <a href= "#Notices">Communication with Gateway Users</a></br>
+11. <a href= "#Traffic">Monitor Gateway Traffic</a></br>
+
+
+##### <h5 id="Secure">Using Credential Store</h5>
+1. Navigate to Settings &rarr; Credential Store.
+2. Click 'New SSH Credential +' and provide a key description.
+3. The new key will be generated and available to copy.
+4. Apart from using the key for SSH communications with compute resources and gateway storage resource, you can share the key with other gateway users and user groups.
+5. When sharing a key, there are 3 permission levels, READ, WRITE and MANAGE_SHARING. 
+6. READ permission enables the users to use the key, WRITE permission enables using the key plus deleting the key. MANAGE_SHARING is use the key, delete it and also share with other users and user groups behalf of the owner of the key.
+7. NOTE: Make sure not to delete once assigned to a compute resource or the storage resource. </br>
+![Screenshot](../img/django-dashboard.png)
 
 
 ##### <h5 id="Resources">Register your Compute & Storage Resources</h5><br>
-###### <b><u>Register Local Resource </u></b>
-<b class="lred"> NOTE:</b> Only Super gateway admins can add compute resources and storage resources. <br> Gateway need to be hsoted locally and have access to Compute Resources &rarr; Register <br>
-<br><b>What is a compute resource? </b><br>A compute resource is an object that represents a host, host cluster, or pool in a virtualization platform, a virtual data center, or an Amazon region on which machines can be provisioned. 
+
+<b class="lred"> NOTE:</b> Only SciGaP admins or gateway service provider can add compute resources and storage resources. <br> If the gateway and middleware is hsoted by you, You can add the Compute Resources and Storage Resource.
+<br></br><b>What is a compute resource? </b><br>A compute resource is an object that represents a host, host cluster, or pool in a virtualization platform, a virtual data center, or an Amazon region on which machines can be provisioned. 
 <br>Compute resource could come as national resources, campus resources or even private cluster. 
 <br>NOTE:For testing purposes users (mainly gateway developers) this could even be the local machine.
+<br></br><b>What is a storage resource?</b><br>A storage resource is the server that stores all user data files: application input files and output files. 
+<br>Most of the time this is the same server that the gateway is deployed in. The storage resource can be either provided by the gateway provider or by you. 
+<br>If the gateway service provider is providing the resource, then there will be file retention policies in place.
 
+###### <b><u>Register Local Resource </u></b>
 1. Navigate to Admin Dashboard &rarr; Compute Resource &rarr; Register <br>
 2. Provide
     - Host Name: Local Resource<br>
@@ -468,12 +487,7 @@ Refer [Application Configuration](../configuration/pga-configuration.md#applicat
 Work-in-Progress 
 
 
-##### <h5 id="Secure">Using Credential Store</h5>
-1. Navigate to Admin Dashboard &rarr; Credential Store.
-2. Click 'Generate a new Token'.
-3. A new key+token will be generated.
-4. These keys are to use in SSH communications with compute resources and gateway storage resource.
-5. NOTE: Make usre not to delete once assigned to a compute resource to a storage resource.
+
 
 
 ##### <h5 id="Preference">Gateway Preference Management</h5><br>
