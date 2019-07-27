@@ -26,10 +26,7 @@ This documentation is a quick set-up instructions for  gateway Settings configur
 1. <a href= "#Secure">Using Credential Store</a></br>
 2. <a href= "#Resources">Register your Compute & Storage Resources</a></br> 
 3. <a href= "#GroupResourceProfile">Configure Group Resource Profile (GRP)</a></br>
-4. <a href="#GaussianJob">Gaussian Job Submission to Comet (XSEDE resource)</a></br>
-5. <a href="#LocalJob">Running Echo on Local Machine</a></br>
-6. <a href="#PrePostCommands">Add Pre and Post Job Commands for an Application</a></br>
-7. <a href="#SampleApp">Add Environment Variables for an Application Deployment</a></br>
+4. <a href="#GaussianJob">Register Gaussian Application</a></br>
 8. <a href= "#Preference">Gateway Preference Management</a></br>
 9. <a href= "#GtwyAccess">Managing Users & User Groups</a></br>
 10. <a href= "#Notices">Communication with Gateway Users</a></br>
@@ -57,39 +54,15 @@ This documentation is a quick set-up instructions for  gateway Settings configur
 <br>Most of the time this is the same server that the gateway is deployed in. The storage resource can be either provided by the gateway provider or by you. 
 <br>If the gateway service provider is providing the resource, then there will be file retention policies in place.
 
-###### <b><u>Register Local Resource </u></b>
-1. Navigate to Admin Dashboard &rarr; Compute Resource &rarr; Register <br>
-2. Provide
-    - Host Name: Local Resource<br>
-    - Host Aliases: <br>
-    - IP Addresses:<br>
-    - Resource Description: My local resource for application execution ( Just a description)<br>
-    - Create<br>
-3. In Queues tab<br> (A queue is not required ideally, but as per the gateway logic, queue is required)
-    - Click 'Add a Queue'<br>
-    - Queue Name: Normal ( Per resource this is a unique value. Once created cannot edit the name. If need to change, delete and create again)<br>
-    - Queue Description: Local resource normal for job submission<br>
-    - Queue Max Run Time (In Minutes): (Note required for the local resource)<br>
-    - Queue Max Nodes: (Note required for the local resource)<br>
-    - Queue Max Processors: (Note required for the local resource)<br>  
-    - Max Jobs in Queue: (Note required for the local resource)<br>
-    - Max Memory For Queue( In MB ): (Note required for the local resource)<br>
-4. File System<br>
-    - Nothing to add here, this is futuristic development.<br>
-5. Job Submission Interface<br>
-    - Click on the tab<br>
-    - Add a new Job Submission Interface<br>
-    - Job Submission Protocol: Local<br>
-    - Select resource manager type: FORK<br>
-    - Job Commands (SUBMISSION): /bin/sh<br>
-    - Add Job Submission Protocol<br>
-6.  Data Movement Interface<br>
-    - Add a new Data Submission Interface<br>
-    - Data Movement Protocol: Local<br>
-    - Add Job Submission Protocol<br>
-Now the Local resource is ready for job submissions.<br>
+###### <b><u>Compute Resource Information </u></b>
+Provide the information below to get your compute resource/HPC registered with Super admin portal, <a href="https://scigap.org/" target="_blank">SciGaP</a><br>
+1. HPC Name (This is the name used to SSH to the resource)<br>
+2. Queue details (Queue name, maximum limits of nodes, CPUs and Walltime.)<br>
+3. Resource manager type (SLURM, PBS)<br>
+4. Job command binary path <br>
 
 ###### <b><u>Register a XSEDE Resource </u></b>
+NOTE: Please note this set of instructions are ONLY for gateways hosted by the user. If not SciGaP admins will do this configuration for you in <a href="https://scigap.org/" target="_blank">SciGaP Portal</a>. <br>
 1. Navigate to Admin Dashboard &rarr; Compute Resource &rarr; Register <br>
 2. Provide
     - Host Name: comet.sdsc.edu<br>
@@ -143,352 +116,119 @@ Comet is ready for job submissions.
 NOTE: Adding a campus resource is similar to adding a XSEDE resource. Same steps to follow with similar information.
 
 ###### <h6 id="StoreR"><b><u>Register Storage Resource</u></b></h6>
+NOTE: Please note this set of instructions are ONLY for gateways hosted by the user. If not SciGaP admins will do this configuration for you in <a href="https://scigap.org/" target="_blank">SciGaP Portal</a>. <br>
 1. Navigate to Admin Dashboard &rarr; Storage Resource &rarr; Register <br>
-2. Provide
-    - Host Name: sg03.iu.xsede.org
-    - Storage Resource Description: Storage for airavata gateway
-    - Create
-3. In Data Movement Interfaces tab
-    - Click 'Add a new Data Movement Interface'
-    - Select 'SCP' from the list
-    - Select Security Protocol: SSH_KEYS
-    - Alternate SSH Host Name: Leave empty
-    - SSH Port: 22
-    - Add Data Movement Interface
-4. A single storage resource is sufficient for gateway which users PGA for all job submissions.
+2. Provide <br>
+    - Host Name: sg03.iu.xsede.org<br>
+    - Storage Resource Description: Storage for airavata gateway<br>
+    - Create<br>
+3. In Data Movement Interfaces tab<br>
+    - Click 'Add a new Data Movement Interface'<br>
+    - Select 'SCP' from the list<br>
+    - Select Security Protocol: SSH_KEYS<br>
+    - Alternate SSH Host Name: Leave empty<br>
+    - SSH Port: 22<br>
+    - Add Data Movement Interface<br>
 
+#####<h5 id="GroupResourceProfile">Add a Group Resource Profile for Comet (GRP)</h5>
+1. What is a group resource profile?
+    - Group resource profile is a configuration which states how a particular HPC resource (campus, national, cloud) is available for users to use. 
+    - One or many HPCs can be added to a GRP and then it can be shared with the users and user groups to enable use.
+    - A gateway can have multiple GRPs and a gateway user can be in one or many GRPs
+    - At the time of experiment creation, user need to select which GRP to move forward to launch experiment jobs.
+2.  To Create a GRP
+    - Navigate to Settings &rarr; Group Resource Profile.
+    - Click New Group Resource Profile +.
+    - Add Name: Default Gateway Profile
+    - Default SSH Credential: Select a key from the list or generate a new one.
+    - Click New Compute Resource +.
+    - Select the resource from the list provided.
+        - In next page provide the details required for SSH communication
+        - Login Username: This is the login name to use in SSH login
+        - SSH Credential: Select from the list, or generate a new one
+        - Allocation Project Number: this is applicable for resources which maintains an account for user allocation and usage. 
+        - Scratch Location: The location for users' computational working directories
+    - Provide computational queue policies
+        - This section will provide details of maximum node, walltime and CPUs per HPC resource that a gateway user could use in experiment creation.
+        - If you don't specify these limits, then the maximum allowed from the HPC resource will be available for users.
+        - NOTE: This feature is more popular with gateways which are used in educational purposes and also for gateways where the gateway admin provides XSEDE resoruces for free via community allocations.
+        - Click Save
+        - Next page, click Save
+    
 
-#####<h5 id="GaussianJob">Gaussian Job Submission to Comet  (XSEDE resource)</h5>
-This is a tutorial to configuring and running an application on XSEDE resource through PGA portal.
+#####<h5 id="GaussianJob">Register Gaussian Application</h5>
+End of this tutorial you will know how to register a new application to run on a a HPC resource through Django portal.
 
-1. Create new application module: Gaussian
-    - Navigate to Admin Dashboard &rarr; App Catalog &rarr; Application Module 
-    - Click Create a new Application Module
-    - Enter Application Module Name: Gaussian
-    - Enter Application Module Version: Gaussian 09 (Not mandatory)
-    - Enter Description: Gaussian provides capabilities for electronic structure modeling
-    - Create
-    - This create the Gaussian module </br>
-![Screenshot](../img/gau-app-mod.png)
-2. Create the application interface: Gaussian
-    - Navigate to Admin Dashboard &rarr; App Catalog &rarr; Application Interface
-    - Click 'Create new Application Interface'
-    - Add Application Name: Gaussian
-    - Add Application Description: Gaussian provides capabilities for electronic structure modeling
-    - Select Application Module: Gaussian ( If multiple modules are using same interface here you can add multiple modules. Ex: Gaussian 03 and Gaussian 09 modules)
+1. Navigate to Settings &rarr; Application Catalog. Click New Application +
+2. In Details tab enter:
+    - Enter Application Name: Gaussian16
+    - Enter Application Version: Gaussian 16 (Not mandatory)
+        - Enter Application Description: Gaussian provides capabilities for electronic structure modeling
+    - Save
+![Screenshot](../img/gau-app-detail-tab.png)
+3. In Interface tab:
     - Set 'Enable Archiving Working Directory' to True (Why? - This is set to true when you want to bring back all the files in working directory back to PGA. Caution: If there are very large files they may not be able to SCP)
     - Set 'Enable Optional File Inputs' to False (Why? - Set to false because there won't be any additional optional inputs for Gaussian)
-    - Provide application inputs
+    - Provide Input Fields
         - Click Add Application Input
         - Name: Input-File
-        - Value: 
+        - Initial Value: gaussian.com
         - Type: URI (Why? - This is the type for file uploads)
         - Application Arguments:
         - Standard Input: False (Why? - Futuristic property and not in real use at the moment)
+        - Read Only: False (Why? - this is only meaningful for String, Integer or Float inputs)
         - User Friendly Description: Gaussian input file specifying desired calculation type, model chemistry, molecular system and other parameters. (This is information to the user at creating job experiment. Not mandatory)
-        - Input Order: 1
         - Data is Staged: False
         - Is the Input Required: True
         - Required in Commandline: True
-        - Meta Data:
+        - Advanced Input Field Modification Metadata:
     - Provide application outputs</br>
     NOTE: 3 application outputs to define. </br>
         - 1st Output
             - Click Add Application Output
             - Name: Gaussian-Application-Output
-            - Value: Gaussian.log
+            - Value: *.log
             - Type: URI
             - Application Argument:
-            - Data Movement: True
             - Is the Output required?: True
             - Required on command line?: True
-            - Location:
-            - Search Query:</br>
+            - Metadata: 
         - 2nd output
             - Click Add Application Output
-            - Name: Gaussian-Standard-Out
-            - Value:
-            - Type: STDOUT
+            - Name: Gaussian_Checkpoint_File
+            - Value: *.chk
+            - Type: URI
             - Application Argument:
             - Data Movement: False
             - Is the Output required?: True
             - Required on command line?: True
-            - Location:
+            - Metadata
+        - For applications, STDOUT and STDERR will be automatically added for you.
             - Search Query:</br>
-        - 3rd output
-            - Click Add Application Output
-            - Name: Gaussian-Standard-Error
-            - Value:
-            - Type: STDERR
-            - Application Argument:
-            - Data Movement: False
-            - Is the Output required?: True
-            - Required on command line?: True
-            - Location:
-            - Search Query:</br>
-![Screenshot](../img/gau-app-int-1.png)
-![Screenshot](../img/gau-app-int-2.png)
-![Screenshot](../img/gau-app-int-3.png)
+![Screenshot](../img/gau-app-input.png)
+![Screenshot](../img/gau-app-output1.png)
+![Screenshot](../img/gau-app-output2.png)
+![Screenshot](../img/gau-app-output3.png)
 </br></br>
-3. Create the application deployment: Gaussian on Comet
-    - Navigate to Admin Dashboard &rarr; App Catalog &rarr; Application Deployment
-    - Click 'Create new Application Deployment'
-        - Application Module: Gaussian
-        - Application Compute Host: comet.sdsc.edu (Your comet specific gateway preferences need to be added in 'Gateway Management' prior to this)
-        - Application Executable Path: g09
-        - Application Parallelism Type: SERIAL
-        - Application Deployment Description: Gaussian provides capabilities for electronic structure modeling.
-        - Module Load Commands: module load gaussian
-        - Post Job Commands: mkdir -p "$PWD"_restart; cp *.chk ${pwd}_restart; mv *.rwf* ${pwd}_restart; (Why? - any command you would want to execute after post job execution)</br>
-![Screenshot](../img/gau-app-dep.png)
-
-
-#####<h5 id="LocalJob">Running Echo on Local Machine</h5>
-Quickest way to confirm Airavata and PGA setup. This will tell you what you need to do to Echo a simple 'Hello World' in your local machine.
-
-1. Create new application module: Echo
-    - Navigate to Admin Dashboard &rarr; App Catalog &rarr; Application Module 
-    - Click Create a new Application Module
-    - Enter Application Module Name: Echo
-    - Enter Application Module Version: Echo 1.0 (Not mandatory)
-    - Enter Description: Echo application for testing
-    - Create
-    - This create the Echo module </br>
-![Screenshot](../img/app-module.png) </br></br>
-2. Create the application interface: Echo
-    - Navigate to Admin Dashboard &rarr; App Catalog &rarr; Application Interface
-    - Click 'Create new Application Interface'
-    - Add Application Name: Echo
-    - Add Application Description: Echo Interface for testing
-    - Select Application Module: Echo
-    - Set 'Enable Archiving Working Directory' to False (Why? - This is set to true if you want to bring back all the files in working directory back to PGA)
-    - Set 'Enable Optional File Inputs' to False (Why? - Set to false because there won't be any additional optional inputs for Echo)
-    - Provide application inputs
-        - Click Add Application Input
-        - Name: Input-to-Echo
-        - Value: Echo Test 1......2......3....... (This value can be overridden at experiment creation)
-        - Type: STRING
-        - Application Arguments:
-        - Standard Input: False (Why? - Futuristic property and not in real use at the moment)
-        - Is Read Only: False (Why? - When this is set to true the input value will only be 'read-only'. User cannot change at experiment creation,edit or clone).
-        - User Friendly Description: Enter STRING input for Echo (Not mandatory)
-        - Input Order: 1
-        - Data is Staged: True
-        - Is the Input Required: True
-        - Required in Commandline: True
-        - Meta Data:
-    - Provide application outputs
-    NOTE: 3 application outputs to define.</br>
-        - 1st output
-            - Click Add Application Output
-            - Name: Echo-Standard-Out
-            - Value:
-            - Type: STDOUT
-            - Application Argument:
-            - Data Movement: False
-            - Is the Output required?: True
-            - Required on command line?: True
-            - Location:
-            - Search Query:</br>
-        - 2nd output
-            - Click Add Application Output
-            - Name: Echo-Standard-Error
-            - Value:
-            - Type: STDERR
-            - Application Argument:
-            - Data Movement: False
-            - Is the Output required?: True
-            - Required on command line?: True
-            - Location:
-            - Search Query:</br>
-![Screenshot](../img/app-interface-1.png)
-![Screenshot](../img/app-interface-2.png)
-</br></br>
-3. Create the application deployment: Echo on Local Machine
-    - Navigate to Admin Dashboard &rarr; App Catalog &rarr; Application Deployment
-    - Click 'Create new Application Deployment'
-        - Application Module: Echo
-        - Application Compute Host: Local (Local machine has to be added as a compute resource prior to this step)
-        - Application Executable Path: /home/airavata/ECHO/echo_wrapper.sh (Local to where you have airavata installed)
+3. In Deployment tab
+    - Click 'New Deployment +'
+        - Click Share and add groups and users you want to share this deployment and let run on the particular cluster.
+        - Application Executable Path: /home/gridchem/bin/rung09_with_chk_recovery.sh
         - Application Parallelism Type: SERIAL </br>
-![Screenshot](../img/app-deployment.png)
-4. echo_wrapper.sh contains;
-<pre><code>
-    #!/bin/bash
-    #sleep 10
-    echo "Echoed_Output="${@:1:($#-2)}"" >> "${@:(-1):1}" 2>> "${@:(-2):1}"
-</code></pre>
-
-
-##### <h5 id="PrePostCommands">Add Pre and Post Job Commands for an Application</h5>
-- This tutorial demonstrates use of pre and post job commands and how they appear in job submission script. <br>
-- For application executions we would require to use pre and post job commands. 
-- In this tutorial we are using an application which has both pre and post job commands in use. Existence of pre and post job commands could be application specific or specific to the application residing compute resource.
-
-###### <b><u>NEK5000 </u></b>
-1. Create new application module: NEK5000
-    - Navigate to Admin Dashboard &rarr; App Catalog &rarr; Application Module 
-    - Click Create a new Application Module
-    - Enter Application Module Name: NEK5000
-    - Enter Application Module Version: (Not mandatory)
-    - Enter Description: Open source, highly scalable and portable spectral element code designed to simulate
-    - Create
-    - This create the NEK5000 module </br>
-![Screenshot](../img/nek-5000-app-mod.png)
-2. Create the application interface: NEK5000
-    - Navigate to Admin Dashboard &rarr; App Catalog &rarr; Application Interface
-    - Click 'Create new Application Interface'
-    - Add Application Name: NEK5000
-    - Add Application Description: Open source, highly scalable and portable spectral element code designed to simulate
-    - Select Application Module: NEK5000 ( If multiple modules are using same interface here you can add multiple modules. Ex: Gaussian 03 and Gaussian 09 modules)
-    - Set 'Enable Archiving Working Directory' to True (Why? - This is set to true when you want to bring back all the files in working directory back to PGA. Caution: If there are very large files they may not be able to SCP)
-    - Set 'Enable Optional File Inputs' to False (Why? - Set to false because there won't be any additional optional inputs for NEK5000)
-    - Provide application inputs
-        - Click Add Application Input
-        - 1st Input
-            - Name: Basename
-            - Value: nek5kbasename
-            - Type: STRING (Why? - Input is a string value)
-            - Application Arguments:
-            - Standard Input: False (Why? - Futuristic property and not in real use at the moment)
-            - Is Read Only: True (Why? - This value should not be changed by the gateway user at experiment creation)
-            - User Friendly Description:
-            - Input Order: 0
-            - Data is Staged: False
-            - Is the Input Required: True
-            - Required in Commandline: True
-            - Meta Data:
-        - 2nd Input
-            - Name: User-Subroutine-File
-            - Value: nek5kbasename.usr (Why? - Name of the file upload will be changed to the name given as the value here. Application level requirement)
-            - Type: URI
-            - Application Arguments:
-            - Standard Input: False (Why? - Futuristic property and not in real use at the moment)
-            - Is Read Only: False (Why? - This is a URI type input.)
-            - User Friendly Description: .usr File (Why? - This provides user with information related to the input file.)
-            - Input Order: 1
-            - Data is Staged: False
-            - Is the Input Required: True
-            - Required in Commandline: False
-            - Meta Data:
-        - 3rd Input
-            - Name: Runtime-Parameter-File
-            - Value: nek5kbasename.rea (Why? - Name of the file upload will be changed to the name given as the value here. Application level requirement)
-            - Type: URI
-            - Application Arguments:
-            - Standard Input: False (Why? - Futuristic property and not in real use at the moment)
-            - Is Read Only: False (Why? - This is a URI type input.)
-            - User Friendly Description: .rea File (Why? - This provides user with information related to the input file.)
-            - Input Order: 2
-            - Data is Staged: False
-            - Is the Input Required: True
-            - Required in Commandline: False
-            - Meta Data:
-        - 4th Input
-            - Name: Size-for-Memory-Allocation
-            - Value:
-            - Type: URI
-            - Application Arguments:
-            - Standard Input: False (Why? - Futuristic property and not in real use at the moment)
-            - Is Read Only: False (Why? - This is a URI type input.)
-            - User Friendly Description: SIZE File (Why? - This provides user with information related to the input file.)
-            - Input Order: 3
-            - Data is Staged: False
-            - Is the Input Required: True
-            - Required in Commandline: False
-            - Meta Data:
-    - Provide application outputs</br>
-    NOTE: 3 application outputs to define. </br>
-        - 1st Output
-            - Click Add Application Output
-            - Name: NEK5000-Compilation-Output
-            - Value: compiler.out
-            - Type: URI
-            - Application Argument:
-            - Data Movement: False
-            - Is the Output required?: True
-            - Required on command line?: True
-            - Location:
-            - Search Query:</br>
-        - 2nd Output
-            - Click Add Application Output
-            - Name: NEK5000-Output_tarball
-            - Value: nek5kbasename.tgz
-            - Type: URI
-            - Application Argument:
-            - Data Movement: False
-            - Is the Output required?: True
-            - Required on command line?: False
-            - Location:
-            - Search Query:</br>
-        - 3rd Output
-            - Click Add Application Output
-            - Name: NEK5000-Session-Out
-            - Value: session.log
-            - Type: URI
-            - Application Argument:
-            - Data Movement: False
-            - Is the Output required?: True
-            - Required on command line?: True
-            - Location:
-            - Search Query:</br>            
-        - 4th output
-            - Click Add Application Output
-            - Name: NEK5000-Standard-Out
-            - Value:
-            - Type: STDOUT
-            - Application Argument:
-            - Data Movement: False
-            - Is the Output required?: True
-            - Required on command line?: False
-            - Location:
-            - Search Query:</br>
-        - 5th output
-            - Click Add Application Output
-            - Name: NEK5000-Standard-Error
-            - Value:
-            - Type: STDERR
-            - Application Argument:
-            - Data Movement: False
-            - Is the Output required?: True
-            - Required on command line?: False
-            - Location:
-            - Search Query:</br>
-![Screenshot](../img/nek-app-int-1.png)
-![Screenshot](../img/nek-app-int-2.png)
-![Screenshot](../img/nek-app-int-3.png)
-![Screenshot](../img/nek-app-int-4.png)
-![Screenshot](../img/nek-app-int-5.png)
-![Screenshot](../img/nek-app-int-6.png)
-![Screenshot](../img/nek-app-int-7.png)
-</br></br>
-3. Create the application deployment: NEK5000 on BigRed2 (BigRed2 is the IU cluster. Using just as an example)
-    - Navigate to Admin Dashboard &rarr; App Catalog &rarr; Application Deployment
-    - Click 'Create new Application Deployment'
-        - Application Module: Gaussian
-        - Application Compute Host: bigred2.uits.iu.edu (Your cluster specific gateway preferences need to be added in 'Gateway Management' prior to this)
-        - Application Executable Path: ./nek5000
-        - Application Parallelism Type: CRAY_MPI
-        - Application Deployment Description: Gaussian provides capabilities for electronic structure modeling.
-        - Module Load Commands: module swap PrgEnv-cray PrgEnv-gnu; module load nek5000 visit ffmpeg
-        - Pre Job Commands: 
-            - echo "nek5kbasename" > genmap.in;  echo "0.2" >> genmap.in;
-            - echo nek5kbasename  > ./SESSION.NAME; echo 'pwd'/' >>  ./SESSION.NAME;
-        - Post Job Commands: 
-            - mkdir -p "$PWD"_restart; cp *.chk ${pwd}_restart; mv *.rwf* ${pwd}_restart; (Why? - any command you would want to execute after post job execution)</br>
+        - Application Deployment Description: Gaussian16 Rev A.03 ( to avoid G4 output printing issues in Rev B.01)
+        - Application Compute Host: Local (Local machine has to be added as a compute resource prior to this step)
+        - Add Module load commands: 
+            - <pre><code>#SBATCH -N 1</code></pre>
+            - export MODULEPATH=/share/apps/compute/modulefiles/applications:$MODULEPATH; module load gaussian/16.B.01
+        - Pre Job Commands:
+            - export AIRAVATA_USERNAME=$gatewayUserName
+            - export AIRAVATA_INPUTS=$inputs
+            - export AIRAVATA_ExptDataDir=$experimentDataDir;
+        - Default Queue Name: shared
+        - Default Node Count: 1
+        - Default CPU Count: 4
+        - Default Walltime: 30
 ![Screenshot](../img/gau-app-dep.png)
-4. NEK5000 job script. <br>Please view the existence and placement of both pre and post job commands in the job script.
-![Screenshot](../img/nek-5000-job.png)
-
-Refer [Application Configuration](../configuration/pga-configuration.md#application-catalog) for more generic details.
-
-
-##### <h5 id="SampleApp">Add Environment Variables for an Application Deployment</h5>
-Work-in-Progress 
-
-
-
-
 
 ##### <h5 id="Preference">Gateway Preference Management</h5><br>
 ###### <b><u>Gateway Preference for a XSEDE Resource </u></b>
@@ -508,25 +248,6 @@ Work-in-Progress
     - Reservation Name: Not Required
     - Reservation Start Time: Not Required
     - Reservation End Time: Not Required
-5. Set preferences.
-
-###### <b><u>Gateway Preference for a Local Resource </u></b>
-1. Navigate to Admin Dashboard &rarr; Gateway Management
-2. Click: Add a Computer Resource Preference
-3. Select "Local Resource" from the list
-4. Provide Data:
-    - Override by Airavata: True
-    - Login Username: (Note required for the local resource)
-    - Preferred Job Submission Protocol: Local
-    - Preferred Data Movement Protocol: Local
-    - Preferred Batch Queue: Normal
-    - Scratch Location: /Users/Eroma/working_dirs (This is simply a location in your local machine to have the working directories created and inout and output files written)
-    - Allocation Project Number: (Note required for the local resource)
-    - Resource Specific Credential Store Token: (Note required for the local resource)
-    - Quality of Service: (Note required for the local resource)
-    - Reservation Name: (Note required for the local resource)
-    - Reservation Start Time: (Note required for the local resource)
-    - Reservation End Time: (Note required for the local resource)
 5. Set preferences.
 
 ###### <b><u>Gateway Preference for the Storage Resource </u></b>
