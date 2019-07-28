@@ -13,7 +13,7 @@ pages:
   - Gateway Admin Tutorials: 'user-documentation/admin-tutorials.md'
   - Gateway Theme Implemenetation: 'user-documentation/cms-tutorials.md'
   - Advance Application Configuration: 'user-documentation/JSON-tutorials.md'
-#  - Apache Airavata User Groups: 'user-documentation/airavata-user-profiles.md'
+  - Apache Airavata User Groups: 'user-documentation/airavata-user-profiles.md'
 #  - Application Support: 'user-documentation/supported-applications.md'
 #- System Configuration:
 #  - Keycloak Configuration: 'configuration/keycloak-configuration.md'
