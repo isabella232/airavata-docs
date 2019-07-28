@@ -28,7 +28,7 @@ This documentation is a quick set-up instructions for  gateway Settings configur
 3. <a href= "#GroupResourceProfile">Configure Group Resource Profile (GRP)</a></br>
 4. <a href="#GaussianJob">Register Gaussian Application</a></br>
 8. <a href= "#Preference">Gateway Preference Management</a></br>
-9. <a href= "#GtwyAccess">Managing Users & User Groups</a></br>
+9. <a href= "#GtwyAccess">Managing User Accounts & User Groups</a></br>
 10. <a href= "#Notices">Communication with Gateway Users</a></br>
 11. <a href= "#Traffic">Monitor Gateway Traffic</a></br>
 
@@ -230,25 +230,6 @@ End of this tutorial you will know how to register a new application to run on a
         - Default Walltime: 30
 ![Screenshot](../img/gau-app-dep.png)
 
-##### <h5 id="Preference">Gateway Preference Management</h5><br>
-###### <b><u>Gateway Preference for a XSEDE Resource </u></b>
-1. Navigate to Admin Dashboard &rarr; Gateway Management
-2. Click: Add a Computer Resource Preference
-3. Select "comet.sdsc.edu" from the list
-4. Provide Data:
-    - Override by Airavata: True
-    - Login Username: TestUser1 (This is the login username for the comet allocation. Adding at gateway level, this is a community allocation login username)
-    - Preferred Job Submission Protocol: SSH
-    - Preferred Data Movement Protocol: SCP
-    - Preferred Batch Queue: Compute
-    - Scratch Location: /oasis/scratch/comet/TestUser1/temp_project/airavata_workdirs (Test scratch location, not an actual. This scratch is also provided with the allocation by XSEDE)
-    - Allocation Project Number: test123 (Test project number. Project number of the XSEDE resource need to be added here)
-    - Resource Specific Credential Store Token: Select a token from the list. Public key of this token need to be added to authorized_keys in your comet.sdsc.edu allocation)
-    - Quality of Service: (If you have a QOS provided from XSEDE, please add here. The format to add: <</pre></code>queue1>=<</pre></code>qos1>, <</pre></code>queue2>=<</pre></code>qos2>)
-    - Reservation Name: Not Required
-    - Reservation Start Time: Not Required
-    - Reservation End Time: Not Required
-5. Set preferences.
 
 ###### <b><u>Gateway Preference for the Storage Resource </u></b>
 1. Navigate to Admin Dashboard &rarr; Gateway Management.
@@ -261,7 +242,7 @@ End of this tutorial you will know how to register a new application to run on a
 5. Set preferences.
 
 
-##### <h5 id="GtwyAccess">Managing User Accounts</h5><br>
+##### <h5 id="GtwyAccess">Managing User Accounts & User Groups</h5><br>
 1. Read: [User roles](airavata-user-profiles.md)
 2. To manage gateway users access use, Admin Dashboard &rarr; Users
 3. List users per user role by selecting the role from Role list.
@@ -281,26 +262,27 @@ End of this tutorial you will know how to register a new application to run on a
 1. Provides a method to notify the gateway user.
 2. When user logs in, a 'Bell' icon will be displayed with the number of unread messages next to Dashboard on top menu bar.
 3. Gateway admin can create these notices with an assigned priority.
-4. navigate to Admin Dashboard &rarr; Notices
-5. Click 'Create a New Notice'
+4. navigate to Settings &rarr; Manage Notices
+5. Click 'New Notice +'
 6. Provide:
     - Notice Title: Gordon cluster is retiring (A heading for the notice)
     - Notice Message: Gordon cluster is retiring from Dec 31st 2016. Preserve your files now.
     - Publish Date: Select from the provided calendar
-    - Expiration Date: Not mandatory, if needed select from the provided calendar.
+    - Expiration Date: Mandatory.
     - Priority: LOW (Default is 'LOW'. Admin can change)   
-7. Mandatory fields are marked with a *
+
     
 
 ##### <h5 id="Traffic">Monitor Gateway Traffic</h5><br>
-1. To monitor current gateway experiment and job statuses navigate to Admin Dashboard &rarr; Experiment Statistics.
+1. To monitor current gateway experiment and job statuses navigate to Settings &rarr; Experiment Statistics.
 2. Gateway admin can view and filter experiments of the gateway using this page.
-3. In experiment summary by default gateway status for last 24 hours will be displayed.
-4. Two buttons, 'Get Experiments from last 24 Hours' and 'Get Experiments from Last Week' will group and list the experiments below for the selected time.
-5. In order to further filter the experiments use
+3. In experiment statistics page, by default gateway status for last 24 hours will be displayed.
+4. Two buttons, 'Past 24 Hours' and 'Past Week' will group and list the experiments for the selected time.
+5. In order to further filter the experiments use, Filters dropdown.
     - Username: AnneMarie (Gateway username need to be typed in)
     - Application Name: Gaussian (All the application in teh gateway will be listed)
     - Hostname: Comet.sdsc.edu (A drop down will provide all the compute resources to select from)
     - Click 'Get Statistics'
-6. Once the experiments are filtered and grouped, click on the desired group (Existing experiments groups are 'Total','Created','Running', Completed','Cancelled' and 'Failed').
-7. When you list an experiment group you can select the experiment you want to view either in Experiment Summary (Click on Status) or in Details Summary (Click on Check Stats).
+6. Using the calendar, you can search experiments for a time duration you need. 
+7. Once the experiments are filtered and grouped, click on the desired group (Existing experiments groups are 'Total','Created','Running', Completed','Cancelled' and 'Failed').
+8. When you list an experiment group you can select the experiment you want to view using 'View Details'. This will open the experiment Details Summary in a new tab.
