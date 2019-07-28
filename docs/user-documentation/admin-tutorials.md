@@ -27,7 +27,7 @@ This documentation is a quick set-up instructions for  gateway Settings configur
 2. <a href= "#Resources">Register your Compute & Storage Resources</a></br> 
 3. <a href= "#GroupResourceProfile">Configure Group Resource Profile (GRP)</a></br>
 4. <a href="#GaussianJob">Register Gaussian Application</a></br>
-8. <a href= "#Preference">Gateway Preference Management</a></br>
+8. <a href= "#StorePreference">Gateway Resource Profile</a></br>
 9. <a href= "#GtwyAccess">Managing User Accounts & User Groups</a></br>
 10. <a href= "#Notices">Communication with Gateway Users</a></br>
 11. <a href= "#Traffic">Monitor Gateway Traffic</a></br>
@@ -231,31 +231,29 @@ End of this tutorial you will know how to register a new application to run on a
 ![Screenshot](../img/gau-app-dep.png)
 
 
-###### <b><u>Gateway Preference for the Storage Resource </u></b>
-1. Navigate to Admin Dashboard &rarr; Gateway Management.
-2. Click: Add a Storage Resource Preference.
-3. Select "sg03.iu.xsede.org" from the list (This is the resource you added above in <a href="#StoreR">Register Storage Resource</a>)
-4. Provide Data:
-    - Login Username: pga (This is the username which uses to ssh to the storage resource)
-    - File System Root Location: /var/www/portals/gateway-user-data/seagrid (The path which stores all user files, input files and output files)
-    - Resource Specific Credential Store Token: Select a token from the list. (Public key of this token need to be added to authorized_keys in your sg03.iu.xsede.org 'pga' allocation)
-5. Set preferences.
+##### <h5 id="StorePreference">Gateway Resource Profile </h5>
+1. NOTE: This is the section to configure the storage resource for the gateway. Storage resource is the place to hold all gateway user data: inputs and outputs from computations.<br>
+2. Navigate to Settings &rarr; Gateway Resource Profile.
+3. Select a SSH key from the list or generate  new one and assign it.
+4. Click: New Storage Preference +.
+5. Select Storage Resource: This is the storage resource for the user files and generally its the same server that holds the Django portal. If the gateway is deployed for you, this part would be taken cared by the SciGaP team. If the gateway is self-deployed select the host name of the server you deployed the gateway.
+6. Login Username: pga (This is the username which uses to ssh to the storage resource)
+7. File System Root Location: /var/www/portals/gateway-user-data/seagrid (The path which stores all user files, input files and output files)
+8. Resource Specific Credential Store Token: Select a token from the list. (Public key of this token need to be added to authorized_keys in your storage resource 'pga' login)
+9. Save.
 
 
 ##### <h5 id="GtwyAccess">Managing User Accounts & User Groups</h5><br>
-1. Read: [User roles](airavata-user-profiles.md)
-2. To manage gateway users access use, Admin Dashboard &rarr; Users
-3. List users per user role by selecting the role from Role list.
+1. Read: [User Groups](airavata-user-profiles.md)
+2. To manage gateway users access use, Groups from top right-hand dropdown.
+3. Click 'Edit' on the group you want to add users.
+4. Mostly the users are added to Gateway-user group by the gateway admins.
 4. Search for the user account using search text field.
-5. Can search using 
-    - First Name
-    - Last Name
-    - Username
-    - Email
-6. User with the matching search string will be listed.
-7. Click 'Check roles'
-8. Add one or many roles selecting from the list and click Add roles. 
-9. Remove already existing roles.
+5. The name entered, will be searched across username, first name, last name and email.
+6. User with the matching search string will be listed in the dropdown.
+8. Select the user account, it will get added in to the list highlighted in green.
+9. By default users are added with Member role.
+10. Using the Groups interface, searching for already added users, deleting existing users and changing their roles are supported.
 
 
 ##### <h5 id="Notices">Communication with Gateway Users</h5><br>
